@@ -23,10 +23,10 @@
                 <input type="time" class="dateTime" name="endTime">
             </div>
             <div class="checkbox">
-                    <input type="checkbox" name="needMeal" id="needMeal" class="box">
+                    <input type="checkbox" name="needMeal" id="needMeal" class="box" onchange="displaySection('secMeal','needMeal')">
                     <span class="span">Meals</span>
             </div>
-            <div class="section">
+            <div class="section secMeal" id="secMeal">
                 <div class="label">Select Catering Service</div>
                 <select name="cateringService" id="cateringService" class="select">
                     <option value="" class="option">- none -</option>
@@ -39,10 +39,10 @@
                 </select>
             </div>
             <div class="checkbox">
-                    <input type="checkbox" name="needPhotography" id="needPhotography" class="box">
+                    <input type="checkbox" name="needPhotography" id="needPhotography" class="box" onchange="displaySection('secPhotography','needPhotography')">
                     <span class="span">Photography</span>
                 </div>
-            <div class="section">
+            <div class="section secPhotography" id="secPhotography">
                 <div class="label">Select Photographer</div>
                 <select name="photographer" id="photographer" class="select">
                     <option value="" class="option">- none -</option>
@@ -55,10 +55,10 @@
                 </select>
             </div>
             <div class="checkbox">
-                    <input type="checkbox" name="needVideography" id="needVideography" class="box">
+                    <input type="checkbox" name="needVideography" id="needVideography" class="box" onchange="displaySection('secVideography','needVideography')">
                     <span class="span">Videography</span>
                 </div>
-            <div class="section">
+            <div class="section secVideography" id="secVideography">
                 <div class="label">Select Videographer</div>
                 <select name="videographer" id="videographer" class="select">
                     <option value="" class="option">- none -</option>
@@ -71,10 +71,10 @@
                 </select>
             </div>
             <div class="checkbox">
-                    <input type="checkbox" name="needDecoration" id="needDecoration" class="box">
+                    <input type="checkbox" name="needDecoration" id="needDecoration" class="box" onchange="displaySection('secDecoration','needDecoration')">
                     <span class="span">Decorations</span>
                 </div>
-            <div class="section">
+            <div class="section secDecoration" id="secDecoration">
                 <div class="label">Select Decorator</div>
                 <select name="decorator" id="decorator" class="select">
                     <option value="" class="option">- none -</option>
