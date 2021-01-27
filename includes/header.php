@@ -6,6 +6,7 @@
     <title>Book Event</title>
     <link rel="stylesheet" href="../css/bookEvent.css">
     <script src="../js/user.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
-<nav>This is header</nav>
+<div class="nav">This is header</div>

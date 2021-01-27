@@ -1,5 +1,6 @@
 <?php
     include('../Includes/header.php');
+    include('../Includes/navbar.php');
 ?>
     <div class="container">
         <form action="../Controls/userControl.php" method="post">
