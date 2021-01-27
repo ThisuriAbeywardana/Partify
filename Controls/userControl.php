@@ -3,12 +3,7 @@
     $db = DBConnection::getInstance();
     $connection = $db->getConnection();
 
-    function validate($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+    include('./validate.php');
 
     //Book New event
 
@@ -41,8 +36,6 @@
         }
             
        
-        
-        
         
     }
 
