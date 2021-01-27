@@ -3,7 +3,7 @@
     $db = DBConnection::getInstance();
     $connection = $db->getConnection();
 
-    include('./validate.php');
+    include('validate.php');
 
     //Book New event
 
@@ -38,8 +38,5 @@
        
         
     }
-
-    
-
 
 ?>

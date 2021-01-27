@@ -7,13 +7,15 @@
     include('../Controls/userControl.php');
     
 ?>
+<link rel="stylesheet" href="../css/userDashboard.css">
 <div class="body">
     <?php include('../Includes/navbar.php'); ?>
-    <link rel="stylesheet" href="../css/userDashboard.css">
+    
     <table border="1px">
         <tr>
             <th>Event Name</th>
-            <th>Event Type</th> 
+            <th>Event Type</th>
+            <th colspan="2">Actions</th> 
         </tr>
         <tr>
             <td align="center">ev 1</td>
@@ -27,11 +29,8 @@
             <td>
                 <form action="./deleteEvent.php" method="post">
                     <!-- <input type="hidden" name="bookingid" id="" value=""> Add id here -->
-                    <button type="submit" name="btnDeleteEvent">Edit</button></td>
+                    <button type="submit" name="btnDeleteEvent">Delete</button></td>
                 </form>    
-            
-            
-            <button type="submit">Delete</button></td>
         </tr>
         
     </table>
