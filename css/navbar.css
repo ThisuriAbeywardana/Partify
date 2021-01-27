@@ -5,6 +5,6 @@ body{
 .navBar{
     background-color: blueviolet;
     height: 90vh;
-    width: 15%;
+    display: inline-block;
     
 }
