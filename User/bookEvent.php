@@ -7,13 +7,14 @@
 </head>
 <body>
     <div class="container">
-        <form action="" method="post">
+        <form action="../Controls/userControl.php" method="post">
             <div class="section">
                 <div class="title">Book New Event</div>
                 <div class="label">Event Name</div>
-                <input type="text" name="eventName" id="eventName" class="input">
+                <input type="text" name="eventName" id="eventName" class="input" required>
                 <div class="label">Event Type</div>
-                <select name="eventType" id="eventType" class="select">
+                <select name="eventType" id="eventType" class="select" required>
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
                 <div class="label">Event Location</div>
@@ -33,10 +34,12 @@
             <div class="section">
                 <div class="label">Select Catering Service</div>
                 <select name="cateringService" id="cateringService" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
                 <div class="label">Select Meal</div>
                 <select name="mealType" id="mealType" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
             </div>
@@ -47,10 +50,12 @@
             <div class="section">
                 <div class="label">Select Photographer</div>
                 <select name="photographer" id="photographer" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
                 <div class="label">Select Package</div>
                 <select name="photographyPackage" id="photographyPackage" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
             </div>
@@ -61,10 +66,12 @@
             <div class="section">
                 <div class="label">Select Videographer</div>
                 <select name="videographer" id="videographer" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
                 <div class="label">Select Package</div>
                 <select name="videographyPackage" id="videographyPackage" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
             </div>
@@ -75,15 +82,17 @@
             <div class="section">
                 <div class="label">Select Decorator</div>
                 <select name="decorator" id="decorator" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
                 <div class="label">Select Package</div>
                 <select name="decoratorPackage" id="decoratorPackage" class="select">
+                    <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
             </div>
             <div class="btnSubmit">
-                <button type="submit" name="bookEvent">Book Event</button>
+                <button type="submit" name="btnBookEvent">Book Event</button>
             </div>
         </form>
         
