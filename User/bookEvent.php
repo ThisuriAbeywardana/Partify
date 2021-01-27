@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Event</title>
-</head>
-<body>
+<?php
+    include('../Includes/header.php');
+?>
     <div class="container">
         <form action="../Controls/userControl.php" method="post">
             <div class="section">
