@@ -6,8 +6,9 @@
     include('../Includes/header.php');
     
 ?>
-
-<div class="mainUP">
+<div class="container">
+    <?php include('./nav.php'); ?>
+    <div class="mainUP">
         <div class="card">
             Events
         </div>
@@ -18,3 +19,7 @@
             Accounts
         </div>
     </div>
+
+
+
+</div>

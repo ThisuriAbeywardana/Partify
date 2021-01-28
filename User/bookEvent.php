@@ -4,9 +4,10 @@
         header("Location: ../login.php");
     }
     include('../Includes/header.php');
-    include('../Includes/navbar.php');
+    
 ?>
     <div class="container">
+        <?php include('../Includes/navbar.php'); ?>
         <form action="../Controls/userControl.php" method="post">
             <div class="section">
                 <div class="title">Book New Event</div>
