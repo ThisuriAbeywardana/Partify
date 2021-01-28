@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='User'){
+        header("Location: ../login.php");
+    }
     include('../Includes/header.php');
     include('../Includes/navbar.php');
 ?>
@@ -11,7 +15,10 @@
                 <div class="label">Event Type</div>
                 <select name="eventType" id="eventType" class="select" required>
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
+                    <option value="BirthDay Party" class="option">BirthDay Party</option>
+                    <option value="Wedding Ceromony" class="option">Wedding Ceromony</option>
+                    <option value="Get Together" class="option">Get Together</option>
+                    <option value="Bachelors Party" class="option">Bachelors Party</option>
                 </select>
                 <div class="label">Event Location</div>
                 <input type="text" name="eventLocation" id="eventLocation" class="input">
