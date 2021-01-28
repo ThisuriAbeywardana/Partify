@@ -1,24 +1,25 @@
 <html lang="en">
 <head>
     <title>Register</title>
-    <script src="script1.js"></script>
-    <link rel="stylesheet" href="style1.css">
+    <script src="./js/registerUser.js"></script>
+    <link rel="stylesheet" href="./css/registerUser.css">
 </head>
 <body>
-    <form method="POST" action="../controller/registerFormController.php">
+    <form method="POST" action="./Controls/registrationControl.php">
         <div class="container">
             <h1><div style="text-align: center;">Register Here</div></h1>
             <hr>
 
             <label for="type"><b>I am a : </b></label>
 
-            <select name="type" id="type" onchange="jsFunction1(this.value);">
-                <option value="user" id="user">User</option>
-                <option value="vendor" id="vendor">Service Provider</option>
+            <select name="type" id="type" onchange="jsFunction1();">
+                <option value="">- Select Type -</option>
+                <option value="user" >User</option>
+                <option value="vendor">Service Provider</option>
 
             </select>
 
-            <div class = "user" id = "user">
+            <div class = "user form" id ="user">
             <br><br>
             <label for="email"><b>Email Address</b></label><br>
             <input type="email" placeholder="Enter Email" name="email" id="email" required><br><br>
@@ -54,7 +55,7 @@
             </div>
 
 
-            <div class = "vendor">
+            <div class = "vendor form" id="vendor">
                 <br><br>
                 <label for="email"><b>Email Address</b></label><br>
                 <input type="email" placeholder="Enter Email" name="email" id="email" required><br><br>

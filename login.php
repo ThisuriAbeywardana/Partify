@@ -12,6 +12,14 @@
 <form action="./Controls/loginControl.php" method="post">
 
     <div class="container">
+        <div style="text-align: center;">
+            <?php
+                if(isset($_SESSION['status'])){
+                    echo $_SESSION['status'];
+                }
+            ?>
+        </div>
+        <br>
         <label for="uname"><b>Username</b></label>
         <input type="text"  name="uname" required>
 

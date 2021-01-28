@@ -69,10 +69,6 @@ a {
     text-align: center;
 }
 
-.user {
-    display: none;
-}
-
-.vendor {
+.form {
     display: none;
 }
