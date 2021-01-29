@@ -1,6 +1,6 @@
 <?php
-    getUSerDetails($userId){
-        $sql="SELECT username,email,fName,lName,contactNo"
+    function getUSerDetails($userId){
+        $sql="SELECT username,email,fName,lName,contactNo"; 
     }
 
 ?>
