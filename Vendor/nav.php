@@ -5,6 +5,6 @@
         <li><a href="">Orders</a></li>
         <li><a href="">Accepted</a></li>
         <li><a href="">Rejected</a></li>
-        <li><a href="">Acoount</a></li>
+        <li><a href="">Account</a></li>
     </ul>
 </div>    
