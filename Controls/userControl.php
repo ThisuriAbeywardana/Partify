@@ -7,7 +7,7 @@
     include('validate.php');
 
     //Book New event
-
+    
     if(isset($_POST['btnBookEvent'])){
         $eventName=validate($_POST['eventName']);
         $eventType=validate($_POST['eventType']);
