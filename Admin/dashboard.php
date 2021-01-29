@@ -1,13 +1,14 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Admin'){
-        header("Location: ../login.php");
-    }
+    // session_start();
+    // if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Admin'){
+    //     header("Location: ../login.php");
+    // }
     include('../Includes/header.php');
     
 ?>
-
-<div class="mainUP">
+<div class="container">
+    <?php include('./nav.php'); ?>
+    <div class="mainUP">
         <div class="card">
             Events
         </div>
@@ -18,3 +19,7 @@
             Accounts
         </div>
     </div>
+
+
+
+</div>
