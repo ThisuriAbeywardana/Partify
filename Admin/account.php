@@ -7,9 +7,11 @@
     
 ?>
 <div class="container">
-    <?php include('./nav.php'); ?>
-
-
-    <!-- details of  vendor -->
-
-</div>
+        <?php 
+            include('./nav.php'); 
+            include('../Includes/profile.php');    
+        ?>
+    </div>
+    <?php include('../Includes/footer.php'); ?>
+</body>
+</html>
