@@ -8,12 +8,14 @@ body{
     display: inline-block;
     background-color: #121212;
     color: white;
+    position: static;
     
 }
 .navBar h2{
     padding-top: 10px;
     text-align: center;
     padding-bottom: 10px;
+    font-size: 35px;
 
 }
 .navBar ul{

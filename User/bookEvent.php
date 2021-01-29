@@ -1,16 +1,16 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='User'){
-        header("Location: ../login.php");
-    }
+    // session_start();
+    // if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='User'){
+    //     header("Location: ../login.php");
+    // }
     include('../Includes/header.php');
     
 ?>
     <div class="container">
-        <?php include('../Includes/navbar.php'); ?>
-        <form action="../Controls/userControl.php" method="post">
+        <?php include('./nav.php'); ?>
+        <form action="../Controls/userControl.php" method="post" class="form">
             <div class="section">
-                <div class="title">Book New Event</div>
+                <div class="title"><h2>Book New Event</h2></div>
                 <div class="label">Event Name</div>
                 <input type="text" name="eventName" id="eventName" class="input" required>
                 <div class="label">Event Type</div>
@@ -101,5 +101,6 @@
         </form>
         
     </div>
+    <?php include('../Includes/footer.php') ?>
 </body>
 </html>
