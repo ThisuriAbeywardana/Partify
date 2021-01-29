@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../css/header2.css">
     <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <link rel="icon" href="../Assets/partify.gif">
 </head>
 <body>
 <div class="container">
@@ -26,7 +27,7 @@
         include('../Includes/header2.php');
         
         ?>
-        <div class="users">
+        <div class="users midContent">
             <?php
             include('../Controls/general.php');
             $users = getAllUsers();    

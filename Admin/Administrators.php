@@ -27,15 +27,21 @@
     <div class="right">
     <?php
         include('../Includes/header2.php');
+    ?>
+    <div class="midContent">
+        <?php
         include('../Controls/general.php');
         $admins = getAllAdmins();    
         while($row=mysqli_fetch_assoc($admins)){
             $name = $row['fName'].' '.$row['lName'];
             echo $name;
         }
-        include('../Includes/footer.php');
-    ?>
-
+        
+        ?>
+    
+    </div>
+    <?= include('../Includes/footer.php'); ?>
+    </div>
     <!-- show all users -->
 
 
@@ -45,3 +51,5 @@
 
 
 </div>
+</body>
+</html>
