@@ -10,11 +10,17 @@
 
     if(isset($_POST['btnDelete'])){
         $userId = $_SESSION['userId'];
-        $sql="DELETE FROM user WHERE userId='$userId'";
+    }
+    if(isset($_POST['btnDeleteUser'])){
+        $userId = $_POST['id'];
+    }
+    $sql="DELETE FROM user WHERE userId='$userId'";
         if(mysqli_query($connection,$sql)===TRUE){
             echo 'deleted';
+            header("Location: ./logoutControl.php");
         }else{
             echo 'failed';
         }
-    }
+
+    
 ?>

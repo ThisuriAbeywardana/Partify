@@ -8,3 +8,8 @@
 ?>
 <div class="container">
     <?php include('./nav.php'); ?>
+
+
+    <!-- details of  vendor -->
+
+</div>

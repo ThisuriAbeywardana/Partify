@@ -9,7 +9,7 @@
 <div class="container">
         <?php 
             include('./nav.php'); 
-            include('../Includes/profile.php');    
+            //all events
         ?>
     </div>
     <?php include('../Includes/footer.php'); ?>
