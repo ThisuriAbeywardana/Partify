@@ -3,7 +3,7 @@
     // if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Admin'){
     //     header("Location: ../login.php");
     // }
-    include('../Includes/header.php');
+    include('../Includes/header2.php');
     
 ?>
 <div class="container">
