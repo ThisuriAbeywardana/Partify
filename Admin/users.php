@@ -14,8 +14,6 @@
         while($row=mysqli_fetch_assoc($users)){
             $name = $row['fName'].' '.$row['lName'];
             echo $name;
-
-
         }
     ?>
 

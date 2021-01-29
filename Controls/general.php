@@ -20,9 +20,28 @@
     }
     function getAllVendors(){
         global $connection;
-        $sql="SELECT d.fName,d.lName FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType=Vendor";
+        $sql="SELECT d.fName,d.lName FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='Vendor'";
         $result = mysqli_query($connection,$sql);
         return $result;
     }
+    function getAllAdmins(){
+        global $connection;
+        $sql="SELECT d.fName,d.lName FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='Admin'";
+        $result = mysqli_query($connection,$sql);
+        return $result;
+    }
+    function getUserCount(){
+        global $connection;
+        $sql="SELECT COUNT(*) FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='User'";
+        $result = mysqli_query($connection,$sql);
+        return $result;
+    }
+    function getEventCount(){
+        global $connection;
+        $sql="SELECT COUNT(*) FROM booking";
+        $result = mysqli_query($connection,$sql);
+        return $result;
+    }
+
 
 ?>
