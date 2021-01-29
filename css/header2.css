@@ -24,7 +24,10 @@ ul{
 } */
 .head{
     height: 7%;
-    background-color: white;
+    background-color: #252954;
+    margin: 5px 15px;
+    border-radius: 8px;
+    color: rgb(225, 225, 226);
 }
 .head .username{
     float: right;

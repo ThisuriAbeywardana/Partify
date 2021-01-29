@@ -5,5 +5,12 @@
 }
 body{
     /* background-color: rgb(212, 198, 212); */
-    background-color: #adc4ee;
+    background-color: #0e0e23;
+}
+.users{
+    background-color: #252954;
+    margin: 15px;
+    border-radius: 15px;
+    color:  rgb(225, 225, 226);
+    height: 50vh;
 }
