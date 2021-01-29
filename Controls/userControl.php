@@ -22,6 +22,9 @@
         if(isset($_POST['needMeal'])){
             $cateringService=validate($_POST['cateringService']);
             $mealType=validate($_POST['mealType']);
+            $noOfPlates=validate($_POST['noOfPlates']);
+            $platePrice=validate($_POST['platePrice']);
+            $total=$platePrice*$noOfPlates;
             $meal='Y';
             
 
@@ -39,16 +42,16 @@
         }
 
         if(isset($_POST['needVideography'])){
-            $photographer=validate($_POST['videographer']);
-            $photographyPackage=validate($_POST['videographyPackage']);
+            $videographer=validate($_POST['videographer']);
+            $videographyPackage=validate($_POST['videographyPackage']);
             $videography='Y';
         }else{
             $videography='N';
         }
 
         if(isset($_POST['needDecoration'])){
-            $photographer=validate($_POST['decorator']);
-            $photographyPackage=validate($_POST['decoratorPackage']);
+            $decorator=validate($_POST['decorator']);
+            $decoratorPackage=validate($_POST['decoratorPackage']);
             $decoration = 'Y';
         }else{
             $decoration = 'N';
@@ -58,16 +61,50 @@
         
         
         
-        
+        mysqli_autocommit($connection,FALSE);
+        // mysqli_commit($connection);
+        $status=TRUE;
         $result = mysqli_query($connection,$sqlBooking);
         if($result===TRUE){
             $bookingID=mysqli_insert_id($connection);
             if($meal='Y'){
-                $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID',' ";
-                
+                $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$meal','$noOfPlates','$total')";
+                $result = mysqli_query($connection,$sqlMeal);
+                if(!$result===TRUE){
+                    $status=FALSE;
+                }
+            }
+            if($photography='Y'){
+                $sqlPhoto = "INSERT INTO photographybooking VALUES ('$bookingID','$photographer','$photographyPackage')";
+                $result = mysqli_query($connection,$sqlMeal);
+                if(!$result===TRUE){
+                    $status=FALSE;
+                }
+            }
+            if($videography='Y'){
+                $sqlVideo = "INSERT INTO videographybooking VALUES ('$bookingID','$videographer','$videographyPackage')";
+                $result = mysqli_query($connection,$sqlVideo);
+                if(!$result===TRUE){
+                    $status=FALSE;
+                }
+            }
+            if($decoration='Y'){
+                $sqlDecoration = "INSERT INTO decorationbooking VALUES ('$bookingID','$decoration','$decoratorPackage')";
+                $result = mysqli_query($connection,$sqlDecoration);
+                if(!$result===TRUE){
+                    $status=FALSE;
+                }
+            }
+
+            if($status){
+                mysqli_commit($connection);
+                mysqli_autocommit($connection,TRUE);
             }
         }else{
             echo 'no';
+        }
+        if(!$status){
+            mysqli_rollback($connection);
         }
         
     }

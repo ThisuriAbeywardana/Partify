@@ -46,6 +46,8 @@
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
                 </select>
+                <div class="label">Number Of Plates</div>
+                <input type="number" name="noOfPlates" id="noOfPlates" min="250">
             </div>
             <div class="checkbox">
                     <input type="checkbox" name="needPhotography" id="needPhotography" class="box" onchange="displaySection('secPhotography','needPhotography')">
