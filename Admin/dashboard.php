@@ -7,16 +7,21 @@
     
 ?>
 <div class="container">
-    <?php include('./nav.php'); ?>
+    <?php 
+        include('./nav.php'); 
+        include('../Controls/general.php');
+            
+        
+    ?>
     <div class="mainUP">
         <div class="card">
-            Events
+            Events <?php echo getEventCount(); ?>
         </div>
         <div class="card">
-            Vendors
+            Vendors <?php echo getVendorCount(); ?>
         </div>
         <div class="card">
-            Accounts
+            Accounts <?php echo getUserCount(); ?>
         </div>
     </div>
 

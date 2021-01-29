@@ -1,15 +1,30 @@
 <?php
-    // session_start();
-    // if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Admin'){
-    //     header("Location: ../login.php");
-    // }
+    session_start();
+    if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Admin'){
+        header("Location: ../login.php");
+    }
     include('../Includes/header.php');
     
 ?>
 <div class="container">
-    <?php include('./nav.php'); ?>
+    <?php 
+        include('./nav.php'); 
+        include('../Controls/general.php');
+        $vendors = getAllVendors();    
+        while($row=mysqli_fetch_assoc($vendors)){
+            $name = $row['fName'].' '.$row['lName'];
+            echo $name;
+        }
+    ?>
 
-    <!-- show all vendors -->
+    <!-- show all users -->
+
+
+    <style type="text/css">
+
+</style>
+
+
 
 
 </div>
