@@ -1,19 +1,4 @@
-<html>
-<head>
-<title>
-    Partify
-</title>
-<link rel="stylesheet" href="./css/index.css">
-</head>
-<body>
-
-    <a name="top"></a>
-
-    <?php
-        include('./includes/header.php');
-    ?>
-
-
+<?php include('./Includes/header.php'); ?>
 
 <div class="bgclr" style="z-index: 2;">
     <div class="textslidebg">
@@ -30,19 +15,19 @@
     <div class="main">   
 
         <div class="slides"> 
-            <img src="party1.jfif">
+            <img src="./Assets/party1.jfif">
         </div>
         <div class="slides"> 
-            <img src="party2.jfif">
+            <img src="./Assets/party2.jfif">
         </div>
         <div class="slides"> 
-            <img src="party4.jfif">
+            <img src="./Assets/party4.jfif">
         </div>
         <div class="slides"> 
-            <img src="party5.jfif">
+            <img src="./Assets/party5.jfif">
         </div>
         <div class="slides"> 
-            <img src="party6.jfif">
+            <img src="./Assets/party6.jfif">
         </div>
         <div class="slides"> 
             <img src="party7.jfif">

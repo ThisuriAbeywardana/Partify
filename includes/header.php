@@ -3,12 +3,10 @@
 <title>
     Partify
 </title>
-<link rel="stylesheet" href="./header.css">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-
-    
-
     <div class="menubg">
         <div class="menu">
             <a href="#home">Home</a>

@@ -3,7 +3,7 @@
         require_once('../Controls/general.php'); 
         $res = getUSerDetails($_SESSION['userId']);
         while($row=mysqli_fetch_assoc($res)){
-            $name = $row['fName'].$row['lName'];
+            $name = $row['fName'].' '.$row['lName'];
             $address = $row['address'];
             $email = $row['email'];
             $contactNo = $row['contactNo'];
