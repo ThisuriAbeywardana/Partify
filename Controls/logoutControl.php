@@ -6,8 +6,6 @@
         unset($_SESSION['userType']);
         unset($_SESSION['loggedIn']);
         header("Location: ../index.php");
-    }else{
-        echo 'no';
     }
 
 ?>

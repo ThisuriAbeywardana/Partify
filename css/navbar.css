@@ -6,5 +6,29 @@ body{
     background-color: blueviolet;
     height: 90vh;
     display: inline-block;
+    background-color: #121212;
+    color: white;
     
+}
+.navBar h2{
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+.navBar ul{
+    list-style-type: none;
+}
+.navBar ul li{
+    padding-bottom: 15px;
+    padding-top: 20px;
+    padding-left: 0;
+}
+.navBar ul li a{
+    color: rgb(225, 225, 226);
+    font-size: 20px;
+    text-decoration: none;
+}
+.navBar ul li:hover{
+    background-color:rgb(225, 225, 225, 0.5);
 }
