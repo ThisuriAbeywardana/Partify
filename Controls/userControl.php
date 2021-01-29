@@ -26,9 +26,10 @@
             $platePrice=validate($_POST['platePrice']);
             $total=$platePrice*$noOfPlates;
             $meal='Y';
-            
+            echo 'Meals yes';
 
         }else{
+            echo 'Meals No';
             $meal='N';
         }
         
