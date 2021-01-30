@@ -23,11 +23,23 @@
         include('./nav.php'); 
     ?>
     <div class="right">
-    <?php
-        include('../Includes/header2.php');
-          
-    ?>
+        <?php
+            include('../Includes/header2.php');
+            include('../Controls/general.php');  
+
+        ?>
+        <div class="midContent">
+        <?php
+            $res = getUserBooking();
+            while($row = mysqli_fetch_assoc($res)){
+                echo $row['eventName'];
+                echo '<br>';
+
+            }
+        ?>
     </div>
+    </div>
+    
         
            
     </div>

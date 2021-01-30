@@ -77,6 +77,12 @@
 
         echo $result->eventCount;
     }
-
+    function getUserBooking(){
+        $uId = $_SESSION['userId'];
+        $sql = "SELECT eventName,type,date,status FROM booking WHERE userId='$uId'";
+        global $connection;
+        $result = mysqli_query($connection,$sql);
+        return $result; 
+    }
 
 ?>
