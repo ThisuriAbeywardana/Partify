@@ -1,19 +1,4 @@
-<html>
-<head>
-<title>
-    Partify
-</title>
-<link rel="stylesheet" href="./css/index.css">
-</head>
-<body>
-
-    <a name="top"></a>
-
-    <?php
-        include('./includes/header.php');
-    ?>
-
-
+<?php include('./Includes/header.php'); ?>
 
 <div class="bgclr" style="z-index: 2;">
     <div class="textslidebg">
