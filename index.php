@@ -30,37 +30,37 @@
     <div class="main">   
 
         <div class="slides"> 
-            <img src="party1.jfif">
+            <img src="./Assets/party1.jfif">
         </div>
         <div class="slides"> 
-            <img src="party2.jfif">
+            <img src="./Assets/party2.jfif">
         </div>
         <div class="slides"> 
-            <img src="party4.jfif">
+            <img src="./Assets/party4.jfif">
         </div>
         <div class="slides"> 
-            <img src="party5.jfif">
+            <img src="./Assets/party5.jfif">
         </div>
         <div class="slides"> 
-            <img src="party6.jfif">
+            <img src="./Assets/party6.jfif">
         </div>
         <div class="slides"> 
-            <img src="party7.jfif">
+            <img src="./Assets/party7.jfif">
         </div>
         <div class="slides"> 
-            <img src="party8.jfif">
+            <img src="./Assets/party8.jfif">
         </div>
         <div class="slides"> 
-            <img src="party9.jfif">
+            <img src="./Assets/party9.jfif">
         </div>
         <div class="slides"> 
-            <img src="party10.jfif">
+            <img src="./Assets/party10.jfif">
         </div>
         <div class="slides"> 
-            <img src="party11.jfif">
+            <img src="./Assets/party11.jfif">
         </div>
         <div class="slides"> 
-            <img src="party12.jfif">
+            <img src="./Assets/party12.jfif">
         </div>
    
     </div>
@@ -69,7 +69,7 @@
     <div class="row home1">
 
         <div class="column pic">
-          <img src="home1.jfif" style="width:100%">
+          <img src="./Assets/home1.jfif" style="width:100%">
         </div>
     
         <div class="column text">
@@ -92,13 +92,13 @@
             </div>
         </div>
         <div class="column pic">
-            <img src="home2.jfif" style="width:100%">
+            <img src="./Assets/home2.jfif" style="width:100%">
          </div>
     </div>
 
     <div class="row home3">
         <div class="column pic">
-          <img src="home5.jfif" style="width:100%">
+          <img src="./Assets/home5.jfif" style="width:100%">
         </div>
         <div class="column text">
             <div class="container">
@@ -115,7 +115,7 @@
 
     <div class="services">
         <div class="serviceimg1">
-            <img src="home8.jfif" width="100%"></br>
+            <img src="./Assets/home8.jfif" width="100%"></br>
         </div>
         <div class="servicedes">
             <div>
@@ -131,7 +131,7 @@
             </div>
         </div>
         <div class="serviceimg2">
-            <img src="home7.jfif" width="100%"></br>
+            <img src="./Assets/home7.jfif" width="100%"></br>
         </div>
     </div>   
 
