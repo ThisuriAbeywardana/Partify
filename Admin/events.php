@@ -53,11 +53,6 @@
                             <th class='col colBtn'></th></tr></thead><tbody>";
 
                             while($row = mysqli_fetch_assoc($events)){
-                                // echo $row['bookingId'];
-                                // echo $row['eventName'];
-                                // echo $row['type'];
-                                // echo $row['date'];
-                                // echo '<br>';
                             
                                 echo '<tr><td>'.$row['eventName'].'</td><td>'.$row['type'].'</td><td>'.$row['date'].'</td>';
                                 echo '<td>';

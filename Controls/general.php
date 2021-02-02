@@ -44,7 +44,7 @@
     }
     function getAllAdmins(){
         global $connection;
-        $sql="SELECT d.fName,d.lName FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='Admin'";
+        $sql="SELECT d.userId,d.fName,d.lName FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='Admin'";
         $result = mysqli_query($connection,$sql);
         return $result;
     }
