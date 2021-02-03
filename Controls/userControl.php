@@ -1,5 +1,8 @@
 <?php
-    session_start();
+     if(!isset($_SESSION['loggedIn'])){
+        session_start();
+     }
+    
     require_once('../Includes/db/dbConnection.php');
     $db = DBConnection::getInstance();
     $connection = $db->getConnection();
@@ -9,6 +12,7 @@
     //Book New event
     
     if(isset($_POST['btnBookEvent'])){
+        echo 'clcked';  
         $eventName=validate($_POST['eventName']);
         $eventType=validate($_POST['eventType']);
         $eventLocation=validate($_POST['eventLocation']);
@@ -16,17 +20,17 @@
         $startTime=validate($_POST['startTime']);
         $endTime=validate($_POST['endTime']);
         $userId=$_SESSION['userId'];
-        echo 'User id :'.$_SESSION['username'];
+        // echo 'User id :'.$_SESSION['username'];
        
         //Meals 
         if(isset($_POST['needMeal'])){
             $cateringService=validate($_POST['cateringService']);
             $mealType=validate($_POST['mealType']);
             $noOfPlates=validate($_POST['noOfPlates']);
-            $platePrice=validate($_POST['platePrice']);
-            $total=$platePrice*$noOfPlates;
+            // $platePrice=validate($_POST['platePrice']);
+            // $total=$platePrice*$noOfPlates;
             $meal='Y';
-            echo 'Meals yes';
+            echo $cateringService;
 
         }else{
             echo 'Meals No';
@@ -58,56 +62,83 @@
             $decoration = 'N';
         }
          
-        $sqlBooking = "INSERT INTO booking  VALUES (NULL,$userId,'$eventName','$eventType','$eventDate','$startTime','$endTime','$meal','$photography','$videography','$decoration')";
-        
-        
-        
-        mysqli_autocommit($connection,FALSE);
-        // mysqli_commit($connection);
+        $sqlBooking = "INSERT INTO booking VALUES (NULL,'$userId','$eventName','$eventType','$eventDate','$startTime','$endTime','$meal','$photography','$videography','$decoration','PENDING')";
+    
         $status=TRUE;
         $result = mysqli_query($connection,$sqlBooking);
-        if($result===TRUE){
+        echo 'Result : '.$result;
+        if($result){
             $bookingID=mysqli_insert_id($connection);
-            if($meal='Y'){
-                $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$meal','$noOfPlates','$total')";
+            if($meal=='Y'){
+                $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$meal','$noOfPlates')";
                 $result = mysqli_query($connection,$sqlMeal);
-                if(!$result===TRUE){
+                if(!$result){
                     $status=FALSE;
                 }
             }
-            if($photography='Y'){
+            if($photography=='Y'){
                 $sqlPhoto = "INSERT INTO photographybooking VALUES ('$bookingID','$photographer','$photographyPackage')";
                 $result = mysqli_query($connection,$sqlMeal);
-                if(!$result===TRUE){
+                if(!$result){
                     $status=FALSE;
                 }
             }
-            if($videography='Y'){
+            if($videography=='Y'){
                 $sqlVideo = "INSERT INTO videographybooking VALUES ('$bookingID','$videographer','$videographyPackage')";
                 $result = mysqli_query($connection,$sqlVideo);
-                if(!$result===TRUE){
+                if(!$result){
                     $status=FALSE;
                 }
             }
-            if($decoration='Y'){
+            if($decoration=='Y'){
                 $sqlDecoration = "INSERT INTO decorationbooking VALUES ('$bookingID','$decoration','$decoratorPackage')";
                 $result = mysqli_query($connection,$sqlDecoration);
-                if(!$result===TRUE){
+                if(!$result){
                     $status=FALSE;
                 }
             }
 
             if($status){
-                mysqli_commit($connection);
-                mysqli_autocommit($connection,TRUE);
             }
         }else{
             echo 'no';
         }
         if(!$status){
-            mysqli_rollback($connection);
+
         }
+        header("location: ../User/bookings.php");
         
     }
 
+
+    //get all catering services
+    function getServicesProviders($type){
+        global $connection;
+        switch ($type) {
+            case 'meal':
+                $sql = "SELECT u.name,u.spId FROM vendor u INNER JOIN service c WHERE u.spId=c.spId AND c.catering='Y'";
+                return mysqli_query($connection,$sql);
+            case 'photo':
+                $sql = "SELECT p.albumType,v.name,v.spId FROM vendor v,service s,photography p WHERE v.spId=s.spId AND s.photography='Y' AND p.spId=s.spId";
+                return mysqli_query($connection,$sql);
+            case 'video':
+                $sql = "SELECT p.type,v.name,v.spId FROM vendor v,service s,videography p WHERE v.spId=s.spId AND s.videography='Y' AND p.spId=s.spId";
+                return mysqli_query($connection,$sql);
+            case 'deco':
+                $sql = "SELECT p.type,v.name,v.spId FROM vendor v,service s,decoration p WHERE v.spId=s.spId AND s.decoration='Y' AND p.spId=s.spId";
+                return mysqli_query($connection,$sql);
+                
+        }
+        
+       
+        
+    }
+
+
+    //get event data
+
+    function getEvent($id){
+        $sql = "SELECT * FROM booking b,catering c,videography v,phptography p,decoration d WHERE"
+
+    }
 ?>

@@ -51,7 +51,7 @@
                             echo "<tr><td>$name</td><td>$type</td><td>$date</td>";
                             echo '<td>';
                             
-                            echo '<form action="" method="post">
+                            echo '<form action="./editEvent.php" method="post">
                             <input type="hidden" name="bId" value="'.$bookingId.'">
                             <button type="submit" name="viewEvent" class="btn btnview">View</button>
                             </form></td>';
