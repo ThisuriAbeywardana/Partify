@@ -1,11 +1,13 @@
 <?php
-include('../includes/db/dbConnection.php');
 include('validate.php');
+require_once('../Includes/db/dbConnection.php');
 
+    $db = DBConnection::getInstance();
+    $connection = $db->getConnection();
 //A new Vendor adds services
 
 
-mysqli_autocommit($connection,FALSE);
+// mysqli_autocommit($connection,FALSE);
 // mysqli_commit($connection);
 $status=TRUE;
 
@@ -68,10 +70,12 @@ if(isset($_POST['btnAddService'])){
                 $ptype=$_POST['typeP'][$i];
                 $pdesc=$_POST['descriptionP'][$i];
                 $pprice=$_POST['priceP'][$i];
-
+                echo 'type'.$ptype;
                 $photo = "INSERT INTO photography VALUES ('$spId','$ptype','$pprice','$pdesc')";
                 $result = mysqli_query($connection,$photo);
-                if(!$result===TRUE){
+                echo $result;
+                if($result){
+                    echo "added";
                     $status=FALSE;
                 }else{
                     echo 'no';
@@ -95,7 +99,7 @@ if(isset($_POST['btnAddService'])){
 
             $video = "INSERT INTO videography VALUES ('$spId','$vtype','$vprice','$vdesc')";
             $result = mysqli_query($connection,$video);
-            if(!$result===TRUE){
+            if($result){
                 $status=FALSE;
             }else{
                 echo 'no';

@@ -34,7 +34,7 @@ body{
     /* border: 1px solid white; */
     border-radius: 10px;
     text-align: center;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
     
 }
 .bookingTable .col{
@@ -90,5 +90,27 @@ body{
 
 .adminViewEvents{
     height: 100vh;
+    overflow: auto;
+}
+.btn-green{
+    border-style: none;
+    border-radius: 10px;
+    width: 125px;
+    padding: 15px;
+    background-color: green;
+    margin-right: 100px;
+    float: right;
+    
+}
+.btn-green:hover{
+    cursor: pointer;
+}
+.btn-green a{
+    color: rgb(225, 225, 226);
+    font-size: 16px;
+    text-decoration: none;
+}
+.bookEvent{
+    border: 1px solid red;
     overflow: auto;
 }

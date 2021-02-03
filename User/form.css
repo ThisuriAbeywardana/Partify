@@ -38,4 +38,16 @@
 .btnSubmit button:hover{
     cursor: pointer;
     box-shadow: 5px 10px 18px #888888;
+} 
+.secPhotography{
+    display: none;
+}
+.secVideography{
+    display: none;
+}
+.secDecoration{
+    display: none;
+}
+.secMeal{
+    display: none;
 }

@@ -59,6 +59,12 @@ hr {
 .registerbtn:hover {
     opacity: 1;
 }
+.registerbtn:enabled{
+    background-color: green;
+}
+.registerbtn:disabled{
+    background-color: grey;
+}
 
 a {
     color: dodgerblue;

@@ -28,10 +28,11 @@
     ?>
     <div class="midContent">
     <div class="tabel">
+        <div class="btn-green">
+            <a href="../Admin/registerAdmin.php">Add Administrator</a>
+        </div>
         <?php
         include('../Controls/general.php');
-        
-                        
                             echo "<table class='bookingTable'>
                             <thead>
                             <tr>

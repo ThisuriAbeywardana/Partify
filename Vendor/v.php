@@ -1,22 +1,12 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
-        header("Location: ../login.php");
-    }
-    // include('../Includes/header.php');
-    include('../Controls/userControl.php');
-    
-    ?>
-    <?php
+
+ <?php
+        session_start();
         require_once('../Includes/db/dbConnection.php');
         $db = DBConnection::getInstance();
         $connection = $db->getConnection();
     ?>
-    <div class="body">
-        <?php 
-        // include('../Includes/navbar.php'); 
-        ?>
-        
+
+
 <div class="title">
             VIEW services
         </div>
@@ -128,8 +118,3 @@
                 <button type="submit" name="deletebtn" class="btn"> DELETE</button>
             </form>
             </div>
-        
-        
-        
-        
-    </div>

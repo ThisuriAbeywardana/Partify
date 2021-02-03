@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account</title>
+    <title>Bookings </title>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../css/header2.css">
@@ -30,9 +30,10 @@
         ?>
         <div class="midContent booking">
             
-                <div class="tabel">
+                <div class="tabel" >
+                <button type="submit" class="btn-green btn"><a href="./bookEvent.php">Book Event</a></button>
                 <?php
-                        echo "<table class='bookingTable'>
+                        echo "<table class='bookingTable' style='border: 1px solid red;'>
                         <thead>
                         <tr>
                         <th class='col col1'>Event Name</th>
@@ -61,6 +62,7 @@
                         }
                         echo '</tbody></table>';
                 ?>
+                
                 </div>
                 
 

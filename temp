@@ -1,13 +1,4 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
-        header("Location: ../login.php");
-    }  
-    include('../Includes/template.php');
-?>
-<link rel="stylesheet" type="text/css" href="./form.css">
-<script src="../js/user.js" type="text/javascript"></script>
-<form action="../Controls/userControl.php" method="post" class="form bookEvent">
+<form action="../Controls/userControl.php" method="post" class="form">
             <div class="section">
                 <div class="title"><h2>Book New Event</h2></div>
                 <div class="label">Event Name</div>
@@ -100,14 +91,3 @@
                 <button type="submit" name="btnBookEvent">Book Event</button>
             </div>
         </form>
-
-        </div>
-            
-        </div>
-    </div>
-</body>
-</html>
-
-
-
-
