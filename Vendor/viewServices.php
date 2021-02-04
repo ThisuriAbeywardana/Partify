@@ -28,7 +28,7 @@
 
                 while($rowMain = mysqli_fetch_assoc($query_run)){
                     
-                    echo $rowMain['location'];
+                    
                     $count=0;
                         
                     if($rowMain['catering']=='Y'){
