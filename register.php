@@ -5,20 +5,19 @@
     <link rel="stylesheet" href="./css/registerUser.css">
 </head>
 <body>
-    <form method="POST" action="./Controls/registrationControl.php">
         <div class="container">
             <h1><div style="text-align: center;">Register Here</div></h1>
             <hr>
 
             <label for="type"><b>I am a : </b></label>
 
-            <select name="type" id="type" onchange="jsFunction1();">
+            <select name="type" id="type" onchange="userType();">
                 <option value="">- Select Type -</option>
                 <option value="user" >User</option>
                 <option value="vendor">Service Provider</option>
                 
             </select>
-
+            <form method="POST" action="./Controls/registrationControl.php">
             <div class = "user form" id ="user">
             <br><br>
             <label for="useremail"><b>Email Address</b></label><br>
@@ -45,27 +44,31 @@
             <label for="usercontactno"><b>Contact Number</b></label>
             <input type="text" placeholder="Enter Contact Number" name="usercontactno" id="usercontactno">
 
+            <label for="useraddress"><b>Address</b></label>
+            <input type="text" placeholder="Enter your Address" name="useraddress" id="useraddress">
+
             <label for="userpsw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="userpsw" id="userpsw">
 
-            <label for="userpsw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="userpsw-repeat" id="userpsw-repeat">
+            <label for="userpsw_repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="userpsw_repeat" id="userpsw_repeat">
             <hr>
-            <button type="submit" class="userregisterbtn" name="userregisterbtn">Register</button>
+            <button type="submit" class="userRegisterBtn" name="userRegisterBtn">Register</button>
             </div>
-
-
+            </form>
+            
+            <form method="POST" action="./Controls/registrationControl.php">
             <div class = "vendor form" id="vendor">
                 <br><br>
 
-                <label for="username"><b>User Name</b></label>
-                <input type="text" placeholder="Enter your User Name" name="username" id="username">
+                <label for="vendorusername"><b>User Name</b></label>
+                <input type="text" placeholder="Enter your User Name" name="vendorusername" id="vendorusername">
 
                 <label for="name"><b>Name of my Business</b></label>
                 <input type="text" placeholder="Enter your Business Name" name="businessname" id="name">
 
-                <label for="address"><b>Address</b></label>
-                <input type="text" placeholder="Enter your Address" name="address" id="address">
+                <label for="vendoraddress"><b>Address</b></label>
+                <input type="text" placeholder="Enter your Address" name="vendoraddress" id="vendoraddress">
 
                 <label for="vendoremail"><b>Email Address</b></label><br>
                 <input type="vendoremail" placeholder="Enter Email" name="vendoremail" id="vendoremail"><br><br>
@@ -73,18 +76,15 @@
                 <label for="vendorcontactno"><b>Contact Number of my Business</b></label>
                 <input type="text" placeholder="Enter Contact Number" name="vendorcontactno" id="vendorcontactno">
 
-                <label for="service"><b>Service</b></label>
-                <input type="text" placeholder="Enter your service" name="service" id="service">
-
                 <label for="vendorpsw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="vendorpsw" id="vendorpsw">
     
-                <label for="vendorpsw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="vendorpsw-repeat" id="vendorpsw-repeat">
+                <label for="vendorpsw_repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat">
                 <hr>
-                <button type="submit" class="vendorregisterbtn" name="vendorregisterbtn">Register</button>
+                <button type="submit" class="vendorRegisterBtn" name="vendorRegisterBtn">Register</button>
                 </div>
-
+                </form>
             <!-- <button type="submit" class="registerbtn" name="registerbtn">Register</button> -->
 
             <p><i>Already have an account?</i> <a href="../login/login.html">Log in</a>.</p>

@@ -2,12 +2,16 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
-      <link rel="stylesheet" type="text/css" href="../css/gallery.css">
+      <!-- <link rel="stylesheet" type="text/css" href="../css/gallery.css"> -->
       <title>Image Gallery</title>
       
    </head>
    <body>
+
+      <div class="header"><?php include('../includes/header.php'); ?> </div>
+      
       <h1>PARTIFY GALLERY</h1>
+      <div class=""
       <div class="ourservices0">
          <h1>Birthday Parties</h1>
       <div class="gallery">
@@ -114,4 +118,4 @@
          </div>
       </div>
    </body>
-</html>
+</html
