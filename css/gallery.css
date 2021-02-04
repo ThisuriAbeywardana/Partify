@@ -1,7 +1,12 @@
 body{
-  font-family: Arial, Helvetica, sans-serif;
   background-color:rgb(32, 32, 32);
+  display: grid;
+  grid-template-rows: 15% 5% 80%;
 }
+
+
+
+/* 
 
 h1{
   text-align: center;
@@ -9,15 +14,13 @@ h1{
   margin: 30px 0 50px;
 }
 
-
 .gallery {
     margin: 5px;
     border: 0px solid rgb(165, 164, 164);
-    float: left;
     width: 500px;
     padding: 5px;
     
-  }
+}
   
   .gallery img {
     transition: 1s;
@@ -82,4 +85,4 @@ h1{
     width: 500px;
     padding: 5px;
     
-  }
+  } */
