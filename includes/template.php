@@ -6,6 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet"  type="text/css" href="../css/nav.css">
     <link rel="stylesheet"  type="text/css" href="../css/header2.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../css/header2.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/forms.css">
 
     <style>
         *{
@@ -26,7 +32,7 @@
             
         }
         .mainContent{
-            background-color: yellow;
+            background-color: #252954;
             overflow-y: auto;
             margin: 5px 15px;
             border-radius: 8px;
@@ -36,6 +42,24 @@
             padding: 3px 0px;
         }
         
+.head{
+    height: 7vh;
+    width: 100%;
+    background-color: #252954;
+    margin: 5px 15px;
+    border-radius: 8px;
+    color: rgb(225, 225, 226);
+}
+.head .username{
+    float: right; 
+    padding: 0px 25px 0px 0px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.logo img{
+    height: 60px;
+    border-radius: 50%;
+}
         
 
     </style>
