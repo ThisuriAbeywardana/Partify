@@ -1,14 +1,14 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
-        header("Location: ../login.php");
-    }
+<!-- <?php
+    // session_start();
+    // if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
+    //     header("Location: ../login.php");
+    // }
     // include('../Includes/header.php');
-    include('../Controls/userControl.php');
+    // include('../Controls/userControl.php');
     
-    ?>
+    ?> -->
     <?php
-        require_once('../Includes/db/dbConnection.php');
+        require_once('../includes/dbConnection.php');
         $db = DBConnection::getInstance();
         $connection = $db->getConnection();
     ?>
@@ -22,13 +22,13 @@
         </div>
         <div>
             <?php
-            $user=16;//$_SESSION['userId'];
+            $user=$_SESSION['userId'];
                 $query= 'SELECT * FROM service WHERE spId='.$user;
                 $query_run=mysqli_query($connection,$query);
 
                 while($rowMain = mysqli_fetch_assoc($query_run)){
                     
-                    echo $rowMain['location'];
+                    
                     $count=0;
                         
                     if($rowMain['catering']=='Y'){
@@ -40,13 +40,31 @@
                         if(mysqli_num_rows($query_meal) > 0) {
                             while($row = mysqli_fetch_assoc($query_meal)){
                                 if($row['breakfast']=='Y'){
-                                    echo "<tr><td>Breakbast<td></tr>";
+                                    echo "<tr><td>Breakbast<td>";
+
+                                    echo '<td><form action="deleteMeals.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="catering">
+                                    <input type="hidden" name="delete_meal" value="breakfast">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
                                 }
                                 if($row['lunch']=='Y'){
-                                    echo "<tr><td>Lunch<td></tr>";
+                                    echo "<tr><td>Lunch<td>";
+
+                                    echo '<td><form action="deleteMeals.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="catering">
+                                    <input type="hidden" name="delete_meal" value="lunch">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
                                 }
                                 if($row['dinner']=='Y'){
-                                    echo "<tr><td>Dinner<td></tr>";
+                                    echo "<tr><td>Dinner<td>";
+
+                                    echo '<td><form action="deleteMeals.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="catering">
+                                    <input type="hidden" name="delete_meal" value="dinner">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
                                 }
                             }
                         }
@@ -54,7 +72,7 @@
                         echo "</table>";
                     }
         
-                    $photo='SELECT albumType FROM photography WHERE spId='.$user;
+                    $photo='SELECT * FROM photography WHERE spId='.$user;
                     $query_photo=mysqli_query($connection,$photo);
                     if($rowMain['photography']=='Y'){
                         echo "<table><tr><th>Photography</th></tr>";
@@ -62,14 +80,21 @@
         
                         if(mysqli_num_rows($query_photo) > 0) {
                             while($row = mysqli_fetch_assoc($query_photo)){
-                                echo "<tr><td>".$row['albumType']."</td></tr>";
+                                echo "<tr><td>".$row['albumType']."</td>";
+
+                                echo '<td><form action="deleteServices.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="photography">
+                                    <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
+                
                             }
                         }
         
                         echo "</table>";
                     }
         
-                    $video='SELECT type FROM videography WHERE spId='.$user;
+                    $video='SELECT * FROM videography WHERE spId='.$user;
                     $query_video=mysqli_query($connection,$video);
                     if($rowMain['videography']=='Y'){
                         echo "<table><tr><th>Videography</th></tr>";
@@ -77,14 +102,20 @@
         
                         if(mysqli_num_rows($query_video) > 0) {
                             while($row = mysqli_fetch_assoc($query_video)){
-                                echo "<tr><td>".$row['type']."</td></tr>";
+                                echo "<tr><td>".$row['type']."</td>";
+
+                                echo '<td><form action="deleteServices.php" method="post">
+                                <input type="hidden" name="delete_tab" value="videography">
+                                <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                </form></td></tr>';
                             }
                         }
                             
                         echo "</table>";
                     }
         
-                    $decor='SELECT type FROM decoration WHERE spId='.$user;
+                    $decor='SELECT * FROM decoration WHERE spId='.$user;
                     $query_decor=mysqli_query($connection,$decor);
                     if($rowMain['decoration']=='Y'){
                         echo "<table><tr><th>Decorations</th></tr>";
@@ -92,14 +123,20 @@
         
                         if(mysqli_num_rows($query_decor) > 0) {
                             while($row = mysqli_fetch_assoc($query_decor)){
-                                echo "<tr><td>".$row['type']."</td></tr>";
+                                echo "<tr><td>".$row['type']."</td>";
+
+                                echo '<td><form action="deleteServices.php" method="post">
+                                <input type="hidden" name="delete_tab" value="decoration">
+                                <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                </form></td></tr>';
                             }
                         }
                             
                         echo "</table>";
                     }
         
-                    $location='SELECT packtype,address FROM location WHERE spId='.$user;
+                    $location='SELECT * FROM location WHERE spId='.$user;
                     $query_location=mysqli_query($connection,$location);
                     if($rowMain['location']=='Y'){
                         echo "<table><tr><th>Location</th></tr>";
@@ -107,8 +144,16 @@
         
                         if(mysqli_num_rows($query_location) > 0) {
                             while($row = mysqli_fetch_assoc($query_location)){
-                                echo "<tr><td>".$row['packType']."</td></tr>";
-                                echo "<tr><td>".$row['address']."</td></tr>";
+                                echo "<tr><td>".$row['packtype']."</td>";
+                                echo "<td>".$row['address']."</td>";
+                                echo "<td>".$row['pId']."</td>";
+
+                                
+                                echo '<td><form action="deleteServices.php" method="post">
+                                <input type="hidden" name="delete_tab" value="location">
+                                <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                </form></td></tr>';
                             }
                         }
                             
@@ -120,14 +165,11 @@
                     }
                 }
             ?>
-            <form action="editService.php" method="post">
-                    <button type="submit" name="editbtn" class="btn"> EDIT</button>
+            <form action="../editServices.php" method="post">
+                    <button type="submit" name="editbtn" class="btn"> EDIT SERVICES</button>
             </form>
     
-            <form action="deleteServices.php" method="post">
-                <button type="submit" name="deletebtn" class="btn"> DELETE</button>
-            </form>
-            </div>
+            
         
         
         
