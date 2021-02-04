@@ -73,7 +73,7 @@
                 </div>
             <div class="section secPhotography" id="secPhotography">
                 <div class="label">Select Photographer</div>
-                <select name="photographer" id="photographer" class="select">
+                <select name="photographer" id="photographer" class="select" >
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
 
@@ -142,7 +142,7 @@
             <div class="checkbox">
                     <input type="checkbox" name="needDecoration" id="needDecoration" class="box" onchange="displaySection('secDecoration','needDecoration')">
                     <span class="span">Decorations</span>
-                </div>
+            </div>
             <div class="section secDecoration" id="secDecoration">
                 <div class="label">Select Decorator</div>
                 <select name="decorator" id="decorator" class="select">
@@ -160,19 +160,53 @@
                     ?>
                 </select>
                 <div class="label">Select Package</div>
-                <select name="decoratorPackage" id="decoratorPackage" class="select">
+                    <select name="decoratorPackage" id="decoratorPackage" class="select">
+                        <option value="" class="option">- none -</option>
+                        <!-- <option value="" class="option"></option> add items from php -->
+
+                        <?php
+                            $res = getServicesProviders('deco');
+                            while($row = mysqli_fetch_assoc($res)){
+                            $sp = $row['type'];
+                            echo "<option value='.$sp.' class='option'>$sp</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+            <div class="checkbox">
+                    <input type="checkbox" name="needLocation" id="needLocation" class="box" onchange="displaySection('secLocation','needLocation')">
+                    <span class="span">Location</span>
+            </div>
+            <div class="section secLocation" id="secLocation">
+                <div class="label">Select Location</div>
+                <select name="locationProvider" id="locationProvider" class="select">
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
 
                     <?php
-                        $res = getServicesProviders('deco');
+                        $res = getServicesProviders('location');
                         while($row = mysqli_fetch_assoc($res)){
-                           $sp = $row['type'];
-                           echo "<option value='.$sp.' class='option'>$sp</option>";
-                        }
+                           $sp = $row['name'];
+                           $spvId = $row['spId'];
+                           echo "<option value='$spvId' class='option'>$sp</option>";
+                        }   
+                        
                     ?>
                 </select>
-            </div>
+                <div class="label">Select Package</div>
+                    <select name="locationType" id="locationType" class="select" >
+                        <option value="" class="option">- none -</option>
+                        <!-- <option value="" class="option"></option> add items from php -->
+
+                        <?php
+                             $res = getServicesProviders('location');
+                            while($row = mysqli_fetch_assoc($res)){
+                            $sp = $row['type'];
+                            echo "<option value='$sp' class='option'>$sp</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
             <div class="btnSubmit">
                 <button type="submit" name="btnBookEvent">Book Event</button>
             </div>

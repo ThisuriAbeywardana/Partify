@@ -3,8 +3,9 @@
 <title>
     Partify
 </title>
-<link rel="stylesheet" href="../css/header.css">
+
 <link rel="stylesheet" href="../css/index.css">
+
 </head>
 <body>
     <div class="menubg">

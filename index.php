@@ -4,6 +4,7 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
     </div>   
 </br>
     <div class="button">
-        <div ><a href="#addevents">ADD </br> EVENTS</a></div>
+        <div ><a href="./User/bookEvent.php">ADD </br> EVENTS</a></div>
     </div>
 </div>
     

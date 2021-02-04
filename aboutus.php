@@ -1,7 +1,9 @@
 <?php
-echo "<link rel='stylesheet' type='text/css' href='css/aboutus.css' />";
-include('./includes/header.php');
+
+include('./Includes/header.php');
 ?>
+<link rel="stylesheet" type="text/css" href="./css/aboutus.css"/>
+<link rel="stylesheet" href="./css/header.css">
 <div class="bgded overlay" style="background-image:url('Assets/aboutus4.JPG');"> 
   <div id="pageintro">
     <article>

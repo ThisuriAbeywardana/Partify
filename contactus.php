@@ -2,10 +2,11 @@
     echo "<link rel='stylesheet' type='text/css' href='./css/contactus.css' />";
     echo "<script type='text/javascript' src='./js/contactus.js'></script>";
     
-    include("./contact_us/contactus_dbconnect.php");
-    include('includes/header.php');
+    
+    include('./Includes/header.php');
   
 ?>
+<link rel="stylesheet" href="./css/header.css">
 <div class="container">
   <div style="text-align:center">
     <h2>CONTACT US</h2>
@@ -14,7 +15,7 @@
   <div class="row">
     <div class="column">
       <div id="error_messege"></div>
-      <form id="myform" action="./contact_us/contactus_user_process.php" method="POST" onsubmit="return validation()">
+      <form id="myform" action="./Controls/contactus_user_process.php" method="POST" onsubmit="return validation()">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Your Name..">
         <label for="email">Email</label>
@@ -28,7 +29,7 @@
     </div>
 	<div class="column">
       <img src="Assets/partify.gif" style="width:100%"><br><br><br>
-	<p class="p1">Email Us: abcabcabcabcabcabc@gmail.com <br> Call Us: 0123456789</p>
+	<p class="p1">Email Us: Partify@gmail.com <br> Call Us: 0123456789</p>
     </div>
   </div>
 </div>
