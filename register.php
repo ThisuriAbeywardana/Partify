@@ -85,7 +85,7 @@
                 <button type="submit" class="vendorregisterbtn" name="vendorregisterbtn">Register</button>
                 </div>
 
-            <button type="submit" class="vendorregisterbtn" name="vendorregisterbtn">Register</button>
+            <!-- <button type="submit" class="registerbtn" name="registerbtn">Register</button> -->
 
             <p><i>Already have an account?</i> <a href="../login/login.html">Log in</a>.</p>
 
