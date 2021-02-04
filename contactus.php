@@ -20,7 +20,7 @@
         <input type="text" id="name" name="name" placeholder="Your Name..">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Your email..">
-        <label for="phone">Phone</label>
+        <label for="phone">Phone Number</label>
 	      <input type="text" id="phone" name="phone" placeholder="Your Phone Number..">
         <label for="messege">Messege</label>
         <textarea id="messege" name="messege" placeholder="Write your messege.." style="height:170px"></textarea>
