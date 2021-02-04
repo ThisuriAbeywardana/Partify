@@ -16,7 +16,7 @@
             </div>
     
             <div class="logo">
-                <center><img src="../Assets/Partify.png"></center>
+                <center><img src="../Assets/partify.gif" width="342px" height="342px"></center>
             </div>
     
             <div class="social">

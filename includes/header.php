@@ -9,13 +9,13 @@
 <body>
     <div class="menubg">
         <div class="menu">
-            <a href="#home">Home</a>
-            <a href="#aboutus">About us</a>
-            <a href="#addevents">Add Events</a>
-            <div class="menulogo"><center><img src="menulogo.png"></center></div>
-            <a href="#contact us">Contact us</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#login/reg">Log in/ Register</a>
+            <a href="./index.php">Home</a>
+            <a href="./aboutus.php">About us</a>
+            <a href="./User/bookEvent.php">Add Events</a>
+            <div class="menulogo"><center><img src="../Assets/partify.gif" height="100px" width="100px"></center></div>
+            <a href="./contactus.php">Contact us</a>
+            <a href="./gallery/gallery.html">Gallery</a>
+            <a href="./login.php">Log in/ Register</a>
         </div> 
     </div>
 
