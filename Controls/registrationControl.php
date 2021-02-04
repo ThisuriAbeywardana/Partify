@@ -55,6 +55,6 @@
         }else {
             $_SESSION['state']="Vendor not Registered";
         }
-           
+        //    gg
     }
 ?>
