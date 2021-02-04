@@ -42,13 +42,18 @@
         $vendorpsw=validate($_POST['vendorpsw']);
         $vendorpsw_repeat=validate($_POST['vendorpsw_repeat']);
 
-        $sql = "INSERT INTO vendor
-        VALUES (NULL , '$vendorusername' , '$vendoraddress' , '$vendoremail' , '$vendorcontactno')";
+
+        $sql = "INSERT INTO user
+        VALUES (NULL, '$vendorusername' , '$vendorpsw' , 'Vendor')";
+
+       
        
         mysqli_query($connection,$sql);
         $spId=mysqli_insert_id($connection);
-        $sql = "INSERT INTO user
-        VALUES ('spId', '$vendorusername' , '$vendorpsw' , 'Vendor')";
+
+        $sql = "INSERT INTO vendor
+        VALUES ('$spId' , '$vendorusername' , '$vendoraddress' , '$vendoremail' , '$vendorcontactno')";
+
         $res = mysqli_query($connection,$sql);
         if($res===TRUE){
             $_SESSION['state']="Vendor Registered Successfully";
