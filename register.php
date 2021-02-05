@@ -48,12 +48,13 @@
             <input type="text" placeholder="Enter your Address" name="useraddress" id="useraddress">
 
             <label for="userpsw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="userpsw" id="userpsw">
+            <input type="password" placeholder="Enter Password" name="userpsw" id="userpsw" onkeyup='checkPassword();'>
 
             <label for="userpsw_repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="userpsw_repeat" id="userpsw_repeat">
+            <input type="password" placeholder="Repeat Password" name="userpsw_repeat" id="userpsw_repeat" onkeyup='checkPassword();'>
+            <span id="passtext"></span>
             <hr>
-            <button type="submit" class="userRegisterBtn" name="userRegisterBtn">Register</button>
+            <button type="submit" class="userRegisterBtn" name="userRegisterBtn" id="userRegisterBtn">Register</button>
             </div>
             </form>
             
@@ -77,12 +78,12 @@
                 <input type="text" placeholder="Enter Contact Number" name="vendorcontactno" id="vendorcontactno">
 
                 <label for="vendorpsw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="vendorpsw" id="vendorpsw">
+                <input type="password" placeholder="Enter Password" name="vendorpsw" id="vendorpsw" onkeyup='checkPassword();'>
     
                 <label for="vendorpsw_repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat">
+                <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat" onkeyup='checkPassword();'>
                 <hr>
-                <button type="submit" class="vendorRegisterBtn" name="vendorRegisterBtn">Register</button>
+                <button type="submit" class="vendorRegisterBtn" name="vendorRegisterBtn" id="vendorRegisterBtn">Register</button>
                 </div>
                 </form>
             <!-- <button type="submit" class="registerbtn" name="registerbtn">Register</button> -->
