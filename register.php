@@ -15,8 +15,8 @@
                 <option value="">- Select Type -</option>
                 <option value="user" >User</option>
                 <option value="vendor">Service Provider</option>
-                
             </select>
+
             <form method="POST" action="./Controls/registrationControl.php">
             <div class = "user form" id ="user">
             <br><br>
@@ -78,10 +78,11 @@
                 <input type="text" placeholder="Enter Contact Number" name="vendorcontactno" id="vendorcontactno">
 
                 <label for="vendorpsw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="vendorpsw" id="vendorpsw" onkeyup='checkPassword();'>
+                <input type="password" placeholder="Enter Password" name="vendorpsw" id="vendorpsw" onkeyup='checkPassword2();'>
     
                 <label for="vendorpsw_repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat" onkeyup='checkPassword();'>
+                <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat" onkeyup='checkPassword2();'>
+                <span id="passtext2"></span>
                 <hr>
                 <button type="submit" class="vendorRegisterBtn" name="vendorRegisterBtn" id="vendorRegisterBtn">Register</button>
                 </div>
