@@ -21,16 +21,16 @@
             <div class = "user form" id ="user">
             <br><br>
             <label for="useremail"><b>Email Address</b></label><br>
-            <input type="useremail" placeholder="Enter Email" name="useremail" id="useremail"><br><br>
+            <input type="useremail" placeholder="Enter Email" name="useremail" id="useremail" required><br><br>
 
             <label for="firstname"><b>First Name</b></label>
-            <input type="text" placeholder="Enter First Name" name="firstname" id="firstname">
+            <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" required>
 
             <label for="lastname"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname">
+            <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" required>
 
             <label for="username"><b>User Name</b></label>
-            <input type="text" placeholder="Enter User Name" name="username" id="username">
+            <input type="text" placeholder="Enter User Name" name="username" id="username" required>
 
             <label for="male"><b>Gender</b></label><br>
             <input type="radio" id="male" name="gender" value="M">
@@ -42,16 +42,16 @@
             <input type="date" placeholder="Enter Date of Birth" name="dob" id="dob"><br><br>
 
             <label for="usercontactno"><b>Contact Number</b></label>
-            <input type="text" placeholder="Enter Contact Number" name="usercontactno" id="usercontactno">
+            <input type="text" placeholder="Enter Contact Number" name="usercontactno" id="usercontactno" required>
 
             <label for="useraddress"><b>Address</b></label>
             <input type="text" placeholder="Enter your Address" name="useraddress" id="useraddress">
 
             <label for="userpsw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="userpsw" id="userpsw" onkeyup='checkPassword();'>
+            <input type="password" placeholder="Enter Password" name="userpsw" id="userpsw" onkeyup='checkPassword();' required>
 
             <label for="userpsw_repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="userpsw_repeat" id="userpsw_repeat" onkeyup='checkPassword();'>
+            <input type="password" placeholder="Repeat Password" name="userpsw_repeat" id="userpsw_repeat" onkeyup='checkPassword();' required>
             <span id="passtext"></span>
             <hr>
             <button type="submit" class="userRegisterBtn" name="userRegisterBtn" id="userRegisterBtn">Register</button>
@@ -63,25 +63,25 @@
                 <br><br>
 
                 <label for="vendorusername"><b>User Name</b></label>
-                <input type="text" placeholder="Enter your User Name" name="vendorusername" id="vendorusername">
+                <input type="text" placeholder="Enter your User Name" name="vendorusername" id="vendorusername" required>
 
                 <label for="name"><b>Name of my Business</b></label>
-                <input type="text" placeholder="Enter your Business Name" name="businessname" id="name">
+                <input type="text" placeholder="Enter your Business Name" name="businessname" id="name" required>
 
                 <label for="vendoraddress"><b>Address</b></label>
-                <input type="text" placeholder="Enter your Address" name="vendoraddress" id="vendoraddress">
+                <input type="text" placeholder="Enter your Address" name="vendoraddress" id="vendoraddress" required>
 
                 <label for="vendoremail"><b>Email Address</b></label><br>
-                <input type="vendoremail" placeholder="Enter Email" name="vendoremail" id="vendoremail"><br><br>
+                <input type="vendoremail" placeholder="Enter Email" name="vendoremail" id="vendoremail" required><br><br>
 
                 <label for="vendorcontactno"><b>Contact Number of my Business</b></label>
-                <input type="text" placeholder="Enter Contact Number" name="vendorcontactno" id="vendorcontactno">
+                <input type="text" placeholder="Enter Contact Number" name="vendorcontactno" id="vendorcontactno" required>
 
                 <label for="vendorpsw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="vendorpsw" id="vendorpsw" onkeyup='checkPassword2();'>
+                <input type="password" placeholder="Enter Password" name="vendorpsw" id="vendorpsw" onkeyup='checkPassword2();' required>
     
                 <label for="vendorpsw_repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat" onkeyup='checkPassword2();'>
+                <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat" onkeyup='checkPassword2();' required>
                 <span id="passtext2"></span>
                 <hr>
                 <button type="submit" class="vendorRegisterBtn" name="vendorRegisterBtn" id="vendorRegisterBtn">Register</button>

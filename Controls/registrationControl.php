@@ -18,10 +18,10 @@
         $userpsw=validate($_POST['userpsw']);
         $userpsw_repeat=validate($_POST['userpsw_repeat']);
         
-        $hash = password_hash($userpsw, PASSWORD_BCRYPT);
+        $hash_u = password_hash($userpsw, PASSWORD_BCRYPT);
 
         $sql = "INSERT INTO user
-        VALUES (NULL , '$username' , '$hash' , 'User')";
+        VALUES (NULL , '$username' , '$hash_u' , 'User')";
         mysqli_query($connection,$sql);
         $userId=mysqli_insert_id($connection);
         $sql = "INSERT INTO userdetail VALUES ('$userId' , '$useremail' , '$firstname' , '$lastname' , '$gender' , '$dob' , '$usercontactno' , '$useraddress')";
