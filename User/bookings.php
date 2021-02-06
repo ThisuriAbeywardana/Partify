@@ -3,31 +3,12 @@
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
         header("Location: ../login.php");
     }  
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookings </title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../css/header2.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
-    <link rel="stylesheet" type="text/css" href="../css/footer.css">
-</head>
-<body>
-   
-<div class="container">
-    <?php 
-        include('./nav.php'); 
-    ?>
-    <div class="right">
-        <?php
-            include('../Includes/header2.php');
-            include('../Controls/general.php');  
+    include('../Includes/template.php');
+    include('../Controls/userControl.php');
+    include('../Controls/general.php'); 
 
-        ?>
+?>
+        
         <div class="midContent booking">
             
                 <div class="tabel" >

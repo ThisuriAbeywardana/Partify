@@ -274,6 +274,7 @@
                                     $currentLocationProvider = 'null';
                                     $currentLocation = 'null';
                                 }
+                            }
                         }   
                         
                     ?>
