@@ -9,7 +9,7 @@
 <div class="navBackground">
   <div class="Container">
         <?php
-            include('./includes/nav.php');
+            include('./includes/header.php');
         ?>
         <div class="caption">
 

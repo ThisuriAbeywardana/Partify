@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="../css/header.css">
 <div class="nav">
     <div claass="logoBackground">
         <div class="logo">
