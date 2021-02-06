@@ -18,9 +18,10 @@
         $userpsw=validate($_POST['userpsw']);
         $userpsw_repeat=validate($_POST['userpsw_repeat']);
         
+        $hash_u = password_hash($userpsw, PASSWORD_BCRYPT);
 
         $sql = "INSERT INTO user
-        VALUES (NULL , '$username' , '$userpsw' , 'User')";
+        VALUES (NULL , '$username' , '$hash_u' , 'User')";
         mysqli_query($connection,$sql);
         $userId=mysqli_insert_id($connection);
         $sql = "INSERT INTO userdetail VALUES ('$userId' , '$useremail' , '$firstname' , '$lastname' , '$gender' , '$dob' , '$usercontactno' , '$useraddress')";
@@ -43,17 +44,20 @@
         $vendorpsw=validate($_POST['vendorpsw']);
         $vendorpsw_repeat=validate($_POST['vendorpsw_repeat']);
 
+        $hash = password_hash($vendorpsw, PASSWORD_BCRYPT);
+
+
 
         $sql = "INSERT INTO user
-        VALUES (NULL, '$vendorusername' , '$vendorpsw' , 'Vendor')";
-
-       
+        VALUES (NULL, '$vendorusername' , '$hash' , 'Vendor')";
+        
+        
        
         mysqli_query($connection,$sql);
         $spId=mysqli_insert_id($connection);
 
         $sql = "INSERT INTO vendor
-        VALUES ('$spId' , '$vendorusername' , '$vendoraddress' , '$vendoremail' , '$vendorcontactno')";
+        VALUES ('$spId' , '$businessname' , '$vendoraddress' , '$vendoremail' , '$vendorcontactno')";
 
         $res = mysqli_query($connection,$sql);
         if($res===TRUE){
@@ -61,7 +65,10 @@
         }else {
             $_SESSION['state']="Vendor not Registered";
         }
+
+
         header("location: ../login.php");
         //    gg
+
     }
 ?>
