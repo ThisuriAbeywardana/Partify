@@ -25,14 +25,35 @@ button2.disabled = true;
 });
 
 function checkPassword(){
-  var pass1 =document.getElementById('vPsw').value;
-  var pass2 =document.getElementById('vPsw-repeat').value;
-  if(pass1 === pass2){
-    button1.disabled = false;
-    button2.disabled = false;
-  }else{
-    button1.disabled = true;
-    button2.disabled = true;
-  }
-}
+  var pass1 =document.getElementById('userpsw').value;
+  var pass2 =document.getElementById('userpsw_repeat').value;
 
+      if(pass1 == pass2){
+        button1.disabled = false;
+        button2.disabled = false;
+        document.getElementById('passtext').style.color = 'green';
+        document.getElementById('passtext').innerHTML = 'Password is Matching';
+      }else{
+        button1.disabled = true;
+        button2.disabled = true;
+        document.getElementById('passtext').style.color = 'red';
+        document.getElementById('passtext').innerHTML = 'Password is not Matching';
+      }
+  }
+
+  function checkPassword2(){
+    var pass3 =document.getElementById('vendorpsw').value;
+    var pass4 =document.getElementById('vendorpsw_repeat').value;
+
+    if(pass3 == pass4){
+      button1.disabled = false;
+      button2.disabled = false;
+      document.getElementById('passtext2').style.color = 'green';
+      document.getElementById('passtext2').innerHTML = 'Password is Matching';
+    }else{
+      button1.disabled = true;
+      button2.disabled = true;
+      document.getElementById('passtext2').style.color = 'red';
+      document.getElementById('passtext2').innerHTML = 'Password is not Matching';
+    }
+}
