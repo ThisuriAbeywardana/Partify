@@ -1,65 +1,25 @@
-<?php include('./Includes/header.php'); ?>
-
 <html>
 <head>
-    <title>Home</title>
+
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/header.css">
+
 </head>
 <body>
+<a name="top"></a>
+<div class="navBackground">
+  <div class="Container">
+        <?php
+            include('./includes/nav.php');
+        ?>
+        <div class="caption">
 
-<div class="bgclr" style="z-index: 2;">
-    <div class="textslidebg">
-        <div class="textslide">
-            Turning ideas</br> into action
-        </div> 
-    </div>   
-</br>
-    <div class="button">
-        <div ><a href="./User/bookEvent.php">ADD </br> EVENTS</a></div>
+            <h1>Turning ideas into action.</h1>
+            <button type="button">Add Events</button>
+        </div>
     </div>
 </div>
-    
-    <div class="main">   
 
-        <div class="slides"> 
-            <img src="./Assets/party1.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party2.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party4.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party5.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party6.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party7.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party8.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party9.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party10.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party11.jfif">
-        </div>
-        <div class="slides"> 
-            <img src="./Assets/party12.jfif">
-        </div>
-   
-    </div>
-
-
-    <div class="row home1">
+<div class="row home1">
 
         <div class="column pic">
           <img src="./Assets/home1.jfif" style="width:100%">
@@ -108,18 +68,18 @@
 
     <div class="services">
         <div class="serviceimg1">
-            <img src="./Assets/home8.jfif" width="100%"></br>
+            <img src="./Assets/home6.jfif" width="100%"></br>
         </div>
         <div class="servicedes">
             <div>
                 <center><h1>We can help you find.</h1></center>
-                </br></br>
+                </br></br></br></br>
                 <ul>
                     <li>Venues/Location</li>
                     <li>Caterers</li>
                     <li>Photographers</li>
                     <li>Videographers</li>
-                    <li>Decorations</li>
+                    
                 </ul>
             </div>
         </div>
@@ -128,30 +88,8 @@
         </div>
     </div>   
 
-
-
     <?php
         include('./includes/footer.php');
     ?>
-
-
-    <script>
-        var slideIndex = 0;
-        slider();
-        
-        function slider() {
-          var i;
-          var slides = document.getElementsByClassName("slides"); 
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-          }
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1}
-          slides[slideIndex-1].style.display = "block";
-          
-          setTimeout(slider, 2000);
-        }
-        
-    </script>
 </body>
 </html>
