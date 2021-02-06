@@ -46,7 +46,7 @@ hr {
     margin-bottom: 25px;
 }
 
-.registerbtn {
+.adminregisterbtn {
     background-color: #87857e;
     color: white;
     padding: 16px 20px;
@@ -57,7 +57,7 @@ hr {
     opacity: 0.9;
 }
 
-.registerbtn:hover {
+.adminregisterbtn:hover {
     opacity: 1;
 }
 

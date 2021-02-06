@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, "Arial Black", sans-serif;
-    /* background-color: black; */
+    font-family: "Abel" , sans-serif;
+    background-image: url("../Assets/imgbg.jpg");
 }
 
 * {
@@ -46,7 +46,7 @@ hr {
     margin-bottom: 25px;
 }
 
-.registerbtn {
+.userRegisterBtn {
     background-color: #87857e;
     color: white;
     padding: 16px 20px;
@@ -57,13 +57,13 @@ hr {
     opacity: 0.9;
 }
 
-.registerbtn:hover {
+.userRegisterBtn:hover {
     opacity: 1;
 }
-.registerbtn:enabled{
+.userRegisterBtn:enabled{
     background-color: green;
 }
-.registerbtn:disabled{
+.userRegisterBtn:disabled{
     background-color: grey;
 }
 
