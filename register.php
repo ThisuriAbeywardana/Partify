@@ -87,7 +87,7 @@
                 </form>
             <!-- <button type="submit" class="registerbtn" name="registerbtn">Register</button> -->
 
-            <p><i>Already have an account?</i> <a href="../login/login.html">Log in</a>.</p>
+            <p><i>Already have an account?</i> <a href="./login.php">Log in</a>.</p>
 
         </div>
 
