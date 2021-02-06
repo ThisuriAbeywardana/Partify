@@ -1,23 +1,18 @@
-<html>
-<head>
-<title>
-    Partify
-</title>
-
-<link rel="stylesheet" href="../css/index.css">
-
-</head>
-<body>
-    <div class="menubg">
-        <div class="menu">
-            <a href="./index.php">Home</a>
-            <a href="./aboutus.php">About us</a>
-            <a href="./User/bookEvent.php">Add Events</a>
-            <div class="menulogo"><center><img src="../Assets/partify.gif" height="100px" width="100px"></center></div>
-            <a href="./contactus.php">Contact us</a>
-            <a href="./gallery/gallery.html">Gallery</a>
-            <a href="./login.php">Log in/ Register</a>
-        </div> 
+<link rel="stylesheet" href="../css/header.css">
+<div class="nav">
+    <div claass="logoBackground">
+        <div class="logo">
+            LOGO
+        </div>
     </div>
-
-</body>
+    <div class="menu">
+        <ul class="navMenu">
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="../aboutus.php">About Us</a></li>
+            <li><a href="../User/bookEvent.php">Add Events</a></li>
+            <li><a href="../contactus.php">Contact Us</a></li>
+            <li><a href="../gallery.php">Gallery</a></li>
+            <li><a href="../login.php">Log in</a></li>
+        </ul>
+    </div>
+</div>
