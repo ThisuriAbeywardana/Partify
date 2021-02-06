@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet"  type="text/css" href="../css/nav.css">
-    <link rel="stylesheet"  type="text/css" href="../css/header2.css">
 
     <style>
         *{
@@ -26,7 +25,7 @@
             
         }
         .mainContent{
-            background-color: yellow;
+            background-color: #252954;
             overflow-y: auto;
             margin: 5px 15px;
             border-radius: 8px;
@@ -34,6 +33,24 @@
         }
         .header{
             padding: 3px 0px;
+        }
+        .head{
+            height: 7vh;
+            /* width: 100vw; */
+            background-color: #252954;
+            /* background-color: red; */
+            margin: 5px 15px;
+            border-radius: 8px;
+            color: rgb(225, 225, 226);
+        }
+        .head .username{
+            float: right;
+            padding: 0px 25px 0px 0px;
+            font-size: 20px; 
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .username p{
+            padding-top: 10px;
         }
         
         

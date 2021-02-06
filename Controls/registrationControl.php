@@ -33,6 +33,7 @@
         }else {
             $_SESSION['state']="User not Registered";
         }
+        header("location: ../login.php");
     }
     if(isset($_POST['vendorRegisterBtn'])){
         $vendorusername=validate($_POST['vendorusername']);
@@ -64,5 +65,10 @@
         }else {
             $_SESSION['state']="Vendor not Registered";
         }
+
+
+        header("location: ../login.php");
+        //    gg
+
     }
 ?>

@@ -85,4 +85,10 @@
         return $result; 
     }
 
+    function getAllMesseges(){
+        global $connection;
+        $sql = "SELECT * FROM contactus";
+        return mysqli_query($connection,$sql);
+    }
+
 ?>

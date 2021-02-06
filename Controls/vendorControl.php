@@ -1,9 +1,10 @@
 <?php
-include('validate.php');
-require_once('../Includes/db/dbConnection.php');
+require_once('./dbConnection.php');
+include('./validate.php');
 
-    $db = DBConnection::getInstance();
-    $connection = $db->getConnection();
+$db = DBConnection::getInstance();
+$connection = $db->getConnection();
+
 //A new Vendor adds services
 
 
@@ -13,7 +14,7 @@ $status=TRUE;
 
 if(isset($_POST['btnAddService'])){
 
-    $spId=2;//$_SESSION['userId']
+    $spId=16;//$_SESSION['userId'];
 
     //add catering options
     if(isset($_POST['needMeal'])){
@@ -26,7 +27,7 @@ if(isset($_POST['btnAddService'])){
         }
         else{
             $breakfast='N';
-            $breakfastPrice=NULL;
+            $breakfastPrice=0;
         }
 
         //add lunch
@@ -36,7 +37,7 @@ if(isset($_POST['btnAddService'])){
         }
         else{
             $lunch='N';
-            $lunchPrice=NULL;
+            $lunchPrice=0;
         }
 
         //add dinner
@@ -46,12 +47,12 @@ if(isset($_POST['btnAddService'])){
         }
         else{
             $dinner='N';
-            $dinnerPrice=NULL;
+            $dinnerPrice=0;
         }
 
         $meal = "INSERT INTO catering VALUES ('$spId','$breakfast','$lunch','$dinner','$breakfastPrice','$lunchPrice','$dinnerPrice')";
         $result = mysqli_query($connection,$meal);
-        if(!$result===TRUE){
+        if($result){
             $status=FALSE;
         }else{
             echo 'no';
@@ -67,20 +68,18 @@ if(isset($_POST['btnAddService'])){
 
         //add packages
         for ($i=0; $i < count($_POST['typeP']);  $i++) { 
-                $ptype=$_POST['typeP'][$i];
-                $pdesc=$_POST['descriptionP'][$i];
-                $pprice=$_POST['priceP'][$i];
-                echo 'type'.$ptype;
-                $photo = "INSERT INTO photography VALUES ('$spId','$ptype','$pprice','$pdesc')";
-                $result = mysqli_query($connection,$photo);
-                echo $result;
-                if($result){
-                    echo "added";
-                    $status=FALSE;
-                }else{
-                    echo 'no';
-                }
+            $ptype=$_POST['typeP'][$i];
+            $pdesc=$_POST['descriptionP'][$i];
+            $pprice=$_POST['priceP'][$i];
+
+            $photo = "INSERT INTO photography VALUES ('$spId','$ptype','$pprice','$pdesc')";
+            $result = mysqli_query($connection,$photo);
+            if($result){
+                $status=FALSE;
+            }else{
+                echo 'no';
             }
+        }
         
 
     }else{
@@ -119,11 +118,9 @@ if(isset($_POST['btnAddService'])){
             $ddesc=$_POST['descriptionD'][$i];
             $dprice=$_POST['priceD'][$i];
 
-            echo $dtype;
-
             $decor = "INSERT INTO decoration VALUES ('$spId','$dtype','$dprice','$ddesc')";
             $result = mysqli_query($connection,$decor);
-            if(!$result===TRUE){
+            if($result){
                 $status=FALSE;
             }else{
                 echo 'no';
@@ -142,7 +139,9 @@ if(isset($_POST['btnAddService'])){
             $pool='Y';
         }
         if(isset($_POST['airCondition'])){
-            $ac='Y';
+            $aircondition='Y';
+        }else{
+            $aircondition='N';
         }
         $location=validate($_POST['locationName']);
 
@@ -152,31 +151,30 @@ if(isset($_POST['btnAddService'])){
             $ldesc=$_POST['descriptionL'][$i];
             $lprice=$_POST['priceL'][$i];
 
-            $place = "INSERT INTO location VALUES ('$spId','$ltype','$lprice','$ldesc','$location','$ac','$pool')";
+            $place = "INSERT INTO location VALUES ('$spId','$ltype','$lprice','$ldesc','$location','$aircondition','$pool')";
             $result = mysqli_query($connection,$place);
-            if(!$result===TRUE){
+            if($result){
                 $status=FALSE;
             }else{
                 echo 'no';
             }
         }
 
-
     }else{
         $provideLocation='N';
     }
 
-    $sqlvendor= "INSERT INTO service VALUES ($spId,$provideMeal,$providePhotography,$provideVideography,$provideDecor,$provideLocation)";
-    $result = mysqli_query($connection,$sqlvendor);
-    if($result===TRUE){
-        $status=FALSE;
-    }else{
+        $sql= "INSERT INTO service VALUES ('$spId','$provideMeal','$providePhotography','$provideVideography','$provideDecor','$provideLocation')";
+        $result = mysqli_query($connection,$sql);
+        if($result){
+            $status=FALSE;
+        }else{
             echo 'no';
-    }
+        }
     
         
     if(!$status){
         mysqli_rollback($connection);
-        }
-    }    
+    }
+}    
 ?>

@@ -4,8 +4,10 @@
         header("Location: ../login.php");
     }  
     include('../Includes/template.php');
+    include('../Controls/userControl.php');
+
 ?>
-<link rel="stylesheet" type="text/css" href="./form.css">
+<link rel="stylesheet" type="text/css" href="../css/forms.css">
 <script src="../js/user.js" type="text/javascript"></script>
 <form action="../Controls/userControl.php" method="post" class="form bookEvent">
             <div class="section">
@@ -35,15 +37,32 @@
                     <span class="span">Meals</span>
             </div>
             <div class="section secMeal" id="secMeal">
+                    
                 <div class="label">Select Catering Service</div>
                 <select name="cateringService" id="cateringService" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
+                     
+                    <?php
+                        $res = getServicesProviders('meal');
+                        
+                        while($row = mysqli_fetch_assoc($res)){
+                          
+                           $sp = $row['name'];
+                           $spvId = $row['spId'];
+                           echo "<option value='$spvId' class='option'>$sp</option>";
+                        }
+                        
+                    ?>
+                    
+
+
                 </select>
                 <div class="label">Select Meal</div>
                 <select name="mealType" id="mealType" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
+                    <option value="breakfast" class="option">Breakfast</option> 
+                    <option value="lunch" class="option">Lunch</option> 
+                    <option value="dinner" class="option">Dinner</option> 
                 </select>
                 <div class="label">Number Of Plates</div>
                 <input type="number" name="noOfPlates" id="noOfPlates" min="250">
@@ -54,14 +73,34 @@
                 </div>
             <div class="section secPhotography" id="secPhotography">
                 <div class="label">Select Photographer</div>
-                <select name="photographer" id="photographer" class="select">
+                <select name="photographer" id="photographer" class="select" >
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
+
+                    <?php
+                        $res = getServicesProviders('photo');
+                        while($row = mysqli_fetch_assoc($res)){
+                           $sp = $row['name'];
+                           $spId = $row['spId'];
+                           echo "<option value='$spId' class='option'>$sp</option>";
+                        }
+                    ?>
+
+
+
                 </select>
                 <div class="label">Select Package</div>
                 <select name="photographyPackage" id="photographyPackage" class="select">
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
+                    <?php
+                        $res = getServicesProviders('photo');
+                        while($row = mysqli_fetch_assoc($res)){
+                           $sp = $row['albumType'];
+                           echo "<option value='.$sp.' class='option'>$sp</option>";
+                        }
+                    ?>  
+                    
                 </select>
             </div>
             <div class="checkbox">
@@ -73,29 +112,101 @@
                 <select name="videographer" id="videographer" class="select">
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
+
+                    <?php
+                        $res = getServicesProviders('video');
+                        
+                        while($row = mysqli_fetch_assoc($res)){
+                          
+                           $sp = $row['name'];
+                           $spId = $row['spId'];
+                           echo "<option value='$spId' class='option'>$sp</option>";
+                        }
+                        
+                    ?>
                 </select>
                 <div class="label">Select Package</div>
                 <select name="videographyPackage" id="videographyPackage" class="select">
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
+
+                    <?php
+                        $res = getServicesProviders('video');
+                        while($row = mysqli_fetch_assoc($res)){
+                           $sp = $row['type'];
+                           echo "<option value='.$sp.' class='option'>$sp</option>";
+                        }
+                    ?>  
                 </select>
             </div>
             <div class="checkbox">
                     <input type="checkbox" name="needDecoration" id="needDecoration" class="box" onchange="displaySection('secDecoration','needDecoration')">
                     <span class="span">Decorations</span>
-                </div>
+            </div>
             <div class="section secDecoration" id="secDecoration">
                 <div class="label">Select Decorator</div>
                 <select name="decorator" id="decorator" class="select">
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
+
+                    <?php
+                        $res = getServicesProviders('deco');
+                        while($row = mysqli_fetch_assoc($res)){
+                           $sp = $row['name'];
+                           $spvId = $row['spId'];
+                           echo "<option value='$spvId' class='option'>$sp</option>";
+                        }   
+                        
+                    ?>
                 </select>
                 <div class="label">Select Package</div>
-                <select name="decoratorPackage" id="decoratorPackage" class="select">
+                    <select name="decoratorPackage" id="decoratorPackage" class="select">
+                        <option value="" class="option">- none -</option>
+                        <!-- <option value="" class="option"></option> add items from php -->
+
+                        <?php
+                            $res = getServicesProviders('deco');
+                            while($row = mysqli_fetch_assoc($res)){
+                            $sp = $row['type'];
+                            echo "<option value='.$sp.' class='option'>$sp</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+            <div class="checkbox">
+                    <input type="checkbox" name="needLocation" id="needLocation" class="box" onchange="displaySection('secLocation','needLocation')">
+                    <span class="span">Location</span>
+            </div>
+            <div class="section secLocation" id="secLocation">
+                <div class="label">Select Location</div>
+                <select name="locationProvider" id="locationProvider" class="select">
                     <option value="" class="option">- none -</option>
                     <!-- <option value="" class="option"></option> add items from php -->
+
+                    <?php
+                        $res = getServicesProviders('location');
+                        while($row = mysqli_fetch_assoc($res)){
+                           $sp = $row['name'];
+                           $spvId = $row['spId'];
+                           echo "<option value='$spvId' class='option'>$sp</option>";
+                        }   
+                        
+                    ?>
                 </select>
-            </div>
+                <div class="label">Select Package</div>
+                    <select name="locationType" id="locationType" class="select" >
+                        <option value="" class="option">- none -</option>
+                        <!-- <option value="" class="option"></option> add items from php -->
+
+                        <?php
+                             $res = getServicesProviders('location');
+                            while($row = mysqli_fetch_assoc($res)){
+                            $sp = $row['type'];
+                            echo "<option value='$sp' class='option'>$sp</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
             <div class="btnSubmit">
                 <button type="submit" name="btnBookEvent">Book Event</button>
             </div>
