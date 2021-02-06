@@ -8,7 +8,7 @@
   .navBackground {
     width: auto;
     height: 100vh;
-    background-image: url("background.jpeg");
+    background-image: url("../Assets/background.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

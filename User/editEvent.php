@@ -13,12 +13,13 @@
 
 
 <link rel="stylesheet" type="text/css" href="../css/forms.css">
-<script src="../js/user.js" type="text/javascript"></script>
+<script src="../js//user.js" type="text/javascript"></script>
 <form action="../Controls/userControl.php" method="post" class="form bookEvent">
             <div class="section">
                 <?php
                     $event = getEvent($_POST['bId']);
                     // print_r($event);
+                    
                 ?>
                 <div class="title"><h2>Edit Event</h2></div>
                 <div class="label">Event Name</div>
@@ -104,23 +105,24 @@
 
                     <?php
                         $res = getServicesProviders('photo');
+                        // $currentPhotographer = 'null';
+                        // $currentPhotoPack = 'null';
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['name'];
                            $spId = $row['spId'];
-                           echo "<option value='$spId' class='option'>$sp</option>";
-                            
-                          
-
+                           
                            if($event['photography']=='y' || $event['photography']=='Y' ){ 
                             $resPhoto = getPhoto($_POST['bId']);
-                            if($resPhoto['spId']==$spvId){
-                                $currentPhotographer = $sp;
-                                $currentPhotoPack = $resPhoto['albumType'];
+                                if($resPhoto['spId']==$spvId){
+                                    // $currentPhotographer = $sp;
+                                    // $currentPhotoPack = $resPhoto['albumType'];
+                                    echo "<option value='$spId' class='option' ";
+                                    echo "selected='selected'";
+                                    echo ">$sp</option> ";
+                                }
                             }else{
-                                $currentPhotographer = 'null';
-                                $currentPhotoPack = 'null';
+                                echo "<option value='$spId' class='option'>$sp</option>";  
                             }
-                        }
                         }
                     ?>
 
@@ -137,13 +139,22 @@
                         $res = getServicesProviders('photo');
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['albumType'];
-                           echo "<option value='.$sp.' class='option'>$sp</option>";
-                          
+                           echo "<option value='$sp' class='option'>$sp</option>";
+                           if($resPhoto['spId']==$spvId){
+                                // $currentPhotographer = $sp;
+                                // $currentPhotoPack = $resPhoto['albumType'];
+                                echo "<option value='$spId' class='option' ";
+                                echo "selected='selected'";
+                                echo ">$sp</option> ";
+                        
+                            }else{
+                                echo "<option value='$spId' class='option'>$sp</option>";  
+                            }
                         }
                     ?>  
                     
                 </select>
-                <span id="currentPhotographer">Current Photography Packge : <?php echo $currentPhotoPack ?></span>
+                <!-- <span id="currentPhotographer">Current Photography Packge : <?php echo $currentPhotoPack ?></span> -->
             </div>
             <div class="checkbox">
                     <input type="checkbox" name="needVideography" id="needVideography" class="box" onchange="displaySection('secVideography','needVideography')" <?php if ($event['videography'] == "Y" || $event['videography'] == "y") echo "checked";?>>
@@ -157,7 +168,8 @@
 
                     <?php
                         $res = getServicesProviders('video');
-                        
+                        $currentVideographer = 'null';
+                        $currentVideoPack = 'null';
                         while($row = mysqli_fetch_assoc($res)){
                           
                            $sp = $row['name'];
@@ -168,13 +180,7 @@
                                 if($res['spId']==$spvId){
                                     $currentVideographer = $sp;
                                     $currentVideoPack = $res['albumType'];
-                                }else{
-                                    $currentVideographer = 'null';
-                                    $currentVideoPack = 'null';
                                 }
-                            }else{
-                                $currentVideographer = 'null';
-                                $currentVideoPack = 'null';
                             }
                         }
                         
@@ -191,13 +197,14 @@
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['type'];
                            echo "<option value='$sp' class='option'>$sp</option>";
+                        }
                            
                     ?>  
                 </select>
                 <span id="currentVideoPack">Current Photography Packge : <?php echo $currentVideoPack ?></span>
             </div>
             <div class="checkbox">
-                    <input type="checkbox" name="needDecoration" id="needDecoration" class="box" onchange="displaySection('secDecoration','needDecoration')" <?php if ($event['decoration'] == "Y" || $event['decoration'] == "y") echo "checked";?>>
+                    <input type="checkbox" name="needDecoration" id="needDecoration" class="box" onchange="displaySection('secDecoration','needDecoration')" <?php if ($event['decoration'] == "Y" || $event['decoration'] == "y") {echo "checked";}?>>
                     <span class="span">Decorations</span>
                 </div>
             <div class="section secDecoration" id="secDecoration">
@@ -208,6 +215,8 @@
 
                     <?php
                         $res = getServicesProviders('deco');
+                        $currentDeco = 'null';
+                        $currentDecoPack = 'null';
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['name'];
                            $spvId = $row['spId'];
@@ -217,13 +226,7 @@
                                 if($res['spId']==$spvId){
                                     $currentDeco = $sp;
                                     $currentDecoPack = $res['albumType'];
-                                }else{
-                                    $currentDeco = 'null';
-                                    $currentDecoPack = 'null';
                                 }
-                            }else{
-                                $currentDeco = 'null';
-                                $currentDecoPack = 'null';
                             }
                         }   
                         
@@ -270,12 +273,12 @@
                                         $currentLocationProvider = 'null';
                                         $currentLocation = 'null';
                                     }
-                                }else{
-                                    $currentLocationProvider = 'null';
-                                    $currentLocation = 'null';
-                                }
+                            }else{
+                                $currentLocationProvider = 'null';
+                                $currentLocation = 'null';
                             }
-                        }   
+                        }
+                       
                         
                     ?>
                 </select>

@@ -2,6 +2,7 @@
 <head>
 
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
 
 </head>
 <body>
@@ -9,12 +10,12 @@
 <div class="navBackground">
   <div class="Container">
         <?php
-            include('./includes/header.php');
+            include('./Includes/header.php');
         ?>
         <div class="caption">
 
             <h1>Turning ideas into action.</h1>
-            <button type="button">Add Events</button>
+            <button type="button">Book Event</button>
         </div>
     </div>
 </div>

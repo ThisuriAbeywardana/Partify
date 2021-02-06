@@ -6,12 +6,14 @@ window.addEventListener('load', (event) => {
     var meal = document.getElementById("needMeal").checked;
     var needPhotography = document.getElementById("needPhotography").checked;
     var needVideography = document.getElementById("needVideography").checked;
+    // console.log(document.getElementById("needDecoration"));;
     var needDecoration = document.getElementById("needDecoration").checked;
     var needLocation = document.getElementById("needLocation").checked;
     if(meal){
        document.getElementById('secMeal').style.display='block'; 
     }
     if(needPhotography){
+        console.log('photo');
         document.getElementById('secPhotography').style.display='block'; 
     }
     if(needVideography){
