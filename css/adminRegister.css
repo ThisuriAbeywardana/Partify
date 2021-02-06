@@ -1,6 +1,6 @@
 body {
     font-family: Arial, "Arial Black", sans-serif;
-    /* background-color: black; */
+    background-color: black;
 }
 
 * {
@@ -46,7 +46,7 @@ hr {
     margin-bottom: 25px;
 }
 
-.adminregisterbtn {
+.registerbtn {
     background-color: #87857e;
     color: white;
     padding: 16px 20px;
@@ -57,7 +57,7 @@ hr {
     opacity: 0.9;
 }
 
-.adminregisterbtn:hover {
+.registerbtn:hover {
     opacity: 1;
 }
 
