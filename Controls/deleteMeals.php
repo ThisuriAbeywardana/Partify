@@ -1,22 +1,20 @@
-<!-- <?php
-    // session_start();
-    // if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
-    //     header("Location: ../login.php");
-    // }
-    // include('../Includes/header.php');
-    // include('../Controls/userControl.php');
-    // header("Location: ./viewServices.php");
-    ?> -->
 <?php
-require_once('../includes/dbConnection.php');
-include('../Controls/validate.php');
+    session_start();
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
+        header("Location: ../login.php");
+    }
+    include('../includes/header.php');
+    ?>
+<?php
+require_once('../includes/db/dbConnection.php');
+include('./validate.php');
 
 $db = DBConnection::getInstance();
 $connection = $db->getConnection();
 
 //vendor deletes serivess
 
-$user=$_SESSION['userId'];
+$user=15;//$_SESSION['userId'];
 
 // mysqli_autocommit($connection,FALSE);
 // mysqli_commit($connection);
@@ -24,7 +22,7 @@ $status=TRUE;
 
 if(isset($_POST['delete_btn'])){
 
-    $spId=16;//$_SESSION['userId'];
+    $spId=$_SESSION['userId'];
 
     $table=$_POST['delete_tab'];
     $meal=$_POST['delete_meal'];
@@ -100,5 +98,6 @@ if(isset($_POST['delete_btn'])){
     if(!$status){
         mysqli_rollback($connection);
     }
-}    
+}
+header("Location: ../Vendor/viewServices.php");    
 ?>

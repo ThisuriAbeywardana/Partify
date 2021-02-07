@@ -1,14 +1,12 @@
-<!-- <?php
-    // session_start();
-    // if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
-    //     header("Location: ../login.php");
-    // }
-    // include('../Includes/header.php');
-    // include('../Controls/userControl.php');
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
+        header("Location: ../login.php");
+    }
+    include('../Includes/header.php');
     
-    ?> -->
-    <?php
-        require_once('../includes/dbConnection.php');
+    
+        require_once('../includes/db/dbConnection.php');
         $db = DBConnection::getInstance();
         $connection = $db->getConnection();
     ?>
@@ -16,13 +14,13 @@
         <?php 
         // include('../Includes/navbar.php'); 
         ?>
-        
+<link rel="stylesheet" href="../css/view.css">
 <div class="title">
-            VIEW services
+            <div class="title">VIEW services</div>
         </div>
         <div>
             <?php
-            $user=$_SESSION['userId'];
+            $user=15;//$_SESSION['userId'];
                 $query= 'SELECT * FROM service WHERE spId='.$user;
                 $query_run=mysqli_query($connection,$query);
 
@@ -165,9 +163,11 @@
                     }
                 }
             ?>
-            <form action="../editServices.php" method="post">
-                    <button type="submit" name="editbtn" class="btn"> EDIT SERVICES</button>
-            </form>
+            <div class="form">
+                <form action="../editServices.php" method="post">
+                    <button class="submit" type="submit" name="editbtn" class="btn"> EDIT SERVICES</button>
+                </form>
+            </div>
     
             
         
