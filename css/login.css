@@ -1,8 +1,9 @@
 body {
     font-family: "Abel" , sans-serif;
-    background-image: url("../Assets/11099.jpg");
+    background-image: url("../Assets/login.cms");
     background-repeat: no-repeat;
     background-size: 100%;
+    
 }
     * {
       margin: 0;
@@ -58,6 +59,7 @@ body {
     .title {
       font-size: 2.2rem;
       color: #444;
+      color: whitesmoke;
       margin-bottom: 10px;
     }
     
@@ -137,4 +139,32 @@ body {
         font-weight: 600;
         margin: 10px 0;
         cursor: pointer;
+      }
+      .button-wrap{
+        display: grid;
+        grid-template-columns: 50% 50%;
+      }
+     
+
+      .input-field img{
+
+        height: 30px;
+        width: 30px;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      #btnRegister{
+        padding-top: 17px;
+        margin-left: 15px;
+        text-align: center;
+        background-color: green;
+      }
+      #btnLogin{
+        margin-right: 15px;
+      }
+      .btn-wrapper a{
+        color: #fff;  
+        text-decoration: none;
+        margin-top: 10px;
+        font-size: 0.8rem;
       }
