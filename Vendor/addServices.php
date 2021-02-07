@@ -24,7 +24,7 @@
     <body>
         <div>This is the header</div>
         <div class="container">
-            <form action="../Controls/vendorControl.php" method="post" class="form">
+            <form action="../Controls/vendorEdit.php" method="post" class="form">
             
             <div class="section">
                 <div class="title">Select the services you wish to provide</div>

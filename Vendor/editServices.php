@@ -12,7 +12,7 @@
     <body>
         <div>This is the header</div>
         <div class="container">
-            <form action="./Controls/vendorEdit.php" method="post" class="form">
+            <form action="../Controls/vendorEdit.php" method="post" class="form">
             <div class="section">
                 <div class="title">Edit Services</div>
             </div>
@@ -53,8 +53,9 @@
             <input type="number" name="pricePhoto" id="pricePhoto" placeholder="price">
             <input type="text" name="descriptionPhoto" id="descriptionPhoto" placeholder="description">
             <input type="hidden" name="pid" id="pid">
+            <input type="hidden" name="alreadyExists" id="alreadyExists">
             <button onclick="addPhoto()" type="button" name="update">Add package</button></br>
-            <button onclick="updatePhoto()" type="button" name="update">Update package</button></br>
+            <!-- <button onclick="updatePhoto()" type="button" name="update">Update package</button></br> -->
             
             <table id="tablePhoto">
                 <tr>
