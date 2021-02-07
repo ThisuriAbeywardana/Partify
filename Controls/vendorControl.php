@@ -1,5 +1,5 @@
 <?php
-require_once('./dbConnection.php');
+require_once('../Includes/db/dbConnection.php');
 include('./validate.php');
 
 $db = DBConnection::getInstance();
