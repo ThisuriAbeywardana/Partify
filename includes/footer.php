@@ -1,5 +1,5 @@
 
-        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="./css/footer.css">
 
 <div class="footer">
     <div class="menufoot" >
