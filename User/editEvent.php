@@ -17,10 +17,11 @@
 <form action="../Controls/userControl.php" method="post" class="form bookEvent">
             <div class="section">
                 <?php
+                    $bookingId = $_POST['bId'];
                     $event = getEvent($_POST['bId']);
-                    // print_r($event);
-                    
+                    echo "<input type='hidden' name='bookingId' value='$bookingId'>";
                 ?>
+                
                 <div class="title"><h2>Edit Event</h2></div>
                 <div class="label">Event Name</div>
                 <input type="text" name="eventName" id="eventName" class="input" value="<?php echo $event['eventName'] ?>" required>
@@ -78,7 +79,6 @@
     
                 </select>
                 
-                <span id="cateringMeal">Current Catering Service : <?php echo $currentProvider ?></span>
                 <!-- <?php print_r($resMeal); ?>  -->
 
                 
@@ -89,7 +89,6 @@
                     <option value="lunch" class="option">Lunch</option> 
                     <option value="dinner" class="option">Dinner</option> 
                 </select>
-                <span id="cateringServiceId">Current Meal : <?php echo $currentMeal ?></span>
                 <div class="label">Number Of Plates</div>
                 <input type="number" name="noOfPlates" id="noOfPlates" min="250" value="<?php echo $resMeal['noOfPlates'];?>">
             </div>
@@ -101,21 +100,16 @@
                 <div class="label">Select Photographer</div>
                 <select name="photographer" id="photographer" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
 
                     <?php
                         $res = getServicesProviders('photo');
-                        // $currentPhotographer = 'null';
-                        // $currentPhotoPack = 'null';
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['name'];
                            $spId = $row['spId'];
                            
                            if($event['photography']=='y' || $event['photography']=='Y' ){ 
-                            $resPhoto = getPhoto($_POST['bId']);
+                                $resPhoto = getPhoto($_POST['bId']);
                                 if($resPhoto['spId']==$spvId){
-                                    // $currentPhotographer = $sp;
-                                    // $currentPhotoPack = $resPhoto['albumType'];
                                     echo "<option value='$spId' class='option' ";
                                     echo "selected='selected'";
                                     echo ">$sp</option> ";
@@ -129,20 +123,15 @@
 
 
                 </select>
-                <span id="currentPhotographer">Current Photographer : <?php echo $currentPhotographer ?></span>
 
                 <div class="label">Select Package</div>
                 <select name="photographyPackage" id="photographyPackage" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
                     <?php
                         $res = getServicesProviders('photo');
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['albumType'];
-                           echo "<option value='$sp' class='option'>$sp</option>";
                            if($resPhoto['spId']==$spvId){
-                                // $currentPhotographer = $sp;
-                                // $currentPhotoPack = $resPhoto['albumType'];
                                 echo "<option value='$spId' class='option' ";
                                 echo "selected='selected'";
                                 echo ">$sp</option> ";
@@ -154,7 +143,6 @@
                     ?>  
                     
                 </select>
-                <!-- <span id="currentPhotographer">Current Photography Packge : <?php echo $currentPhotoPack ?></span> -->
             </div>
             <div class="checkbox">
                     <input type="checkbox" name="needVideography" id="needVideography" class="box" onchange="displaySection('secVideography','needVideography')" <?php if ($event['videography'] == "Y" || $event['videography'] == "y") echo "checked";?>>
@@ -164,7 +152,6 @@
                 <div class="label">Select Videographer</div>
                 <select name="videographer" id="videographer" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
 
                     <?php
                         $res = getServicesProviders('video');
@@ -178,30 +165,38 @@
                            if($event['videography']=='y' || $event['videography']=='Y' ){ 
                                 $res = getVideo($_POST['bId']);
                                 if($res['spId']==$spvId){
-                                    $currentVideographer = $sp;
-                                    $currentVideoPack = $res['albumType'];
+                                    echo "<option value='$spId' class='option' ";
+                                    echo "selected='selected'";
+                                    echo ">$sp</option> ";
                                 }
+                            }else{
+                                echo "<option value='$spId' class='option'>$sp</option>";  
                             }
+                            
                         }
                         
                     ?>
                 </select>
-                <span id="currentVideographer">Current Video : <?php echo $currentVideographer; ?></span>
                 <div class="label">Select Package</div>
                 <select name="videographyPackage" id="videographyPackage" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
 
                     <?php
                         $res = getServicesProviders('video');
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['type'];
-                           echo "<option value='$sp' class='option'>$sp</option>";
+                           if($resPhoto['spId']==$spvId){
+                            echo "<option value='$spId' class='option' ";
+                            echo "selected='selected'";
+                            echo ">$sp</option> ";
+                    
+                        }else{
+                            echo "<option value='$spId' class='option'>$sp</option>";  
+                        }
                         }
                            
                     ?>  
                 </select>
-                <span id="currentVideoPack">Current Photography Packge : <?php echo $currentVideoPack ?></span>
             </div>
             <div class="checkbox">
                     <input type="checkbox" name="needDecoration" id="needDecoration" class="box" onchange="displaySection('secDecoration','needDecoration')" <?php if ($event['decoration'] == "Y" || $event['decoration'] == "y") {echo "checked";}?>>
@@ -211,42 +206,45 @@
                 <div class="label">Select Decorator</div>
                 <select name="decorator" id="decorator" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
 
                     <?php
                         $res = getServicesProviders('deco');
-                        $currentDeco = 'null';
-                        $currentDecoPack = 'null';
                         while($row = mysqli_fetch_assoc($res)){
                            $sp = $row['name'];
                            $spvId = $row['spId'];
-                           echo "<option value='$spvId' class='option'>$sp</option>";
                            if($event['decoration']=='y' || $event['decoration']=='Y' ){ 
                             $res = getDeco($_POST['bId']);
                                 if($res['spId']==$spvId){
-                                    $currentDeco = $sp;
-                                    $currentDecoPack = $res['albumType'];
+                                    echo "<option value='$spId' class='option' ";
+                                    echo "selected='selected'";
+                                    echo ">$sp</option> ";
+                            
+                                }else{
+                                    echo "<option value='$spId' class='option'>$sp</option>";  
                                 }
                             }
                         }   
                         
                     ?>
                 </select>
-                <span id="currentDeco">Current Decorator : <?php echo $currentDeco ?></span>
                 <div class="label">Select Package</div>
                 <select name="decoratorPackage" id="decoratorPackage" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
 
                     <?php
                         $res = getServicesProviders('deco');
                         while($row = mysqli_fetch_assoc($res)){
-                           $sp = $row['type'];
-                           echo "<option value='.$sp.' class='option'>$sp</option>";
+                            if($res['spId']==$spvId){
+                                echo "<option value='$spId' class='option' ";
+                                echo "selected='selected'";
+                                echo ">$sp</option> ";
+                        
+                            }else{
+                                echo "<option value='$spId' class='option'>$sp</option>";  
+                            }
                         }
                     ?>
                 </select>
-                <span id="currentDecoPack">Current Decorator Package : <?php echo $currentDecoPack ?></span>    
             </div>
             <div class="checkbox">
                     <input type="checkbox" name="needLocation" id="needLocation" class="box" onchange="displaySection('secLocation','needLocation')" <?php if ($event['location'] == "Y" || $event['location'] == "y") echo "checked";?>>
@@ -256,7 +254,6 @@
                 <div class="label">Select Location</div>
                 <select name="locationProvider" id="locationProvider" class="select">
                     <option value="" class="option">- none -</option>
-                    <!-- <option value="" class="option"></option> add items from php -->
 
                     <?php
                         $res = getServicesProviders('location');
@@ -285,20 +282,26 @@
                 <div class="label">Select Package</div>
                     <select name="locationType" id="locationType" class="select" >
                         <option value="" class="option">- none -</option>
-                        <!-- <option value="" class="option"></option> add items from php -->
 
                         <?php
                              $res = getServicesProviders('location');
                             while($row = mysqli_fetch_assoc($res)){
                             $sp = $row['type'];
-                            echo "<option value='$sp' class='option'>$sp</option>";
+                                if($resPhoto['spId']==$spvId){
+                                    echo "<option value='$spId' class='option' ";
+                                    echo "selected='selected'";
+                                    echo ">$sp</option> ";
+                            
+                                }else{
+                                    echo "<option value='$spId' class='option'>$sp</option>";  
+                                }
                             }
                             ?>
               
                     </select>
                 </div>
             <div class="btnSubmit">
-                <button type="submit" name="btnBookEvent">Update Event</button>
+                <button type="submit" name="btnEditEvent">Update Event</button>
             </div>
         </form>
 

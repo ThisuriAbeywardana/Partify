@@ -11,11 +11,15 @@
 
     //Book New event
     
-    if(isset($_POST['btnBookEvent'])){
-        echo 'clcked';  
+    if(isset($_POST['btnBookEvent']) || isset($_POST['btnEditEvent'])){
+        $alreadyBooked = isset($_POST['bookingId']); 
+        if($alreadyBooked){
+            $bookId = $_POST['bookingId'];
+            echo 'Booking Id : '.$bookId;
+            echo '<br>';
+        }
         $eventName=validate($_POST['eventName']);
         $eventType=validate($_POST['eventType']);
-        $eventLocation=validate($_POST['eventLocation']);
         $eventDate=validate($_POST['eventDate']);
         $startTime=validate($_POST['startTime']);
         $endTime=validate($_POST['endTime']);
@@ -27,14 +31,13 @@
             $cateringService=validate($_POST['cateringService']);
             $mealType=validate($_POST['mealType']);
             $noOfPlates=validate($_POST['noOfPlates']);
+            $meal='Y';
             // $platePrice=validate($_POST['platePrice']);
             // $total=$platePrice*$noOfPlates;
-            $meal='Y';
-            
-
         }else{
             echo 'Meals No';
             $meal='N';
+            
         }
         
         if(isset($_POST['needPhotography'])){
@@ -62,35 +65,70 @@
             $decoration = 'N';
         }
         if(isset($_POST['needLocation'])){
-            $location=validate($_POST['locationProvider']);
+            $locationProvider=validate($_POST['locationProvider']);
             $locationType=validate($_POST['locationType']);
             $location = 'Y';
-        }else{
+        }else{  
             $location = 'N';
         }
          
-        $sqlBooking = "INSERT INTO booking VALUES (NULL,'$userId','$eventName','$eventType','$eventDate','$startTime','$endTime','$meal','$photography','$videography','$decoration','$location','PENDING')";
+        if($alreadyBooked){
+            $sqlBooking = "UPDATE booking SET eventName='$eventName',type='$eventType',date='$eventDate',startTime='$startTime',endTime='$endTime',meal='$meal',photography='$photography',videography='$videography',decoration='$decoration',location='$location' WHERE bookingId='$bookId'";
+            echo $sqlBooking;
+            echo '<br>';
+
+        }else{
+            $sqlBooking = "INSERT INTO booking VALUES (NULL,'$userId','$eventName','$eventType','$eventDate','$startTime','$endTime','$meal','$photography','$videography','$decoration','$location','PENDING')";
+            echo $sqlBooking;
+            echo '<br>';
+        }
+        $result = mysqli_query($connection,$sqlBooking);
         // echo $sqlBooking;
         $status=TRUE;
-        $result = mysqli_query($connection,$sqlBooking);
+        
         // echo 'Result : '.$result;
         if($result){
-            $bookingID=mysqli_insert_id($connection);
+            if(!$alreadyBooked){
+                $bookingID=mysqli_insert_id($connection);
+            }
+            
             if($meal=='Y'){
-                $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$mealType','$noOfPlates')";
-                // echo 'meal type :'.$mealType;
+                if($alreadyBooked){
+                    $query = "SELECT COUNT(*) FROM cateringbooking WHERE bookingId='$bookId'";
+                    
+                    $execResult = mysqli_query($connection,$query);
+                    if($execResult){
+                        $sqlMeal = "UPDATE cateringbooking SET spId='$cateringService',mealName='$mealType',noOfPlates='$noOfPlates' WHERE bookingId='$bookId'";
+                    }else{
+                        $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$mealType','$noOfPlates')";
+                    }
+                }else{
+                    $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$mealType','$noOfPlates')";
+                   
+                }
                 $result = mysqli_query($connection,$sqlMeal);
                 print_r($result);
+            
                 if(!$result){
                     $status=FALSE;
                 }
             }else {
-                echo 'no meal';
+                if($alreadyBooked){
+
+                }
             }
             if($photography=='Y'){
-                echo "yes inside";
-                $sqlPhoto = "INSERT INTO photographybooking VALUES ('$bookingID','$photographer','$photographyPackage')";
-                echo $sqlPhoto;
+                if($alreadyBooked){
+                    $query = "SELECT COUNT(*) FROM photographybooking WHERE bookingId='$bookId'";
+                    if(mysqli_query($connection,$query)){
+                        $sqlPhoto = "UPDATE photographybooking SET spId='$photographer',albumType='$photographyPackage' WHERE bookingId='$bookId'";
+                    }else{
+                        $sqlPhoto = "INSERT INTO photographybooking VALUES ('$bookingID','$photographer','$photographyPackage')";
+                    }
+                }else{
+                    $sqlPhoto = "INSERT INTO photographybooking VALUES ('$bookingID','$photographer','$photographyPackage')";
+                   
+                }
                 $result = mysqli_query($connection,$sqlPhoto);
                 
                 if(!$result){
@@ -98,24 +136,59 @@
                 }
             }
             if($videography=='Y'){
-                $sqlVideo = "INSERT INTO videographybooking VALUES ('$bookingID','$videographer','$videographyPackage')";
+                if($alreadyBooked){
+                    $query = "SELECT COUNT(*) FROM photographybooking WHERE bookingId='$bookId'";
+                    if(mysqli_query($connection,$query)){
+                        $sqlVideo = "UPDATE videographybooking SET spId='$videographer',albumType='$videographyPackage' WHERE bookingId='$bookId'";
+                    }else{
+                        $sqlVideo = "INSERT INTO videographybooking VALUES ('$bookingID','$videographer','$videographyPackage')";
+                    }
+                }else{
+                    $sqlVideo = "INSERT INTO videographybooking VALUES ('$bookingID','$videographer','$videographyPackage')";
+                   
+                }
                 $result = mysqli_query($connection,$sqlVideo);
-                echo '<br />';
-                echo 'res : '.$result;
-                echo '<br />';
                 if(!$result){
                     $status=FALSE;
                 }
             }
             if($decoration=='Y'){
-                $sqlDecoration = "INSERT INTO decorationbooking VALUES ('$bookingID','$decoration','$decoratorPackage')";
+                if($alreadyBooked){
+                    $query = "SELECT COUNT(*) FROM decorationbooking WHERE bookingId='$bookId'";
+                    if(mysqli_query($connection,$query)){
+                        $sqlDecoration = "UPDATE decorationbooking SET spId='$decorator',decorationType ='$decoratorPackage' WHERE bookingId='$bookId'";
+                    }else{
+                        $sqlDecoration = "INSERT INTO decorationbooking VALUES ('$bookingID','$decoration','$decoratorPackage')";
+                    }
+                }else{
+                    $sqlDecoration = "INSERT INTO decorationbooking VALUES ('$bookingID','$decoration','$decoratorPackage')";
+                   
+                }
                 $result = mysqli_query($connection,$sqlDecoration);
                 if(!$result){
                     $status=FALSE;
                 }
+
+
             }
             if($location=='Y'){
-                $sqlLocation = "INSERT INTO locationbooking VALUES ('$bookingID','$location','$locationType')";
+                
+                $result = mysqli_query($connection,$sqlLocation);
+                if(!$result){
+                    $status=FALSE;
+                }
+
+                if($alreadyBooked){
+                    $query = "SELECT COUNT(*) FROM locationbooking WHERE bookingId='$bookId'";
+                    if(mysqli_query($connection,$query)){
+                        $sqlLocation = "UPDATE locationbooking SET spId='$locationProvider',locationType ='$locationType' WHERE bookingId='$bookId'";
+                    }else{
+                        $sqlLocation = "INSERT INTO locationbooking VALUES ('$bookingID','$locationProvider','$locationType')";
+                    }
+                }else{
+                    $sqlLocation = "INSERT INTO locationbooking VALUES ('$bookingID','$locationProvider','$locationType')";
+                   
+                }
                 $result = mysqli_query($connection,$sqlLocation);
                 if(!$result){
                     $status=FALSE;
@@ -125,7 +198,7 @@
             if($status){
             }
         }else{
-            echo 'no';
+            echo 'no outer';
         }
         if(!$status){
 

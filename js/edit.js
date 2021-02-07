@@ -9,6 +9,28 @@ function displaySection(sectionId,checkbox){
 
 }
 
+// function updatePhoto(){
+
+//     var table = document.getElementById("tablePhoto");
+//     var packageName  = document.getElementById("packagePhoto").value;  
+//     var price  = document.getElementById("pricePhoto").value; 
+//     var description  = document.getElementById("descriptionPhoto").value; 
+//     var pid  = document.getElementById("pid").value;
+
+//     var row=`<tr>
+//     <td><input type="hidden" name="typeP[]" value="${packageName}">${packageName}</td>
+//     <td><input type="hidden" name="priceP[]" value="${price}">${price}</td>
+//     <td><input type="hidden" name="descriptionP[]" value="${description}">${description}</td>
+//     <td><input type="hidden" name="idP[]" value="${pid}"></td>
+//     </tr>`;
+//     table.innerHTML+=row;
+//     document.getElementById("packagePhoto").value = '';
+//     document.getElementById("pricePhoto").value ='';
+//     document.getElementById("descriptionPhoto").value = ''; 
+
+    
+// }
+var alreadyExists = false;
 function addPhoto(){
 
     var table = document.getElementById("tablePhoto");
@@ -16,94 +38,56 @@ function addPhoto(){
     var price  = document.getElementById("pricePhoto").value; 
     var description  = document.getElementById("descriptionPhoto").value; 
 
-    var row=`<tr>
-    <td><input type="hidden" name="typeP[]" value="${packageName}">${packageName}</td>
-    <td><input type="hidden" name="priceP[]" value="${price}">${price}</td>
-    <td><input type="hidden" name="descriptionP[]" value="${description}">${description}</td>
-    </tr>`;
-    table.innerHTML+=row;
-    document.getElementById("packagePhoto").value = '';
-    document.getElementById("pricePhoto").value ='';
-    document.getElementById("descriptionPhoto").value = ''; 
+    if(packageName =='' || price == '' || description == '' ){
+        alert('Insert valid Values');
+    }else{
+        if(alreadyExists){
+            var currentId = document.getElementById('pid').value;  
+        }else{
+            var currentId = 0;
+        }
+        var row=`<tr>
+        <td><input type="hidden" name="typeP[]" value="${packageName}">${packageName}</td>
+        <td><input type="hidden" name="priceP[]" value="${price}">${price}</td>
+        <td><input type="hidden" name="descriptionP[]" value="${description}">${description}</td>
+        <td><input type="hidden" name="idP[]" value="${currentId}"></td></tr>`;
+        table.innerHTML+=row;
+        document.getElementById("packagePhoto").value = '';
+        document.getElementById("pricePhoto").value ='';
+        document.getElementById("descriptionPhoto").value = '';
+        alreadyExists = false;
+        console.log(alreadyExists);
+    }
+     
 
     
 }
       
-function addVideo(){
 
-    var table = document.getElementById("tableVideo");
-    var packageName  = document.getElementById("packageVideo").value;  
-    var price  = document.getElementById("priceVideo").value; 
-    var description  = document.getElementById("descriptionVideo").value; 
 
-    var row=`<tr>
-    <td><input type="hidden" name="typeV[]" value="${packageName}">${packageName}</td>
-    <td><input type="hidden" name="priceV[]" value="${price}">${price}</td>
-    <td><input type="hidden" name="descriptionV[]" value="${description}">${description}</td>
-    </tr>`;
-    table.innerHTML+=row;
-    document.getElementById("packageVideo").value = '';
-    document.getElementById("priceVideo").value ='';
-    document.getElementById("descriptionVideo").value = ''; 
 
-    
+if (window.addEventListener) {
+    window.addEventListener('load', run, false);
+} else if (window.attachEvent) {
+    window.attachEvent('onload', run);
 }
 
-function addDecor(){
-
-    var table = document.getElementById("tableDecor");
-    var packageName  = document.getElementById("packageDecor").value;  
-    var price  = document.getElementById("priceDecor").value; 
-    var description  = document.getElementById("descriptionDecor").value; 
-
-    var row=`<tr>
-    <td><input type="hidden" name="typeD[]" value="${packageName}">${packageName}</td>
-    <td><input type="hidden" name="priceD[]" value="${price}">${price}</td>
-    <td><input type="hidden" name="descriptionD[]" value="${description}">${description}</td>
-    </tr>`;
-    table.innerHTML+=row;
-    document.getElementById("packageDecor").value = '';
-    document.getElementById("priceDecor").value ='';
-    document.getElementById("descriptionDecor").value = ''; 
-
-    
-}
-
-function addLocation(){
-
-    var table = document.getElementById("tableLocation");
-    var packageName  = document.getElementById("packageLocation").value;  
-    var price  = document.getElementById("priceLocation").value; 
-    var description  = document.getElementById("descriptionLocation").value; 
-
-    var row=`<tr>
-    <td><input type="hidden" name="typeL[]" value="${packageName}">${packageName}</td>
-    <td><input type="hidden" name="priceL[]" value="${price}">${price}</td>
-    <td><input type="hidden" name="descriptionL[]" value="${description}">${description}</td>
-    </tr>`;
-    table.innerHTML+=row;
-    document.getElementById("packageLocation").value = '';
-    document.getElementById("priceLocation").value ='';
-    document.getElementById("descriptionLocation").value = ''; 
-
-    
-}
-
-function run() {
-    var table = document.getElementById('photo');
-    var rows = table.rows;
-    for (var i=0; i<rows.length; i++) {
-        rows[i].onclick = function () {
-        //     if (this.parentNode.nodeName == 'THEAD') {
-        //         return;
-        //     }
-            var cells = rows.cells; 
-            var a = document.getElementById('packagePhoto');
-            var b = document.getElementById('pricePhoto');
-            var c = document.getElementById('descriptionPhoto');
-            a.value = cells[0].innerHTML;
-            b.value = cells[1].innerHTML;
-            c.value = cells[2].innerHTML;
+    function run() {
+        var t = document.getElementById('photo');
+        var rows = t.rows; 
+        for (var i=0; i<rows.length; i++) {
+            rows[i].onclick = function (event) {
+                
+                var cells = this.cells;
+                var a = document.getElementById('packagePhoto');
+                var b = document.getElementById('pricePhoto');
+                var c = document.getElementById('descriptionPhoto');
+                var d = document.getElementById('pid');
+                a.value = cells[0].innerHTML;
+                b.value = cells[1].innerHTML;
+                c.value = cells[2].innerHTML;
+                d.value = cells[3].innerHTML;
+                alreadyExists = true;
         };
     }
 }
