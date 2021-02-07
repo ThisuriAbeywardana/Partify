@@ -14,7 +14,7 @@ $connection = $db->getConnection();
 
 //vendor deletes serivess
 
-$user=15;//$_SESSION['userId'];
+
 
 // mysqli_autocommit($connection,FALSE);
 // mysqli_commit($connection);
@@ -22,7 +22,7 @@ $status=TRUE;
 
 if(isset($_POST['delete_btn'])){
 
-    $spId=$_SESSION['userId'];
+    $user=$_SESSION['userId'];
 
     $table=$_POST['delete_tab'];
     $meal=$_POST['delete_meal'];
