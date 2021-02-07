@@ -20,7 +20,7 @@
         </div>
         <div>
             <?php
-            $user=15;//$_SESSION['userId'];
+            $user=$_SESSION['userId'];
                 $query= 'SELECT * FROM service WHERE spId='.$user;
                 $query_run=mysqli_query($connection,$query);
 

@@ -16,20 +16,16 @@ $connection = $db->getConnection();
 
 //vendor deletes serivess
 
-$user=15;$_SESSION['userId'];
+$user=$_SESSION['userId'];
 
 // mysqli_autocommit($connection,FALSE);
 // mysqli_commit($connection);
 $status=TRUE;
 
-$no="SELECT COUNT(pId) AS total FROM location WHERE spId=$user";
-$result=mysqli_query($connection,$no);
-$data=mysqli_fetch_assoc($result);
-echo $data['total'];
+
 
 if(isset($_POST['delete_btn'])){
 
-    $spId=16;//$_SESSION['userId'];
 
     $table=$_POST['delete_tab'];
     $pid=$_POST['delete_id'];
