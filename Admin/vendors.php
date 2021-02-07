@@ -43,28 +43,26 @@
         
         ?>
         
-    <div class="tabel3">
+    <div class="tabel">
                     <?php
                         echo "<table class='vendorTable'>
                         <thead>
                         <tr>
                         <th class='col col2'>Name</th>
-                        //<th class='col col2'>Catering</th>
-                        // <th class='col col3'>Photography</th>
-                        // <th class='col col3'>Videography</th>
-                        // <th class='col col3'>Decoration</th>
+                        <th class='col col2'>Address</th>
+                        <th class='col col3'>Email</th>
+                        <th class='col col3'>Contact No</th>
                         <th class='col colBtn'></th>
                         <th class='col colBtn'></th></tr></thead><tbody>";    
                         while($row=mysqli_fetch_assoc($vendors)){
                                 // if()
-                                // echo $row['name'];
-                                // echo $row['catering'];
-                                // echo $row['photography'];
-                                // echo $row['videograpghy'];
-                                // echo $row['decoration'];
-                                // echo '<br>';
+                                $name = $row['name'];
+                                $address = $row['address'];
+                                $email = $row['email'];
+                                $contactNo = $row['contactNo'];
+                                echo '<br>';
                             
-                                echo '</td><td>'.$row['businessname'].'</td><td>'; 
+                                echo '</td><td>'.$name.'</td><td>'.$address.'</td><td>'.$email.'</td><td>'.$contactNo.'</td>'; 
                                 // .$row['catering'].'</td><td>'.$row['photography'].'</td><td>'.$row['videograpghy'].'</td><td>'.$row['decoration'].'</td>'
                                 echo '<td>';
                                 

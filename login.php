@@ -7,12 +7,9 @@
     <link rel="stylesheet" type="text/css" href="./css/login.css">
 </head>
 <body>
-
-
-<form action="./Controls/loginControl.php" method="post">
-
-    <div class="container">
-        <div style="text-align: center;">
+<div class="container">
+      <div class="forms-container">
+      <div style="text-align: center;">
             <?php
                 if(isset($_SESSION['status'])){
                     echo $_SESSION['status'];
@@ -22,19 +19,24 @@
             ?>
         </div>
         <br>
-        <!-- <label for="uname"><b>Username</b></label> -->
-        <input type="text" placeholder="Username" name="uname" required>
+        <div class="signin">
+        <form action="./Controls/loginControl.php" method="post">
+        <br><br><br><br><h2 class="title">LOG IN</h2><br><br>
+            <div class="input-field">
+            <img src="./Assets/icon1.png" width=73% height=73% >
+            <input type="text" placeholder="Username" name="uname" required>
+            </div><br>
+            <div class="input-field">
+            <img src="./Assets/icon2.png" width=73% height=73% >
+            <input type="password" placeholder="Password" name="psw" required>
+            </div><br><br>
+            <table><tr><td><input type="submit" name="btnLogin" value="Login" class="btn solid">
+            <td><p>&emsp;&emsp;&emsp;</p></td>
+            <td><button type="button" class="btn cancelbtn">Cancel</button></td> </tr></table>
 
-        <!-- <label for="psw"><b>Password</b></label> -->
-        <input type="password" placeholder="Password" name="psw" required>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label><br>
-        <button type="submit" name="btnLogin">Login</button><br>
-
-
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="p"><a href="../partify/register.php">I already have an account</a></span>
+             
+            <span class="p"><a href="../partify/register.php"><i>I already have an account</i></a></span>
+            
     </div>
 </form>
 
