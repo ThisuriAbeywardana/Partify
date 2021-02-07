@@ -1,19 +1,23 @@
-<!-- <?php
+<?php
     session_start();
     if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Vendor'){
         header("Location: ../login.php");
     }
-    include('../Includes/header.php');
+
+    include('../includes/header.php');
+    include('../includes/template.php');
 ?>
 <div class="mainWrap">
-    <?php include('../Includes/navbar.php'); ?>
-    <!-- continue from here -->
+    <?php 
+    include('../includes/navbar.php'); 
+    ?>
+    <!- continue from here
     
-</div> -->
+</div> 
 
 <html>
     <head>
-        <link rel="stylesheet" href="bookEvent.css">
+        <link rel="stylesheet" href="../css/bookEvent.css">
         <title>Add Services</title>
         <script src="../js/addservice.js" type="text/javascript"></script>
     </head>
@@ -21,6 +25,7 @@
         <div>This is the header</div>
         <div class="container">
             <form action="../Controls/vendorControl.php" method="post" class="form">
+            
             <div class="section">
                 <div class="title">Select the services you wish to provide</div>
             </div>
