@@ -38,7 +38,7 @@
     }
     function getAllVendors(){
         global $connection;
-        $sql="SELECT d.spId,d.name,d.catering,d.photography,d.videograpghy,d.decoration FROM vendor d INNER JOIN user u ON u.userId=d.spId WHERE u.userType='Vendor'";
+        $sql="SELECT d.spId,d.name,d.address,d.email,d.contactNo FROM vendor d INNER JOIN user u ON u.userId=d.spId WHERE u.userType='Vendor'";
         $result = mysqli_query($connection,$sql);
         return $result;
     }

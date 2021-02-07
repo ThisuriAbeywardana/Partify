@@ -61,8 +61,6 @@ include('./Includes/header.php');
       <ul class="nospace group">
         <li class="one_quarter first">
           <article>
-
-          
             <h6 class="heading">VH Abeyvickrama</h6>
             <p>Punctuality freak of the team that makes sure everything is on time. </p>
           </article>
