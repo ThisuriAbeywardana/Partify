@@ -119,4 +119,7 @@ include('./includes/header.php');
       </article>
     </div>
   </section>
+  <?php
+    include('./includes/footer.php')
+  ?>
 </div>
