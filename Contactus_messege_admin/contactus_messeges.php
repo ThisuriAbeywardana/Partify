@@ -4,7 +4,7 @@
       header("Location: ../login.php");
     } 
     include('../Includes/template.php');
-    include('../Controls/userControl.php');
+    //include('../Controls/userControl.php');
     include('../Controls/general.php'); 
    
 ?>
