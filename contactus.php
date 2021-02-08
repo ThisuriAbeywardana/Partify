@@ -27,9 +27,27 @@
         <input type="submit" value="submit">
       </form>
     </div>
-	<div class="column">
-      <img src="Assets/partify.gif" style="width:100%"><br><br><br>
-	<p class="p1">Email Us: Partify@gmail.com <br> Call Us: 0123456789</p>
+    <div class="column">
+    <div class="social">
+        <h3>Social Media</h3>
+        <span class="icon fb">
+            <img src="./Assets/facebook.svg" style="width: 40px;height: 40px;">
+        </span>
+        <span class="icon insta">
+            <img src="./Assets/instagram.svg" style="width: 40px;height: 40px;">
+        </span>
+        <span class="icon pint">
+            <img src="./Assets/pinterest.svg" style="width: 40px;height: 40px;">
+        </span>
+        <div class="icon">
+            <img src="./Assets/location.svg" style="width: 40px;height: 40px;">
+            No,lane,city.
+        </div>
+        <p class="p1">Email Us: Partify@gmail.com</p> 
+        <p class="p1">Call Us: 0123456789</p>
+        </div>
+    </div>
+	
     </div>
   </div>
 </div>
