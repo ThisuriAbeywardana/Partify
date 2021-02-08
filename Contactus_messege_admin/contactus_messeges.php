@@ -1,9 +1,16 @@
 <?php
+<<<<<<< HEAD
      session_start();
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
     header("Location: ../login.php");
    } 
     echo "<link rel='stylesheet' type='text/css' href='contactus_popup.css' />";
+=======
+    session_start();
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
+      header("Location: ../login.php");
+    } 
+>>>>>>> upstream/main
     include('../Includes/template.php');
     //include('../Controls/userControl.php');
     include('../Controls/general.php'); 

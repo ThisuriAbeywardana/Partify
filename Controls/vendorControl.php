@@ -1,5 +1,5 @@
 <?php
-require_once('./dbConnection.php');
+require_once('../Includes/db/dbConnection.php');
 include('./validate.php');
 
 $db = DBConnection::getInstance();
@@ -14,7 +14,7 @@ $status=TRUE;
 
 if(isset($_POST['btnAddService'])){
 
-    $spId=16;//$_SESSION['userId'];
+    $spId=$_SESSION['userId'];
 
     //add catering options
     if(isset($_POST['needMeal'])){
@@ -72,7 +72,7 @@ if(isset($_POST['btnAddService'])){
             $pdesc=$_POST['descriptionP'][$i];
             $pprice=$_POST['priceP'][$i];
 
-            $photo = "INSERT INTO photography VALUES ('$spId','$ptype','$pprice','$pdesc')";
+            $photo = "INSERT INTO photography VALUES (NULL,'$spId','$ptype','$pprice','$pdesc')";
             $result = mysqli_query($connection,$photo);
             if($result){
                 $status=FALSE;
@@ -96,7 +96,7 @@ if(isset($_POST['btnAddService'])){
             $vdesc=$_POST['descriptionV'][$i];
             $vprice=$_POST['priceV'][$i];
 
-            $video = "INSERT INTO videography VALUES ('$spId','$vtype','$vprice','$vdesc')";
+            $video = "INSERT INTO videography VALUES (NULL,'$spId','$vtype','$vprice','$vdesc')";
             $result = mysqli_query($connection,$video);
             if($result){
                 $status=FALSE;
@@ -118,7 +118,7 @@ if(isset($_POST['btnAddService'])){
             $ddesc=$_POST['descriptionD'][$i];
             $dprice=$_POST['priceD'][$i];
 
-            $decor = "INSERT INTO decoration VALUES ('$spId','$dtype','$dprice','$ddesc')";
+            $decor = "INSERT INTO decoration VALUES (NULL,'$spId','$dtype','$dprice','$ddesc')";
             $result = mysqli_query($connection,$decor);
             if($result){
                 $status=FALSE;
@@ -151,7 +151,7 @@ if(isset($_POST['btnAddService'])){
             $ldesc=$_POST['descriptionL'][$i];
             $lprice=$_POST['priceL'][$i];
 
-            $place = "INSERT INTO location VALUES ('$spId','$ltype','$lprice','$ldesc','$location','$aircondition','$pool')";
+            $place = "INSERT INTO location VALUES (NULL,'$spId','$ltype','$lprice','$ldesc','$location','$aircondition','$pool')";
             $result = mysqli_query($connection,$place);
             if($result){
                 $status=FALSE;
@@ -176,5 +176,8 @@ if(isset($_POST['btnAddService'])){
     if(!$status){
         mysqli_rollback($connection);
     }
-}    
+} 
+
+header("Location: ../Vendor/addServices.php");
+
 ?>

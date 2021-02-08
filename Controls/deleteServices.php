@@ -1,15 +1,15 @@
-<!-- <?php
-    // session_start();
-    // if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
-    //     header("Location: ../login.php");
-    // }
-    // include('../Includes/header.php');
-    // include('../Controls/userControl.php');
-    // header("Location: ./viewServices.php");
-    ?> -->
 <?php
-require_once('../includes/dbConnection.php');
-include('../Controls/validate.php');
+    session_start();
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
+        header("Location: ../login.php");
+    }
+    include('../Includes/header.php');
+    include('../Controls/userControl.php');
+    
+    
+    require_once('../includes/db/dbConnection.php');
+    include('./validate.php');
+    
 
 $db = DBConnection::getInstance();
 $connection = $db->getConnection();
@@ -22,14 +22,10 @@ $user=$_SESSION['userId'];
 // mysqli_commit($connection);
 $status=TRUE;
 
-$no="SELECT COUNT(pId) AS total FROM location WHERE spId=$user";
-$result=mysqli_query($connection,$no);
-$data=mysqli_fetch_assoc($result);
-echo $data['total'];
+
 
 if(isset($_POST['delete_btn'])){
 
-    $spId=16;//$_SESSION['userId'];
 
     $table=$_POST['delete_tab'];
     $pid=$_POST['delete_id'];
@@ -125,4 +121,5 @@ if(isset($_POST['delete_btn'])){
         mysqli_rollback($connection);
     }
 }    
+header("Location: ../Vendor/viewServices.php"); 
 ?>
