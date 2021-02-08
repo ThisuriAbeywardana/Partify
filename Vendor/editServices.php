@@ -39,7 +39,6 @@
             echo '<table id="photo" cellspacing="1">';
             if(mysqli_num_rows($query_photo) > 0) {
                 while($row = mysqli_fetch_assoc($query_photo)){
-    
                     echo '<tr><td>'.$row['albumType'].'</td><td>'.$row['price'].'</td><td>'.$row['description'].'</td><td>'.$row['pId'].'</td></tr>';
                 }
                 
