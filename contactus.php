@@ -16,14 +16,14 @@
     <div class="column">
       <div id="error_messege"></div>
       <form id="myform" action="./Controls/contactus_user_process.php" method="POST" onsubmit="return validation()">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name..">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your email..">
-        <label for="phone">Phone Number</label>
-	      <input type="text" id="phone" name="phone" placeholder="Your Phone Number..">
-        <label for="messege">Messege</label>
-        <textarea id="messege" name="messege" placeholder="Write your messege.." style="height:170px"></textarea>
+        <label for="name">Name</label></br>
+        <input type="text" id="name" name="name" placeholder="Your Name.."></br>
+        <label for="email">Email</label></br>
+        <input type="email" id="email" name="email" placeholder="Your email.."></br>
+        <label for="phone">Phone Number</label></br>
+	      <input type="text" id="phone" name="phone" placeholder="Your Phone Number.."></br>
+        <label for="messege">Messege</label></br>
+        <textarea id="messege" name="messege" placeholder="Write your messege.." style="height:170px"></textarea></br>
         <input type="submit" value="submit">
       </form>
     </div>
