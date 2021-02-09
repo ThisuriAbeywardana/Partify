@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./css/login.css">
 </head>
 <body>
-<div class="bg-image"></div>
+<div class="bg-image"><?php include('./includes/header.php'); ?></div>
 <div class="container">
       <div class="forms-container">
       
