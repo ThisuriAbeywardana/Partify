@@ -1,11 +1,12 @@
-<?php
 
-include('./Includes/header.php');
-?>
 <link rel="stylesheet" type="text/css" href="./css/aboutus.css"/>
 <link rel="stylesheet" href="./css/header.css">
 <div class="bgded overlay" style="background-image:url('Assets/aboutus4.JPG');"> 
   <div id="pageintro">
+  <?php
+
+include('./includes/header.php');
+?>
     <article>
       <h3 class="heading">PARTIFY</h3>
       <p>As an event organizer, We are here to join the gap between the party hosters and party services providers so as to provide an epic party experience for all party hosts and a chance for all other providers to show off their skills/talents.</p>
@@ -118,4 +119,7 @@ include('./Includes/header.php');
       </article>
     </div>
   </section>
+  <?php
+    include('./includes/footer.php')
+  ?>
 </div>
