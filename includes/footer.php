@@ -4,12 +4,12 @@
 <div class="footer">
     <div class="menufoot" >
         <ul>
-        <li><a href="../index.php">Home</a></li>
-        <li><a href="../aboutus.php">About us</a></li>
-        <li><a href="../User/bookEvent.php">Add events</a></li>
-        <li><a href="../contactus.php">Contact us</a></li>
-        <li><a href="../gallery.php">Gallery</a></li>
-        <li><a href="../login.php">Log in/Register</a></li>
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./aboutus.php">About us</a></li>
+        <li><a href="./User/bookEvent.php">Add events</a></li>
+        <li><a href="./contactus.php">Contact us</a></li>
+        <li><a href="./gallery.php">Gallery</a></li>
+        <li><a href="./login.php">Log in/Register</a></li>
         </ul>
     </div>
 
