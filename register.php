@@ -6,7 +6,7 @@
 </head>
 <body>
         <div class="container">
-            <h1><div style="text-align: center;">Sign Up</div></h1>
+            <h1><div style="text-align: center;">REGISTER</div></h1>
             <hr>
 
             <label for="type"><b>I am a : </b></label>
