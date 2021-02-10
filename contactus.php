@@ -3,10 +3,15 @@
     echo "<script type='text/javascript' src='./js/contactus.js'></script>";
     
     
-    include('./Includes/header.php');
+   
   
 ?>
 <link rel="stylesheet" href="./css/header.css">
+<div>
+  <?php 
+         include('./includes/header.php');
+  ?>
+</div>
 <div class="container">
   <div style="text-align:center">
     <h2>CONTACT US</h2>
