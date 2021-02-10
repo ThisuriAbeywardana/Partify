@@ -37,11 +37,12 @@
                         echo "<table class='userTable'>
                         <thead>
                         <tr>
-                        <th class='col col2'>Name</th>
+                        <th class='col col1'>Name</th>
                         <th class='col col2'>Email</th>
                         <th class='col col3'>gender</th>
-                        <th class='col col3'>DOB</th>
-                        <th class='col col3'>Contact No</th>
+                        <th class='col col4'>DOB</th>
+                        <th class='col col5'>Contact No</th>
+                        <th class='col col6'>Address</th>
                         <th class='col colBtn'></th>
                         <th class='col colBtn'></th></tr></thead><tbody>";
                         while($row=mysqli_fetch_assoc($users)){
@@ -54,7 +55,7 @@
                             $address = $row['address'];
                             echo '<br>';
 
-                            echo '</td><td>'.$name.'</td><td>'.$email.'</td><td>'.$gender.'</td><td>'.$contactNo.'</td><td>'.$address.'</td>';
+                            echo '</td><td>'.$name.'</td><td>'.$email.'</td><td>'.$gender.'</td><td>'.$dob.'</td><td>'.$contactNo.'</td><td>'.$address.'</td>';
                             echo '<td>';
 
                             echo '<form action="./viewUser.php" method="post">
