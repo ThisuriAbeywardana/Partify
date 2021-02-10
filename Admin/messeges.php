@@ -1,30 +1,27 @@
 <?php
-<<<<<<< HEAD
-     session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
-    header("Location: ../login.php");
-   } 
-    echo "<link rel='stylesheet' type='text/css' href='contactus_popup.css' />";
-=======
+    
     session_start();
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
       header("Location: ../login.php");
     } 
->>>>>>> upstream/main
+
+    echo "<link rel='stylesheet' type='text/css' href='../css/contactus_messege.css' />";
+    
     include('../Includes/template.php');
     //include('../Controls/userControl.php');
     include('../Controls/general.php'); 
+    
    
 ?>
-<script type='text/javascript' src='contactus_popup.js'></script>
+
  <div class="container" >
 
-  <table>
+  <table id="customers">
           <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th></th>
+            <th>Messege</th>
           </tr>
   <?php
 
@@ -37,14 +34,9 @@
             <td>".$row['name']."</td>
             <td>".$row['email']."</td>
             <td>".$row['phone']."</td>
-            
-            <td><button>View Message</button></td>
-
-      
-            
+            <td>".$row['messege']."</td>
           </tr>
-        
-        
+
         ";
       }
   ?>
