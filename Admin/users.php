@@ -33,6 +33,9 @@
             
             ?>
             <div class="tabel">
+                <div class="btn-green">
+                    <a href="../register.php">Add User</a>
+                </div>
                     <?php
                         echo "<table class='userTable'>
                         <thead>
@@ -43,7 +46,6 @@
                         <th class='col col4'>DOB</th>
                         <th class='col col5'>Contact No</th>
                         <th class='col col6'>Address</th>
-                        <th class='col colBtn'></th>
                         <th class='col colBtn'></th>
                         <th class='col colBtn'></th>
                         <th class='col colBtn'></th></tr></thead><tbody>";
@@ -67,10 +69,6 @@
                                 <input type="hidden" name="userId" value="'.$row['userId'].'">
                                 <button type="submit" name="deleteUser" id="deleteUser" class="btn btnDelete">Delete</button>
                                 </form></td></tr>';
-                                // echo '<td><form action="../Controls/addAccount.php" method="POST">
-                                // <input type="hidden" name="userId" value="'.$row['userId'].'">
-                                // <button type="submit" name="addUser" id="addUser" class="btn btnAdd">Add</button>
-                                // </form></td></tr>';
                                 // echo '<td><form action="../Controls/editAccount.php" method="POST">
                                 // <input type="hidden" name="userId" value="'.$row['userId'].'">
                                 // <button type="submit" name="editUser" id="editUser" class="btn btnEdit">Edit</button>
