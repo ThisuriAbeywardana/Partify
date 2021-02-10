@@ -47,7 +47,6 @@
                         <th class='col colBtn'></th></tr></thead><tbody>";
                         while($row=mysqli_fetch_assoc($users)){
                             $name = $row['fName'].' '.$row['lName'];
-                            echo $name;
                             $email = $row['email'];
                             $gender = $row['gender'];
                             $dob = $row['dob'];
