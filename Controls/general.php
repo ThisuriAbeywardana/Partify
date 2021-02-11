@@ -91,4 +91,16 @@
         return mysqli_query($connection,$sql);
     }
 
+    function viewVendor(){
+        global $connection;
+        $sql = "SELECT d.spId,s.cartering,s.photography,s.videography,s.decoration,s.location FROM vendor d INNER JOIN service s INNER JOIN user u ON d.spId=s.spId WHERE u.userType='Vendor'";
+        return mysqli_query($connection,$sql);
+    }
+
+    function viewAdmin(){
+        global $connection;
+        $sql = "SELECT d.userId,d.email,d.fName,d.lName,d.gender,d.dob,d.contactNo,d.address FROM admindetail d INNER JOIN user u ON u.userId=d.adminId WHERE u.userType='Admin'";
+        return mysqli_query($connection,$sql);
+    }
+
 ?>

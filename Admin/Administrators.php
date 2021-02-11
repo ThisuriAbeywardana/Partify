@@ -52,9 +52,9 @@
                                 echo '<tr><td>'.$name.'</td><td>'.$email.'</td><td>'.$contact.'</td>';
                                 echo '<td>';
                                 
-                                echo '<form action="./viewEvent.php" method="post">
+                                echo '<form action="./viewAdmin.php" method="post">
                                 <input type="hidden" name="bId" value="'.$row['userId'].'">
-                                <button type="submit" name="viewEvent" class="btnView btn">View</button>
+                                <button type="submit" name="viewAdmin" class="btnView btn">View</button>
                                 </form></td>';
                                 echo '<td><form action="../Controls/adminControl.php" method="POST">
                                 <input type="hidden" name="bId" value="'.$row['userId'].'">
