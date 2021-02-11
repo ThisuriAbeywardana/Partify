@@ -44,6 +44,9 @@
         ?>
         
     <div class="tabel">
+        <div class="btn-green">
+            <a href="../register.php">Add Vendor</a>
+        </div>
                     <?php
                         echo "<table class='vendorTable'>
                         <thead>
@@ -52,6 +55,7 @@
                         <th class='col col2'>Address</th>
                         <th class='col col3'>Email</th>
                         <th class='col col3'>Contact No</th>
+                        <th class='col colBtn'></th>
                         <th class='col colBtn'></th>
                         <th class='col colBtn'></th></tr></thead><tbody>";    
                         while($row=mysqli_fetch_assoc($vendors)){
@@ -74,6 +78,10 @@
                                 <input type="hidden" name="spId" value="'.$row['spId'].'">
                                 <button type="submit" name="deleteVendor" id="deleteVendor" class="btn btnDelete">Delete</button>
                                 </form></td></tr>';
+                                // echo '<td><form action="../Controls/editAccount.php" method="POST">
+                                // <input type="hidden" name="vendorId" value="'.$row['vendorId'].'">
+                                // <button type="submit" name="editVendor" id="editVendor" class="btn btnEdit">Edit</button>
+                                // </form></td></tr>';
                             }
                             echo '</tbody></table>';      
                     ?>

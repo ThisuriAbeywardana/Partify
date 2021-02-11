@@ -33,20 +33,24 @@
             
             ?>
             <div class="tabel">
+                <div class="btn-green">
+                    <a href="../register.php">Add User</a>
+                </div>
                     <?php
                         echo "<table class='userTable'>
                         <thead>
                         <tr>
-                        <th class='col col2'>Name</th>
+                        <th class='col col1'>Name</th>
                         <th class='col col2'>Email</th>
                         <th class='col col3'>gender</th>
-                        <th class='col col3'>DOB</th>
-                        <th class='col col3'>Contact No</th>
+                        <th class='col col4'>DOB</th>
+                        <th class='col col5'>Contact No</th>
+                        <th class='col col6'>Address</th>
+                        <th class='col colBtn'></th>
                         <th class='col colBtn'></th>
                         <th class='col colBtn'></th></tr></thead><tbody>";
                         while($row=mysqli_fetch_assoc($users)){
                             $name = $row['fName'].' '.$row['lName'];
-                            echo $name;
                             $email = $row['email'];
                             $gender = $row['gender'];
                             $dob = $row['dob'];
@@ -54,7 +58,7 @@
                             $address = $row['address'];
                             echo '<br>';
 
-                            echo '</td><td>'.$name.'</td><td>'.$email.'</td><td>'.$gender.'</td><td>'.$contactNo.'</td><td>'.$address.'</td>';
+                            echo '</td><td>'.$name.'</td><td>'.$email.'</td><td>'.$gender.'</td><td>'.$dob.'</td><td>'.$contactNo.'</td><td>'.$address.'</td>';
                             echo '<td>';
 
                             echo '<form action="./viewUser.php" method="post">
@@ -63,8 +67,12 @@
                                 </form></td>';
                                 echo '<td><form action="../Controls/deleteAccount.php" method="POST">
                                 <input type="hidden" name="userId" value="'.$row['userId'].'">
-                                <button type="submit" name="deleteUser" id="deleteVendor" class="btn btnDelete">Delete</button>
+                                <button type="submit" name="deleteUser" id="deleteUser" class="btn btnDelete">Delete</button>
                                 </form></td></tr>';
+                                // echo '<td><form action="../Controls/editAccount.php" method="POST">
+                                // <input type="hidden" name="userId" value="'.$row['userId'].'">
+                                // <button type="submit" name="editUser" id="editUser" class="btn btnEdit">Edit</button>
+                                // </form></td></tr>';
                         }
                         echo '</tbody></table>'; 
 
