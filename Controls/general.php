@@ -103,4 +103,13 @@
         return mysqli_query($connection,$sql);
     }
 
+    function viewEvent(){
+        global $connection;
+        // $sql="SELECT d.fName,d.lName FROM booking d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='Admin'";
+        $sql="SELECT startTime,endTime,meal,photography,videography,decoration,location,status FROM booking";
+        $result = mysqli_query($connection,$sql);
+        return $result;
+    }
+
+
 ?>
