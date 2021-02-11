@@ -32,7 +32,7 @@
     }
     function getAllUsers(){
         global $connection;
-        $sql="SELECT d.fName,d.lName FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='User'";
+        $sql="SELECT d.userId,d.fName,d.lName,d.email,d.gender,d.dob,d.contactNo,d.address FROM userdetail d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='User'";
         $result = mysqli_query($connection,$sql);
         return $result;
     }
@@ -90,5 +90,26 @@
         $sql = "SELECT * FROM contactus";
         return mysqli_query($connection,$sql);
     }
+
+    function viewVendor(){
+        global $connection;
+        $sql = "SELECT d.spId,s.cartering,s.photography,s.videography,s.decoration,s.location FROM vendor d INNER JOIN service s INNER JOIN user u ON d.spId=s.spId WHERE u.userType='Vendor'";
+        return mysqli_query($connection,$sql);
+    }
+
+    function viewAdmin(){
+        global $connection;
+        $sql = "SELECT d.userId,d.email,d.fName,d.lName,d.gender,d.dob,d.contactNo,d.address FROM admindetail d INNER JOIN user u ON u.userId=d.adminId WHERE u.userType='Admin'";
+        return mysqli_query($connection,$sql);
+    }
+
+    function viewEvent(){
+        global $connection;
+        // $sql="SELECT d.fName,d.lName FROM booking d INNER JOIN user u ON u.userId=d.userId WHERE u.userType='Admin'";
+        $sql="SELECT startTime,endTime,meal,photography,videography,decoration,location,status FROM booking";
+        $result = mysqli_query($connection,$sql);
+        return $result;
+    }
+
 
 ?>
