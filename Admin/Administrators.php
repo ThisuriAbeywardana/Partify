@@ -56,9 +56,9 @@
                                 <input type="hidden" name="bId" value="'.$row['userId'].'">
                                 <button type="submit" name="viewAdmin" class="btnView btn">View</button>
                                 </form></td>';
-                                echo '<td><form action="../Controls/adminControl.php" method="POST">
+                                echo '<td><form action="../Controls/deleteAccount.php.php" method="POST">
                                 <input type="hidden" name="bId" value="'.$row['userId'].'">
-                                <button type="submit" name="deleteEvent" id="deleteEvent" class="btn btnDelete">Delete</button>
+                                <button type="submit" name="deleteUser" id="deleteUser" class="btn btnDelete">Delete</button>
                                 </form></td></tr>';
                             }
                             echo '</tbody></table>';

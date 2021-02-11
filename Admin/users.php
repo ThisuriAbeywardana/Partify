@@ -34,7 +34,7 @@
             ?>
             <div class="tabel">
                 <div class="btn-green">
-                    <a href="../register.php">Add User</a>
+                    <a href="./adminRegiUser.php">Add User</a>
                 </div>
                     <?php
                         echo "<table class='userTable'>

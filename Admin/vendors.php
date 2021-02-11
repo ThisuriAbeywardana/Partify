@@ -45,7 +45,7 @@
         
     <div class="tabel">
         <div class="btn-green">
-            <a href="../register.php">Add Vendor</a>
+            <a href="./adminRegiVendor.php">Add Vendor</a>
         </div>
                     <?php
                         echo "<table class='vendorTable'>
