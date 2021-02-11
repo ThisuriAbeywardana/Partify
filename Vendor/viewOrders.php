@@ -1,10 +1,10 @@
 <?php
     session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='User'){
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Vendor'){
         header("Location: ../login.php");
     }
     
-    include('template.php');
+    include('../Includes/template.php');
     
         require_once('../includes/db/dbConnection.php');
         $db = DBConnection::getInstance();
@@ -12,12 +12,10 @@
     ?>
     
     <div class="body">
-        <?php 
-        include('../includes/navbar.php'); 
-        ?>
+        
 <link rel="stylesheet" href="../cssview.css">
 <div class="title">
-            <div class="title">VIEW oders</div>
+            <div class="title">VIEW Orders</div>
         </div>
         <div>
             <?php
