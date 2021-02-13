@@ -59,7 +59,7 @@
                                 
                                 echo '<form action="./viewEvent.php" method="post">
                                 <input type="hidden" name="bId" value="'.$row['bookingId'].'">
-                                <button type="submit" name="viewEvent" class="btnView btn">View</button>
+                                <button type="submit" name="viewEvent" class="btnView btn">Edit</button>
                                 </form></td>';
                                 echo '<td><form action="../Controls/adminControl.php" method="POST">
                                 <input type="hidden" name="bId" value="'.$row['bookingId'].'">

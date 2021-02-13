@@ -28,7 +28,8 @@
         <div class="midContent">
         <?php
         include('../Controls/general.php');
-        $admins = viewAdmin();    
+        $admins = viewAdmin($_POST['bId']);
+        echo $_POST['bId'];    
         // while($row=mysqli_fetch_assoc($vendors)){
         //     // if()
 

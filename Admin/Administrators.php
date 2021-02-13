@@ -27,6 +27,15 @@
         include('../Includes/header2.php');
     ?>
     <div class="midContent">
+    <div class="status">
+    <p>
+    <?php
+    if(isset( $_SESSION['deleteAdmin'])){
+        echo  $_SESSION['deleteAdmin'];
+    unset( $_SESSION['deleteAdmin']);
+    }
+    ?>
+    </p>
     <div class="tabel">
         <div class="btn-green">
             <a href="../Admin/registerAdmin.php">Add Administrator</a>
@@ -53,12 +62,12 @@
                                 echo '<td>';
                                 
                                 echo '<form action="./viewAdmin.php" method="post">
-                                <input type="hidden" name="bId" value="'.$row['userId'].'">
+                                <input type="hidden" name="bId" value="'.$row['adminId'].'">
                                 <button type="submit" name="viewAdmin" class="btnView btn">View</button>
                                 </form></td>';
-                                echo '<td><form action="../Controls/deleteAccount.php.php" method="POST">
-                                <input type="hidden" name="bId" value="'.$row['userId'].'">
-                                <button type="submit" name="deleteUser" id="deleteUser" class="btn btnDelete">Delete</button>
+                                echo '<td><form action="../Controls/deleteAccount.php" method="POST">
+                                <input type="hidden" name="id" value="'.$row['adminId'].'">
+                                <button type="submit" name="deleteAdmin" id="deleteAdmin" class="btn btnDelete">Delete</button>
                                 </form></td></tr>';
                             }
                             echo '</tbody></table>';

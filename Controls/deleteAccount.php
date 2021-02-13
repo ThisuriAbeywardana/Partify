@@ -10,6 +10,7 @@
 
     if(isset($_POST['btnDelete'])){
         $userId = $_SESSION['userId'];
+
     }
     if(isset($_POST['btnDeleteUser'])){
         $userId = $_POST['id'];
@@ -21,6 +22,17 @@
         }else{
             echo 'failed';
         }
-
     
+     if(isset($_POST['deleteAdmin'])){
+        $userId = $_POST['id'];
+        $sql="DELETE FROM user WHERE userId='$userId'";
+        if(mysqli_query($connection,$sql)===TRUE){
+            echo 'deleted';
+            
+            $_SESSION['deleteAdmin']="Account Deleted Successfully";
+        }else{
+            $_SESSION['deleteAdmin']="Account Deletion Failed";
+        }
+        header("Location: ../Admin/administrators.php");
+     }
 ?>
