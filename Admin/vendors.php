@@ -2,15 +2,16 @@
     session_start();
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
         header("Location: ../login.php");
-    }  
+    }
+    include('../Includes/template.php');
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendors</title>
-    <!-- <link rel="stylesheet" type="text/css" href="../css/vendor.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/vendor.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
     <link rel="stylesheet" type="text/css" href="../css/header2.css">
@@ -22,13 +23,14 @@
 
 <div class="container">
     <?php 
-        include('./nav.php'); 
+        //include('./nav.php'); 
     ?>  
     <div class="right">
         <?php
-        include('../includes/header2.php');
+        //include('../includes/header2.php');
         
-        ?>
+        ?> -->
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
         <div class="midContent adminViewVendor">
         <?php
          if(isset($_SESSION['state'])){
@@ -48,16 +50,15 @@
             <a href="./adminRegiVendor.php">Add Vendor</a>
         </div>
                     <?php
-                        echo "<table class='vendorTable'>
+                        echo "<table class='vendorTable' border='2'>
                         <thead>
                         <tr>
                         <th class='col col2'>Name</th>
                         <th class='col col2'>Address</th>
                         <th class='col col3'>Email</th>
                         <th class='col col3'>Contact No</th>
-                        <th class='col colBtn'></th>
-                        <th class='col colBtn'></th>
-                        <th class='col colBtn'></th></tr></thead><tbody>";    
+                        <th class='col colBtn'>View</th>
+                        <th class='col colBtn'>Delete</th></tr></thead><tbody>";    
                         while($row=mysqli_fetch_assoc($vendors)){
                                 // if()
                                 $name = $row['name'];

@@ -2,9 +2,10 @@
     session_start();
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
         header("Location: ../login.php");
-    }  
+    }
+    include('../Includes/template.php');  
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,13 +21,14 @@
    
 <div class="container">
     <?php 
-        include('./nav.php'); 
+        //include('./nav.php'); 
     ?>
     <div class="right">
         <?php 
-            include('../Includes/header2.php');
+            //include('../Includes/header2.php');
 
-        ?>
+        ?> -->
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
         <div class="midContent adminViewEvents">
             <?php
             if(isset($_SESSION['state'])){
