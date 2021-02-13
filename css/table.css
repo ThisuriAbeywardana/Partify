@@ -1,0 +1,102 @@
+.table{
+    
+    padding: 10px;
+}
+
+.col{
+    width: 150px;
+
+}
+.tableHeader{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 30px;
+}
+.view{
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-bottom: 5px;
+}
+.delete{
+    width: 100%;
+    margin-bottom: 5px; 
+}
+.view button{
+    border-style: none;
+    background-color: green;
+    color: white;
+    width: 100%;
+    padding: 5px 10px;
+}
+.delete button{
+    border-style: none;
+    background-color: red;
+    color: white;
+    width: 100%;
+    padding: 5px 10px;
+}
+.col1{
+    
+    width: auto;
+    padding: 0 10px;
+}
+.col2{
+    
+    width: auto;
+    padding: 0 10px;
+}
+.col3{
+    
+    width: auto;
+    padding: 0 10px;
+}
+
+.colBtn{
+    
+    width: 100px;
+    padding: 0 10px;
+}
+.bookingTable{
+    border-style: 1px solid white;
+    width: 100%;
+}
+.bookeventBtn{
+    float: right;
+    margin: 15px 0;
+    margin-right: 10px;
+    padding: 0px 20px;
+    width: 200px;
+    background-color: green;
+    
+
+}
+.bookeventBtn a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 20px;
+}
+.bookingTable td, .bookingTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-collapse: collapse;
+  }
+  
+  
+  
+  .bookingTable tr:hover {
+        background-color:rgba(0, 0, 0, 0.5);
+        border-collapse: collapse;
+    }
+  
+  .bookingTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: transparent;
+    color: white;
+  }
+  .btn{
+      font-size: 15px;
+      padding: 15px 0px;
+      margin: 0;
+  }

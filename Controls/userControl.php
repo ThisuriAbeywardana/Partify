@@ -29,11 +29,13 @@
         //Meals 
         if(isset($_POST['needMeal'])){
             $cateringService=validate($_POST['cateringService']);
+            echo 'Caterer : '.$cateringService;
             $mealType=validate($_POST['mealType']);
             $noOfPlates=validate($_POST['noOfPlates']);
             $meal='Y';
             // $platePrice=validate($_POST['platePrice']);
             // $total=$platePrice*$noOfPlates;
+            echo 'Meals Paltes : '.$noOfPlates.'<br>';
         }else{
             echo 'Meals No';
             $meal='N';
@@ -83,7 +85,7 @@
             echo '<br>';
         }
         $result = mysqli_query($connection,$sqlBooking);
-        // echo $sqlBooking;
+        print_r('Booking : '.$result);
         $status=TRUE;
         
         // echo 'Result : '.$result;
@@ -97,7 +99,9 @@
                     $query = "SELECT COUNT(*) FROM cateringbooking WHERE bookingId='$bookId'";
                     
                     $execResult = mysqli_query($connection,$query);
+                    
                     if($execResult){
+                        echo 'already have';
                         $sqlMeal = "UPDATE cateringbooking SET spId='$cateringService',mealName='$mealType',noOfPlates='$noOfPlates' WHERE bookingId='$bookId'";
                     }else{
                         $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$mealType','$noOfPlates')";
@@ -106,16 +110,15 @@
                     $sqlMeal = "INSERT INTO cateringbooking VALUES ('$bookingID','$cateringService','$mealType','$noOfPlates')";
                    
                 }
+                echo $sqlMeal;
                 $result = mysqli_query($connection,$sqlMeal);
-                print_r($result);
+                print_r('SQL meal :'.$result);
             
                 if(!$result){
                     $status=FALSE;
                 }
             }else {
-                if($alreadyBooked){
-
-                }
+               
             }
             if($photography=='Y'){
                 if($alreadyBooked){
@@ -173,11 +176,7 @@
             }
             if($location=='Y'){
                 
-                $result = mysqli_query($connection,$sqlLocation);
-                if(!$result){
-                    $status=FALSE;
-                }
-
+    
                 if($alreadyBooked){
                     $query = "SELECT COUNT(*) FROM locationbooking WHERE bookingId='$bookId'";
                     if(mysqli_query($connection,$query)){
@@ -285,6 +284,20 @@
         $sqlMeal = 'SELECT * FROM decorationbooking WHERE bookingId='.$spvId;
         $resMeal = mysqli_query($connection,$sqlMeal);
         return mysqli_fetch_assoc($resMeal);
+        
+    }
+
+    //delete event
+
+    if(isset($_POST['deleteEvent'])){
+        $bId = $_POST['bId'];
+        $deleteSql = "DELETE FROM booking WHERE bookingId='$bId'";
+        if(mysqli_query($connection,$deleteSql)){
+            $_SESSION['deleteEvent']='Event Deleted Successfully';
+        }else{
+            $_SESSION['deleteEvent']='Event Delete Failed';
+        }
+        header("location: ../user/bookings.php");
         
     }
     // getEvent('48');

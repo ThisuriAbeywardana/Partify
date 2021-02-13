@@ -5,7 +5,7 @@
         private $_host = "localhost";
         private $_username = "root";
         private $_password = "mysql";
-        private $_database = "1108";
+        private $_database = "partify";
     
         public static function getInstance() {
             if(!self::$_instance) { // If no instance then make one
