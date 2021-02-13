@@ -13,13 +13,14 @@
     
     <div class="body">
         
-<link rel="stylesheet" href="../cssview.css">
+<link rel="stylesheet" href="../css/view.css">
 <div class="title">
             <div class="title">VIEW Orders</div>
         </div>
         <div>
             <?php
             $user=$_SESSION['userId'];
+            $status=TRUE;
                 $query= 'SELECT * FROM service WHERE spId='.$user;
                 $query_run=mysqli_query($connection,$query);
 
@@ -40,6 +41,8 @@
                         }
         
                         echo "</table>";
+                    }else{
+                        $status=FALSE;
                     }
         
                     $photo='SELECT * FROM photographybooking WHERE spId='.$user;
@@ -56,6 +59,8 @@
                         }
         
                         echo "</table>";
+                    }else{
+                        $status=FALSE;
                     }
         
                     $video='SELECT * FROM videographybooking WHERE spId='.$user;
@@ -70,6 +75,8 @@
                         }
                             
                         echo "</table>";
+                    }else{
+                        $status=FALSE;
                     }
         
                     $decor='SELECT * FROM decorationbooking WHERE spId='.$user;
@@ -85,6 +92,8 @@
                         }
                             
                         echo "</table>";
+                    }else{
+                        $status=FALSE;
                     }
         
                     $location='SELECT * FROM locationbooking WHERE spId='.$user;
@@ -100,7 +109,12 @@
                         }
                             
                         echo "</table>";
+                    }else{
+                        $status=FALSE;
                     }
+
+                    if (!$status)
+                        echo "<p>You don't have any orders yet.</p>";
         
                     
                 }

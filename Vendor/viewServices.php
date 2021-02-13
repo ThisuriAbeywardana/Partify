@@ -161,7 +161,7 @@
             ?>
             <div class="form">
                 <form action="../editServices.php" method="post">
-                    <button class="submit" type="submit" name="editbtn" class="btn"> EDIT SERVICES</button>
+                    <button class="submit" type="submit" name="editbtn" > EDIT SERVICES</button>
                 </form>
             </div>
     
