@@ -27,7 +27,7 @@
         mysqli_query($connection,$sql);
         $userId=mysqli_insert_id($connection);
         $sql = "INSERT INTO userdetail VALUES ('$userId' , '$useremail' , '$firstname' , '$lastname' , '$gender' , '$dob' , '$usercontactno' , '$useraddress')";
-        echo $sql;
+        //echo $sql;
         $res = mysqli_query($connection,$sql);
         // echo $res."abc";
         if($res===TRUE){
@@ -35,7 +35,7 @@
         }else {
             $_SESSION['state']="User not Registered";
         }
-        // header("location: ../login.php");
+        header("location: ../login.php");
     }
     if(isset($_POST['vendorRegisterBtn'])){
         $vendorusername=validate($_POST['vendorusername']);
@@ -70,7 +70,7 @@
 
 
         header("location: ../login.php");
-        //    gg
+        
 
     }
 ?>
