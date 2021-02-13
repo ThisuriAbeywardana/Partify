@@ -2,7 +2,7 @@
 <div class="nav">
     <div claass="logoBackground">
         <div class="logo">
-            LOGO
+            PARTIFY
         </div>
     </div>
     <div class="menu">
