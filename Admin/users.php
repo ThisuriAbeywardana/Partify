@@ -71,7 +71,7 @@
                                 </form></td>';
                                 echo '<td><form action="../Controls/deleteAccount.php" method="POST">
                                 <input type="hidden" name="userId" value="'.$row['userId'].'">
-                                <button type="submit" name="deleteUser" id="deleteUser" class="btn btnDelete">Delete</button>
+                                <button type="submit" name="btnDeleteUser" id="btnDeleteUser" class="btn btnDelete">Delete</button>
                                 </form></td></tr>';
                                 // echo '<td><form action="../Controls/editAccount.php" method="POST">
                                 // <input type="hidden" name="userId" value="'.$row['userId'].'">
