@@ -3,12 +3,10 @@
 
     <h2>Partify</h2>
     <ul>
-    <li><a href="">Dashboard</a></li>
-        <li><a href="">Add Services</a></li>
-        <li><a href="">Services</a></li>
-        <li><a href="">Orders</a></li>
-        <li><a href="">Accepted</a></li>
-        <li><a href="">Rejected</a></li>
-        <li><a href="">Account</a></li>
+    <li><a href="./dashboard.php">Dashboard</a></li>
+        <li><a href="./addServices.php">Add Services</a></li>
+        <li><a href="./viewServices.php">Services</a></li>
+        <li><a href="./viewOrders.php">Orders</a></li>
+        <li><a href="./account.php">Account</a></li>
     </ul>
 </div>    

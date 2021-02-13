@@ -13,7 +13,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="../css/forms.css">
-<script src="../js//user.js" type="text/javascript"></script>
+<script src="../js/user.js" type="text/javascript"></script>
 <form action="../Controls/userControl.php" method="post" class="form bookEvent">
             <div class="section">
                 <?php
@@ -50,9 +50,9 @@
             </div>
             <div class="section secMeal" id="secMeal">
            
-
+    
                 <div class="label">Select Catering Service</div>
-                <select name="cateringService" id="cateringService" class="select">
+                <select name="cateringService" id="cateringService" class="select" >
                     <option value="" class="option">- none -</option>
                     <?php
                         $res = getServicesProviders('meal');
@@ -60,17 +60,21 @@
                         while($row = mysqli_fetch_assoc($res)){
                           
                            $sp = $row['name'];
+
                            $spvId = $row['spId'];
-                           echo "<option value='$spvId' class='option'>$sp</option>";   
+                          
+                           
 
                            if($event['meal']=='y' || $event['meal']=='Y' ){  
                                 $resMeal = getMeals($_POST['bId']);
+                               
                                 if($resMeal['spId']==$spvId){
-                                    $currentProvider = $sp;
-                                    $currentMeal = $resMeal['mealName'];
+                                        echo "<option value='$spvId' class='option' ";
+                                        echo "selected='selected'";
+                                        echo ">$sp</option> ";
+                                
                                 }else{
-                                    $currentProvider = 'null';
-                                    $currentMeal = 'null';
+                                    echo "<option value='$spvId' class='option'>$sp</option>";  
                                 }
                             }
                         }
@@ -84,13 +88,23 @@
                 
                 <div class="label">Select Meal</div>
                 <select name="mealType" id="mealType" class="select">
+                
                     <option value="" class="option">- none -</option>
-                    <option value="breakfast" class="option">Breakfast</option> 
-                    <option value="lunch" class="option">Lunch</option> 
-                    <option value="dinner" class="option">Dinner</option> 
+                    <option value="breakfast" class="option" <?php if($resMeal['mealName']='Breakfast') echo "Selected"?>>Breakfast</option> 
+                    <option value="lunch" class="option" <?php if($resMeal['mealName']='Lunch') echo "Selected"?>>Lunch</option> 
+                    <option value="dinner" class="option" <?php if($resMeal['mealName']='Dinner') echo "Selected"?>>Dinner</option> 
                 </select>
                 <div class="label">Number Of Plates</div>
-                <input type="number" name="noOfPlates" id="noOfPlates" min="250" value="<?php echo $resMeal['noOfPlates'];?>">
+                <?php
+
+                        try {
+                            $plates = $resMeal['noOfPlates'];
+                        } catch (Exception $e) {
+                            
+                            echo "Exception : ".$e;
+                        }
+                ?>
+                <input type="number" name="noOfPlates" id="noOfPlates" min="250" value="<?php echo $plates;?>" >
             </div>
             <div class="checkbox">
                     <input type="checkbox" name="needPhotography" id="needPhotography" class="box" onchange="displaySection('secPhotography','needPhotography')" <?php if ($event['photography'] == "Y" || $event['photography'] == "y") echo "checked";?>>
