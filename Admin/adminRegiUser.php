@@ -46,18 +46,16 @@
             <input type="password" placeholder="Repeat Password" name="userpsw_repeat" id="userpsw_repeat" onkeyup='checkPassword();' required>
             <span id="passtext"></span>
             <hr>
-            <button type="submit" class="btn userRegisterBtn" name="userRegisterBtn" id="userRegisterBtn">Register</button>
+            <!-- <button type="submit" class="btn userRegisterBtn" name="userRegisterBtn" id="userRegisterBtn">Register</button>
+            <button type="submit" class="cancelbtn" name="cancelbtn" id="cancelbtn">Cancel</button> -->
+            <div class="button-wrap" >
+            <input type="submit" name="userRegisterBtn" id="userRegisterBtn" value="Add" class="btn solid btn-wrapper">
+                <div class="btn solid btn-wrapper" id="cancelbtn">
+                    <a href="./users.php">Cancel</a>
+                </div>
+            </div>
             </div>
             </form>
-            
-            
-            <!-- <button type="submit" class="registerbtn" name="registerbtn">Register</button> -->
-
-
-            
-
-            <p><i>Already have an account?</i> <a href="./login.php">Log in</a>.</p>
-
 
         </div>
 
