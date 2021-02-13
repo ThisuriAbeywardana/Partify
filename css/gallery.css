@@ -18,7 +18,7 @@ h1{
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 1px;
+  padding: 10px;
 }
 .grid-item {
   padding: 20px;
