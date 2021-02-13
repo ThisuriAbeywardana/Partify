@@ -14,6 +14,7 @@
         }
         body{
             background-color: #0e0e23;
+            font-family: Arial, Helvetica, sans-serif;
         }
         .main-wrap{
             display: grid;

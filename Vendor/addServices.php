@@ -4,25 +4,15 @@
         header("Location: ../login.php");
     }
 
-    include('../includes/header.php');
+    
     include('../includes/template.php');
 ?>
-<div class="mainWrap">
-    <?php 
-    include('../includes/navbar.php'); 
-    ?>
-    <!- continue from here
-    
-</div> 
 
-<html>
-    <head>
         <link rel="stylesheet" href="../css/bookEvent.css">
         <title>Add Services</title>
         <script src="../js/addservice.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div>This is the header</div>
+   
+       
         <div class="container">
             <form action="../Controls/vendorEdit.php" method="post" class="form">
             

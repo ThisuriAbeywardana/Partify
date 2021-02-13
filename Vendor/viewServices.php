@@ -1,19 +1,15 @@
 <?php
     session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Vendor'){
+    if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Vendor'){
         header("Location: ../login.php");
     }
-    include('../Includes/header.php');
-    
-    
-        require_once('../includes/db/dbConnection.php');
-        $db = DBConnection::getInstance();
-        $connection = $db->getConnection();
-    ?>
-    <div class="body">
-        <?php 
-        // include('../Includes/navbar.php'); 
-        ?>
+
+    require_once('../includes/db/dbConnection.php');
+    $db = DBConnection::getInstance();
+    $connection = $db->getConnection();
+    include('../includes/template.php');
+?>
+       
 <link rel="stylesheet" href="../css/view.css">
 <div class="title">
             <div class="title">VIEW services</div>
