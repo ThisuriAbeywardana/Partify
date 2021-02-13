@@ -8,5 +8,6 @@
         <li><a href="./Administrators.php">Administrators</a></li>
         <li><a href="./events.php">Events</a></li>
         <li><a href="./account.php">Account</a></li>
+        <li><a href="./messeges.php">Messeges</a></li>
     </ul>
 </div>    
