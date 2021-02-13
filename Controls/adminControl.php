@@ -33,7 +33,7 @@
 
         $hash_ac = password_hash($psw, PASSWORD_BCRYPT);
 
-        $sql = "INSERT INTO user
+        $sql = "INSERT INTO user 
         VALUES (NULL , '$adminusername' , '$hash_ac' , 'Admin')";
         mysqli_query($connection,$sql);
         $adminId=mysqli_insert_id($connection);
@@ -43,8 +43,9 @@
         // echo $res."abc";
         if($res===TRUE){
             $_SESSION['state']="Admin Registered Successfully";
+            header("location: ../Admin/Administrators.php");
         }else {
-            $_SESSION['state']="Admin not Registered";
+            echo 'Admin not Registered';
         }
     }
 ?>
