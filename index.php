@@ -2,7 +2,7 @@
 <head>
 
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <!-- <link rel="stylesheet" href="./css/header.css"> -->
     <link rel="stylesheet" href="./css/footer.css">
 
 
@@ -10,10 +10,11 @@
 <body>
 <a name="top"></a>
 <div class="navBackground">
-  <div class="Container">
-        <?php
+<?php
             include('./Includes/header.php');
         ?>
+  <div class="Container">
+        
         <div class="caption">
 
             <h1>Turning ideas into action.</h1>

@@ -1,9 +1,7 @@
 <?php 
     session_start();
 ?>
-<?php
-   include('./Includes/header.php');
- ?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -13,8 +11,10 @@
       
    </head>
    <body>
-
-      
+   <?php
+   include('./Includes/header.php');
+ ?>
+      <div class="wrap">
       <h1>PARTIFY GALLERY</h1>
 
    <div class="grid-container">
@@ -57,7 +57,7 @@
             </a></div>
    </div>
 
-      
+   </div>
    <?php
         include('./includes/footer.php');
     ?>
