@@ -6,10 +6,11 @@
 </head>
 <body>
         <div class="container">
-            <h1><div style="text-align: center;">REGISTER USER</div></h1>
+            <h1><div style="text-align: center;">ADD USER</div></h1>
             <hr>
-            <form method="POST" action="./Controls/registrationControl.php">
+            <form method="POST" action="../Controls/registrationControl.php">
             <div class = "user form" id ="user">
+            <input type="hidden" name="userType" value="User">
             <br><br>
             <label for="useremail"><b>Email Address</b></label><br>
             <input type="email" placeholder="Email Address" name="useremail" id="useremail" required><br><br>

@@ -1,7 +1,10 @@
 <?php
-    session_start();
+    if(!isset($_SESSION['loggedIn'])){
+        session_start();
 
-    include('./validate.php');
+    }
+
+    include('../Controls/validate.php');
     require_once('../includes/db/dbConnection.php');
     $db = DBConnection::getInstance();
     $connection = $db->getConnection();

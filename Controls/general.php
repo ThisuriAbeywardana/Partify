@@ -97,9 +97,9 @@
         return mysqli_query($connection,$sql);
     }
 
-    function viewAdmin(){
+    function viewAdmin($id){
         global $connection;
-        $sql = "SELECT d.userId,d.email,d.fName,d.lName,d.gender,d.dob,d.contactNo,d.address FROM admindetail d INNER JOIN user u ON u.userId=d.adminId WHERE u.userType='Admin'";
+        $sql = "SELECT d.* FROM admindetail d INNER JOIN user u ON u.userId=d.adminId WHERE u.userType='Admin' AND d.adminId=$id;";
         return mysqli_query($connection,$sql);
     }
 
