@@ -49,7 +49,7 @@
             <!-- <button type="submit" class="btn userRegisterBtn" name="userRegisterBtn" id="userRegisterBtn">Register</button>
             <button type="submit" class="cancelbtn" name="cancelbtn" id="cancelbtn">Cancel</button> -->
             <div class="button-wrap" >
-            <input type="submit" name="userRegisterBtn" id="userRegisterBtn" value="Add" class="btn solid btn-wrapper">
+            <input type="submit" name="userRegisterBtn2" id="userRegisterBtn2" value="Add" class="btn solid btn-wrapper">
                 <div class="btn solid btn-wrapper" id="cancelbtn">
                     <a href="./users.php">Cancel</a>
                 </div>

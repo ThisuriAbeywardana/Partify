@@ -37,7 +37,7 @@
                 <hr>
                 <!-- <button type="submit" class="btn vendorRegisterBtn" name="vendorRegisterBtn" id="vendorRegisterBtn">Register</button> -->
                 <div class="button-wrap" >
-                <input type="submit" name="vendorRegisterBtn" id="vendorRegisterBtn" value="Add" class="btn vendorRegisterBtn">
+                <input type="submit" name="vendorRegisterBtn2" id="vendorRegisterBtn2" value="Add" class="btn vendorRegisterBtn">
                 <div class="btn solid btn-wrapper" id="cancelbtn">
                     <a href="./vendors.php">Cancel</a>
                 </div>
