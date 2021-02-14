@@ -1,79 +1,174 @@
 <?php
     session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
+    if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true' && $_SESSION['userType']!='Admin'){
         header("Location: ../login.php");
-    }  
+    }
+
+    
+    include('../includes/template.php');
+    require_once('../includes/db/dbConnection.php');
+    $db = DBConnection::getInstance();
+    $connection = $db->getConnection();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendor Details</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../css/header2.css">
-    <link rel="stylesheet" type="text/css" href="../css/footer.css">
-</head>
-<body>
-<div class="container">
-    <?php 
-        include('./nav.php'); 
-    ?>  
-    <div class="right">
-        <?php
-        include('../Includes/header2.php');
-
-        ?>
-        <div class="midContent">
-        <?php
-        include('../Controls/general.php');
-        $vendors = viewVendor();    
-        // while($row=mysqli_fetch_assoc($vendors)){
-        //     // if()
-
-        // }
-        ?>
-        <div class="tabel">
-                    <?php
-                        echo "<table class='viewVendorTable'>
-                        <thead>
-                        <tr>
-                        <th class='col col2'>Catering</th>
-                        <th class='col col3'>Photography</th>
-                        <th class='col col3'>Videography</th>
-                        <th class='col col3'>Decoration</th>
-                        <th class='col col3'>Location</th></tr></thead><tbody>";
-
-                        while($row=mysqli_fetch_assoc($vendors)){
-                                // if()
-                                //$name = $row['name'];
-                                $catering = $row['catering'];
-                                $photography = $row['photography'];
-                                $videography = $row['videography'];
-                                $decoration = $row['decoration'];
-                                $location = $row['location'];
-                                echo '<br>';
-                            
-                                echo '<tr><td>'.$catering.'</td><td>'.$photography.'</td><td>'.$videography.'</td><td>'.$decoration.'</td><td>'.$location.'</td>'; 
-                                // .$name.'</td><td>'.$row['catering'].'</td><td>'.$row['photography'].'</td><td>'.$row['videograpghy'].'</td><td>'.$row['decoration'].'</td>'
-                                echo '<td></tr>';
-                            }
-                            echo '</tbody></table>';
-                    ?>
+<link rel="stylesheet" href="../css/view.css">
+<div class="title">
+            <div class="title">VIEW services</div>
         </div>
+        <div>
+            <?php
+            $user=$_POST['spId'];
+            //echo $user;
+                $query= 'SELECT * FROM service WHERE spId='.$user;
+                $query_run=mysqli_query($connection,$query);
+
+                while($rowMain = mysqli_fetch_assoc($query_run)){
+                    
+                    
+                    $count=0;
+                        
+                    if($rowMain['catering']=='Y'){
+                        echo "<table><tr><th>Catering</th></tr>";
+                        $count++;
+        
+                        $meal= 'SELECT breakfast,lunch,dinner FROM catering WHERE spId='.$user;
+                        $query_meal=mysqli_query($connection,$meal);
+                        if(mysqli_num_rows($query_meal) > 0) {
+                            while($row = mysqli_fetch_assoc($query_meal)){
+                                if($row['breakfast']=='Y'){
+                                    echo "<tr><td>Breakbast<td>";
+
+                                    echo '<td><form action="deleteMeals.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="catering">
+                                    <input type="hidden" name="delete_meal" value="breakfast">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
+                                }
+                                if($row['lunch']=='Y'){
+                                    echo "<tr><td>Lunch<td>";
+
+                                    echo '<td><form action="deleteMeals.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="catering">
+                                    <input type="hidden" name="delete_meal" value="lunch">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
+                                }
+                                if($row['dinner']=='Y'){
+                                    echo "<tr><td>Dinner<td>";
+
+                                    echo '<td><form action="deleteMeals.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="catering">
+                                    <input type="hidden" name="delete_meal" value="dinner">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
+                                }
+                            }
+                        }
+        
+                        echo "</table>";
+                    }
+        
+                    $photo='SELECT * FROM photography WHERE spId='.$user;
+                    $query_photo=mysqli_query($connection,$photo);
+                    if($rowMain['photography']=='Y'){
+                        echo "<table><tr><th>Photography</th></tr>";
+                        $count++;
+        
+                        if(mysqli_num_rows($query_photo) > 0) {
+                            while($row = mysqli_fetch_assoc($query_photo)){
+                                echo "<tr><td>".$row['albumType']."</td>";
+
+                                echo '<td><form action="deleteServices.php" method="post">
+                                    <input type="hidden" name="delete_tab" value="photography">
+                                    <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                    <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                    </form></td></tr>';
+                
+                            }
+                        }
+        
+                        echo "</table>";
+                    }
+        
+                    $video='SELECT * FROM videography WHERE spId='.$user;
+                    $query_video=mysqli_query($connection,$video);
+                    if($rowMain['videography']=='Y'){
+                        echo "<table><tr><th>Videography</th></tr>";
+                        $count++;
+        
+                        if(mysqli_num_rows($query_video) > 0) {
+                            while($row = mysqli_fetch_assoc($query_video)){
+                                echo "<tr><td>".$row['type']."</td>";
+
+                                echo '<td><form action="deleteServices.php" method="post">
+                                <input type="hidden" name="delete_tab" value="videography">
+                                <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                </form></td></tr>';
+                            }
+                        }
+                            
+                        echo "</table>";
+                    }
+        
+                    $decor='SELECT * FROM decoration WHERE spId='.$user;
+                    $query_decor=mysqli_query($connection,$decor);
+                    if($rowMain['decoration']=='Y'){
+                        echo "<table><tr><th>Decorations</th></tr>";
+                        $count++;
+        
+                        if(mysqli_num_rows($query_decor) > 0) {
+                            while($row = mysqli_fetch_assoc($query_decor)){
+                                echo "<tr><td>".$row['type']."</td>";
+
+                                echo '<td><form action="deleteServices.php" method="post">
+                                <input type="hidden" name="delete_tab" value="decoration">
+                                <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                </form></td></tr>';
+                            }
+                        }
+                            
+                        echo "</table>";
+                    }
+        
+                    $location='SELECT * FROM location WHERE spId='.$user;
+                    $query_location=mysqli_query($connection,$location);
+                    if($rowMain['location']=='Y'){
+                        echo "<table><tr><th>Location</th></tr>";
+                        $count++;
+        
+                        if(mysqli_num_rows($query_location) > 0) {
+                            while($row = mysqli_fetch_assoc($query_location)){
+                                echo "<tr><td>".$row['packtype']."</td>";
+                                echo "<td>".$row['address']."</td>";
+                                echo "<td>".$row['pId']."</td>";
+
+                                
+                                echo '<td><form action="deleteServices.php" method="post">
+                                <input type="hidden" name="delete_tab" value="location">
+                                <input type="hidden" name="delete_id" value="'.$row['pId'].'">
+                                <button type="submit" name="delete_btn" class="btn"> DELETE</button>
+                                </form></td></tr>';
+                            }
+                        }
+                            
+                        echo "</table>";
+                    }
+        
+                    if($count==0){
+                        echo "NO SERVICES ADDED.";
+                    }
+                }
+            ?>
+            <div class="form">
+                <form action="./editServices.php" method="post">
+                    <button class="submit" type="submit" name="editbtn" class="btn"> EDIT SERVICES</button>
+                </form>
+            </div>
+    
+            
+        
+        
+        
+        
     </div>
-
-    <!-- show all users -->
-
-
-    <!-- <style type="text/css">
-
-</style> -->
-
-
-
-
-</div>
-</body>
-</html>

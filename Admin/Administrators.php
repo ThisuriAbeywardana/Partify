@@ -2,38 +2,30 @@
     session_start();
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
         header("Location: ../login.php");
-    }  
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account</title>
+    }
+    require_once('../includes/db/dbConnection.php');
+    $db = DBConnection::getInstance();
+    $connection = $db->getConnection();
+    include('../includes/template.php');
+?>  
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../css/header2.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
-    <link rel="stylesheet" type="text/css" href="../css/footer.css">
-</head>
-<body>
-   
-<div class="container">
-    <?php 
-        include('./nav.php'); 
-    ?>
-    <div class="right">
-    <?php
-        include('../Includes/header2.php');
-    ?>
     <div class="midContent">
+    <div class="status">
+    <p>
+    <?php
+    if(isset( $_SESSION['deleteAdmin'])){
+        echo  $_SESSION['deleteAdmin'];
+    unset( $_SESSION['deleteAdmin']);
+    }
+    ?>
+    </p>
     <div class="tabel">
         <div class="btn-green">
             <a href="../Admin/registerAdmin.php">Add Administrator</a>
         </div>
         <?php
         include('../Controls/general.php');
-                            echo "<table class='bookingTable'>
+                            echo "<table class='bookingTable' border=2>
                             <thead>
                             <tr>
                             <th class='col col1'>Username</th>
@@ -53,12 +45,12 @@
                                 echo '<td>';
                                 
                                 echo '<form action="./viewAdmin.php" method="post">
-                                <input type="hidden" name="bId" value="'.$row['userId'].'">
-                                <button type="submit" name="viewAdmin" class="btnView btn">View</button>
+                                <input type="hidden" name="Id" value="'.$row['adminId'].'">
+                                <button type="submit" name="viewAdmin" id="viewAdmin" class="btnView btn">View</button>
                                 </form></td>';
-                                echo '<td><form action="../Controls/deleteAccount.php.php" method="POST">
-                                <input type="hidden" name="bId" value="'.$row['userId'].'">
-                                <button type="submit" name="deleteUser" id="deleteUser" class="btn btnDelete">Delete</button>
+                                echo '<td><form action="../Controls/deleteAccount.php" method="POST">
+                                <input type="hidden" name="id" value="'.$row['adminId'].'">
+                                <button type="submit" name="deleteAdmin" id="deleteAdmin" class="btn btnDelete">Delete</button>
                                 </form></td></tr>';
                             }
                             echo '</tbody></table>';

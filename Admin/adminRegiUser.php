@@ -6,10 +6,11 @@
 </head>
 <body>
         <div class="container">
-            <h1><div style="text-align: center;">REGISTER USER</div></h1>
+            <h1><div style="text-align: center;">ADD USER</div></h1>
             <hr>
-            <form method="POST" action="./Controls/registrationControl.php">
+            <form method="POST" action="../Controls/registrationControl.php">
             <div class = "user form" id ="user">
+            <input type="hidden" name="userType" value="User">
             <br><br>
             <label for="useremail"><b>Email Address</b></label><br>
             <input type="email" placeholder="Email Address" name="useremail" id="useremail" required><br><br>
@@ -45,18 +46,16 @@
             <input type="password" placeholder="Repeat Password" name="userpsw_repeat" id="userpsw_repeat" onkeyup='checkPassword();' required>
             <span id="passtext"></span>
             <hr>
-            <button type="submit" class="btn userRegisterBtn" name="userRegisterBtn" id="userRegisterBtn">Register</button>
+            <!-- <button type="submit" class="btn userRegisterBtn" name="userRegisterBtn" id="userRegisterBtn">Register</button>
+            <button type="submit" class="cancelbtn" name="cancelbtn" id="cancelbtn">Cancel</button> -->
+            <div class="button-wrap" >
+            <input type="submit" name="userRegisterBtn2" id="userRegisterBtn2" value="Add" class="btn solid btn-wrapper">
+                <div class="btn solid btn-wrapper" id="cancelbtn">
+                    <a href="./users.php">Cancel</a>
+                </div>
+            </div>
             </div>
             </form>
-            
-            
-            <!-- <button type="submit" class="registerbtn" name="registerbtn">Register</button> -->
-
-
-            
-
-            <p><i>Already have an account?</i> <a href="./login.php">Log in</a>.</p>
-
 
         </div>
 

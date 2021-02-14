@@ -6,10 +6,11 @@
 </head>
 <body>
         <div class="container">
-            <h1><div style="text-align: center;">REGISTER VENDOR</div></h1>
+            <h1><div style="text-align: center;">ADD VENDOR</div></h1>
             <hr>
-            <form method="POST" action="./Controls/registrationControl.php">
+            <form method="POST" action="../Controls/registrationControl.php">
             <div class = "vendor form" id="vendor">
+            <input type="hidden" name="userType" value="Vendor">
                 <br><br>
 
                 <label for="vendorusername"><b>Username</b></label>
@@ -34,15 +35,15 @@
                 <input type="password" placeholder="Repeat Password" name="vendorpsw_repeat" id="vendorpsw_repeat" onkeyup='checkPassword2();' required>
                 <span id="passtext2"></span>
                 <hr>
-                <button type="submit" class="btn vendorRegisterBtn" name="vendorRegisterBtn" id="vendorRegisterBtn">Register</button>
+                <!-- <button type="submit" class="btn vendorRegisterBtn" name="vendorRegisterBtn" id="vendorRegisterBtn">Register</button> -->
+                <div class="button-wrap" >
+                <input type="submit" name="vendorRegisterBtn2" id="vendorRegisterBtn2" value="Add" class="btn vendorRegisterBtn">
+                <div class="btn solid btn-wrapper" id="cancelbtn">
+                    <a href="./vendors.php">Cancel</a>
+                </div>
+            </div>
                 </div>
             </form>
-            <!-- <button type="submit" class="registerbtn" name="registerbtn">Register</button> -->
-
-
-            
-
-            <p><i>Already have an account?</i> <a href="./login.php">Log in</a>.</p>
 
 
         </div>
