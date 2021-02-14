@@ -1,43 +1,49 @@
-<div class="profile">
-    <?php 
-        require_once('../Controls/general.php'); 
-        $res = getUSerDetails($_SESSION['userId']);
+
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
+        header("Location: ../login.php");
+    } 
+    include('../Includes/template.php');
+    require_once('../Controls/general.php'); 
+        $id = $_POST['Id'];   
+        $res = viewAdmin($id);
         while($row=mysqli_fetch_assoc($res)){
             $userType = $_SESSION['userType'];
-            if($userType=='Vendor'){
-                $name = $row['name'];
-            }else{
+           
                 $name = $row['fName'].' '.$row['lName'];
-            }
-            
-            $address = $row['address'];
-            $email = $row['email'];
-            $contactNo = $row['contactNo'];
-            
-            $username = $row['username'];
-            // echo $email;
-        }
-
-    ?>
-    <h2>My Profile</h2>
+                $username=$row['username'];
+                $email=$row['email'];
+                $contactNo=$row['contactNo'];
+?>
+<link rel="stylesheet" type="text/css" href="../css/profile.css">
+<div class="profile">
+<h2><?php echo $name ?>'s Profile</h2>
     <div class="wrap">
-        <div class="lable">Name  </div> <span><?php echo $name ?></span>
-        <div class="lable">Userame  </div> <span><?php echo $username ?></span>
-        <div class="lable">Address  </div> <span><?php echo $address ?></span>
-        <div class="lable">Email Address  </div> <span><?php echo $email ?></span>
-        <div class="lable">Account Type  </div> <span><?php echo $userType ?></span>
-        <div class="lable">Contact Number  </div> <span><?php echo $contactNo ?></span>
+    <?php 
+        
+                echo "<div class='lable'>Name  </div> <span>".$name."</span>
+                <div class='lable'>Userame  </div> <span>".$username."</span>
+                <div class='lable'>Email Address  </div> <span>".$email."</span>
+                <div class='lable'>Account Type  </div> <span>".$userType."</span>
+                <div class='lable'>Contact Number  </div> <span>".$contactNo." </span>";
+        }
+    ?>     
     </div>
-    
-
     <div class="forms">
         <form action="../Controls/deleteAccount.php" method="POST">
             <button type="submit" id="delete" class="btn" name="btnDelete">Delete Account</button>
         </form>
-        <form action="../Controls/logoutControl.php" method="post">
-            <button type="submit" id="logout" class="btn">Logout</button>
+        <form action="./editAdmin.php" method="POST">
+            <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
+            <button type="submit" id="editAccountBtn" class="btn" name="btnDelete">Edit Account</button>
         </form>
+        
     </div>
     
 
 </div>
+</div>
+    
+</body>
+</html>

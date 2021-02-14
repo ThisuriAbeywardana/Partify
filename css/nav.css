@@ -5,7 +5,7 @@
     background-color: #252954;
     color: whitesmoke;
     position: static;
-    overflow: hidden;
+    overflow-y: auto;
     
 }
 .navBar h2{

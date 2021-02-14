@@ -48,4 +48,20 @@
             echo 'Admin not Registered';
         }
     }
+
+    if(isset($_POST['updateAdminButton'])){
+        $id = $_POST['id'];
+        $email = $_POST['email'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $contactno = $_POST['contactno'];
+        $sql = "UPDATE admindetail SET email='$email',fName='$fname',lName='$lname',contactNo='$contactno' WHERE adminId='$id'";
+        if(mysqli_query($connection,$sql)){
+            $_SESSION['updateAdmin'] = 'Admin Updated Succesfully';
+        }else{
+            $_SESSION['updateAdmin'] = 'Admin Update Failed';
+        }
+        header("location: ../Admin/Administrators.php");
+
+    }
 ?>

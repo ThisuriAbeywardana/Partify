@@ -6,6 +6,7 @@
     border-radius: 15px;
     height: 100%;
     
+    
 }
 .profile h2{
     padding-top: 15px;
@@ -64,4 +65,9 @@ span{
 .wrap{
     display: grid;
     grid-template-columns: 30% 70%;
+}
+#editAccountBtn{
+    float: left;
+    background-color: blue;
+    color: white;
 }

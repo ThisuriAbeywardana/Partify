@@ -1,4 +1,7 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']!='true'){
         header("Location: ../login.php");
     }
@@ -100,7 +103,7 @@
     function viewAdmin($Id){
         global $connection;
         // $sql = "SELECT d.* FROM admindetail d INNER JOIN user u ON u.userId=d.adminId WHERE u.userType='Admin' AND d.adminId=$id;";
-        $sql = "SELECT * FROM admindetail WHERE adminId=$Id";
+        $sql="SELECT * FROM user u INNER JOIN admindetail d ON u.userId=d.adminId WHERE u.userId='$Id'";
         return mysqli_query($connection,$sql);
     }
 
@@ -115,6 +118,11 @@
     function viewUser($uid){
         global $connection;
         $sql="SELECT * FROM userdetail WHERE userId=$uid";
+        return mysqli_query($connection,$sql);
+    }
+    function getAdminDetails($uid){
+        global $connection;
+        $sql="SELECT * FROM admindetail WHERE adminId=$uid";
         return mysqli_query($connection,$sql);
     }
 

@@ -20,10 +20,19 @@
     ?>
     </p>
     <div class="tabel">
+    <h2 style="text-align: center; font-size: 20px;">
+        <?php
+            if(isset($_SESSION['updateAdmin'])){
+                echo $_SESSION['updateAdmin'];
+                unset($_SESSION['updateAdmin']);
+            }
+        ?>
+    </h2>
         <div class="btn-green">
             <a href="../Admin/registerAdmin.php">Add Administrator</a>
         </div>
         <?php
+        
         include('../Controls/general.php');
                             echo "<table class='bookingTable' border=2>
                             <thead>
@@ -46,7 +55,7 @@
                                 
                                 echo '<form action="./viewAdmin.php" method="post">
                                 <input type="hidden" name="Id" value="'.$row['adminId'].'">
-                                <button type="submit" name="viewAdmin" id="viewAdmin" class="btnView btn">View</button>
+                                <button type="submit" name="viewAdmin" id="viewAdmin" class="btnView btn">View Admin</button>
                                 </form></td>';
                                 echo '<td><form action="../Controls/deleteAccount.php" method="POST">
                                 <input type="hidden" name="id" value="'.$row['adminId'].'">

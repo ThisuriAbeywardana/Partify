@@ -4,7 +4,10 @@
         header("Location: ../login.php");
     }
     include('../Includes/template.php');  
-    $accountId = $_POST['']
+    $accountId = $_POST['id'];
+    include('../Controls/general.php');
+    $adminDetails = getAdminDetails($accountId);
+    $res = mysqli_fetch_assoc($adminDetails);
 ?>
 
 
@@ -12,32 +15,26 @@
     <link rel="stylesheet" type="text/css" href="../css/adminRegister.css">
     <div>
     <link rel="stylesheet" type="text/css" href="../css/main.css"></div>
+    
     <form method="POST" action="../Controls/adminControl.php" class="form">
-    <h2 id="header">Register Administrator</h2>
+    <h2 id="header">Update Administrator Account</h2>
+    <input type="hidden" name="id" value="<?php echo $accountId ?>">
             <div class = "admin" id ="admin">
             <br><br>
             <label for="email"><b>Email Address</b></label><br>
-            <input type="email" placeholder="Email" name="email" id="email" required><br><br>
+            <input type="email" placeholder="Email" name="email" id="email" value="<?php echo $res['email'] ?>" required><br><br>
             
             <label for="fname"><b>First Name</b></label><br>
-            <input type="text" placeholder="First Name" name="fname" id="fname" required><br><br>
+            <input type="text" placeholder="First Name" name="fname" id="fname" value="<?php echo $res['fName'] ?>" required><br><br>
 
             <label for="lname"><b>Last Name</b></label><br>
-            <input type="text" placeholder="Last Name" name="lname" id="lname" required><br><br>
+            <input type="text" placeholder="Last Name" name="lname" id="lname" value="<?php echo $res['lName'] ?>" required><br><br>
 
             <label for="contactno"><b>Contact Number</b></label><br>
-            <input type="text" placeholder="Email" name="contactno" id="contactno" required><br><br>
+            <input type="text" placeholder="Email" name="contactno" id="contactno" value="<?php echo $res['contactNo'] ?>" required><br><br>
 
-            <label for="adminusername"><b>Username</b></label><br>
-            <input type="text" placeholder="Username" name="adminusername" id="adminusername" required><br><br>
 
-            <label for="psw"><b>Password</b></label><br>
-            <input type="password" placeholder="Password" name="psw" id="psw" onkeyup='checkPassword3();' required><br><br>
-
-            <label for="psw_repeat"><b>Repeat Password</b></label><br>
-            <input type="password" placeholder="Repeat Password" name="psw_repeat" id="psw_repeat" onkeyup='checkPassword3();' required><br><br>
-            <span id="passtext3"></span><br><br>
-            <button type="submit" class="adminregisterbtn" name="adminregisterbtn" id="adminregisterbtn">Register</button>
+            <button type="submit" class="adminregisterbtn" name="updateAdminButton" id="updateAdminButton">Update Administrator</button>
             <hr>
             </div>
     </form>
