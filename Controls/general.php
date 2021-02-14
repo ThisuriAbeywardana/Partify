@@ -97,9 +97,10 @@
         return mysqli_query($connection,$sql);
     }
 
-    function viewAdmin($id){
+    function viewAdmin($Id){
         global $connection;
-        $sql = "SELECT d.* FROM admindetail d INNER JOIN user u ON u.userId=d.adminId WHERE u.userType='Admin' AND d.adminId=$id;";
+        // $sql = "SELECT d.* FROM admindetail d INNER JOIN user u ON u.userId=d.adminId WHERE u.userType='Admin' AND d.adminId=$id;";
+        $sql = "SELECT * FROM admindetail WHERE adminId=$Id";
         return mysqli_query($connection,$sql);
     }
 
@@ -109,6 +110,12 @@
         $sql="SELECT startTime,endTime,meal,photography,videography,decoration,location,status FROM booking";
         $result = mysqli_query($connection,$sql);
         return $result;
+    }
+
+    function viewUser($uid){
+        global $connection;
+        $sql="SELECT * FROM userdetail WHERE userId=$uid";
+        return mysqli_query($connection,$sql);
     }
 
 
