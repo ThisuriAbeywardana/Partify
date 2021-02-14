@@ -3,8 +3,11 @@
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
         header("Location: ../login.php");
     }
-    include('../Includes/template.php');  
-?>
+    require_once('../includes/db/dbConnection.php');
+    $db = DBConnection::getInstance();
+    $connection = $db->getConnection();
+    include('../includes/template.php');
+?>  
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <div class="midContent">
     <div class="status">
@@ -42,8 +45,8 @@
                                 echo '<td>';
                                 
                                 echo '<form action="./viewAdmin.php" method="post">
-                                <input type="hidden" name="bId" value="'.$row['adminId'].'">
-                                <button type="submit" name="viewAdmin" class="btnView btn">View</button>
+                                <input type="hidden" name="Id" value="'.$row['adminId'].'">
+                                <button type="submit" name="viewAdmin" id="viewAdmin" class="btnView btn">View</button>
                                 </form></td>';
                                 echo '<td><form action="../Controls/deleteAccount.php" method="POST">
                                 <input type="hidden" name="id" value="'.$row['adminId'].'">

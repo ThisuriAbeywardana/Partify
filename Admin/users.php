@@ -66,8 +66,8 @@
                             echo '<td>';
 
                             echo '<form action="./viewUser.php" method="post">
-                                <input type="hidden" name="userId" value="'.$row['userId'].'">
-                                <button type="submit" name="viewUser" class="btnView btn">View</button>
+                                <input type="hidden" name="uid" value="'.$row['userId'].'">
+                                <button type="submit" name="viewUser" id="viewUser" class="btnView btn">View</button>
                                 </form></td>';
                                 echo '<td><form action="../Controls/deleteAccount.php" method="POST">
                                 <input type="hidden" name="userId" value="'.$row['userId'].'">
