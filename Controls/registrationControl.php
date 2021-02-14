@@ -19,7 +19,14 @@
         $userpsw_repeat=validate($_POST['userpsw_repeat']);
         
         $hash_u = password_hash($userpsw, PASSWORD_BCRYPT);
-
+        $checkUsernameSql = "SELECT * FROM user WHERE username='$username'";
+        $isUsernameTaken = mysqli_query($connection,$checkUsernameSql);
+       
+        // $state = mysqli_fetch_assoc($isUsernameTaken);
+        
+        if(mysqli_num_rows($isUsernameTaken)>0){
+            header("location: ../register.php");
+        }
         $sql = "INSERT INTO user
         VALUES (NULL , '$username' , '$hash_u' , 'User')";
         // echo $sql;
