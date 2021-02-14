@@ -2,9 +2,10 @@
     session_start();
     if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
         header("Location: ../login.php");
-    }  
+    }
+    include('../Includes/template.php');  
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,13 +21,14 @@
    
 <div class="container">
     <?php 
-        include('./nav.php'); 
+        //include('./nav.php'); 
     ?>
     <div class="right">
         <?php 
-            include('../Includes/header2.php');
+            //include('../Includes/header2.php');
 
-        ?>
+        ?> -->
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
         <div class="midContent adminViewEvents">
             <?php
             if(isset($_SESSION['state'])){
@@ -59,7 +61,7 @@
                                 
                                 echo '<form action="./viewEvent.php" method="post">
                                 <input type="hidden" name="bId" value="'.$row['bookingId'].'">
-                                <button type="submit" name="viewEvent" class="btnView btn">View</button>
+                                <button type="submit" name="viewEvent" class="btnView btn">Edit</button>
                                 </form></td>';
                                 echo '<td><form action="../Controls/adminControl.php" method="POST">
                                 <input type="hidden" name="bId" value="'.$row['bookingId'].'">

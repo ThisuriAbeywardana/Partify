@@ -20,7 +20,7 @@ body {
     min-height: 100vh;
     overflow: hidden;
     background-color: rgb(216, 169, 169);
-    opacity: 85%;
+    /* opacity: 85%; */
     color: rgb(17, 0, 0);
     padding: 25px;
 

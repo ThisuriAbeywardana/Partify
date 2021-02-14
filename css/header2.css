@@ -1,7 +1,7 @@
 
 .head{
     height: 7vh;
-    width: 100vw;
+    /* width: 100vw; */
     background-color: #252954;
     margin: 5px 15px;
     border-radius: 8px;
@@ -17,3 +17,4 @@
     height: 60px;
     border-radius: 50%;
 }
+

@@ -52,7 +52,7 @@
             <input type="text" name="packagePhoto" id="packagePhoto" placeholder="Package name">
             <input type="number" name="pricePhoto" id="pricePhoto" placeholder="price">
             <input type="text" name="descriptionPhoto" id="descriptionPhoto" placeholder="description">
-            <button onclick="addPhoto();" type="button">Add package</button></br>
+            <button onclick="addPhoto();" type="button" class="packagebtn">Add package</button></br>
 
             <table id="tablePhoto">
                 <tr>
@@ -77,7 +77,7 @@
             <input type="text" name="packageVideo" id="packageVideo" placeholder="Package name">
             <input type="number" name="priceVideo" id="priceVideo" placeholder="price">
             <input type="text" name="descriptionVideo" id="descriptionVideo" placeholder="description">
-            <button onclick="addVideo();" type="button">Add package</button></br>
+            <button onclick="addVideo();" type="button" class="packagebtn">Add package</button></br>
 
             <table id="tableVideo">
                 <tr>
@@ -100,7 +100,7 @@
             <input type="text" name="packageDecor" id="packageDecor" placeholder="Package name">
             <input type="number" name="priceDecor" id="priceDecor" placeholder="price">
             <input type="text" name="descriptionDecor" id="descriptionDecor" placeholder="description">
-            <button onclick="addDecor();" type="button">Add package</button></br>
+            <button onclick="addDecor();" type="button" class="packagebtn">Add package</button></br>
 
             <table id="tableDecor">
                 <tr>
@@ -128,7 +128,7 @@
                 <input type="text" name="packageLocation" id="packageLocation" placeholder="Package name">
                 <input type="number" name="priceLocation" id="priceLocation" placeholder="price">
                 <input type="text" name="descriptionLocation" id="descriptionLocation" placeholder="description">
-                <button onclick="addLocation();" type="button">Add package</button></br>
+                <button onclick="addLocation();" type="button" class="packagebtn">Add package</button></br>
 
                 <table id="tableLocation">
                     <tr>
@@ -143,7 +143,7 @@
 
             </div>
             <div class="btnSubmit services">
-                <button type="submit" name="btnAddService">Add Services</button>
+                <button type="submit" name="btnAddService" class="packagebtn submitbtn">Add Services</button>
             </div>
 
             
