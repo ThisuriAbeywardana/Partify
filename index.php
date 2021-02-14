@@ -18,7 +18,7 @@
         <div class="caption">
 
             <h1>Turning ideas into action.</h1>
-            <button type="button">Book Event</button>
+            <a href="./User/bookEvent.php"><button type="button">Book Event</button></a>
         </div>
     </div>
 </div>
