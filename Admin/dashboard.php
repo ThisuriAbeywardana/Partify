@@ -17,7 +17,7 @@
                 <h3>Vendors</h3> <p><?php echo getVendorCount(); ?></p>
             </div>
             <div class="card c3">
-                <h3>Accounts</h3><p><?php echo getUserCount(); ?></p> 
+                <h3>Customers</h3><p><?php echo getUserCount(); ?></p> 
             </div>
         </div>
         <div class="recent">

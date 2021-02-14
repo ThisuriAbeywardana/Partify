@@ -1,71 +1,43 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!='true' || $_SESSION['userType']!='Admin'){
-        header("Location: ../login.php");
-    }
-    require_once('../includes/db/dbConnection.php');
-    $db = DBConnection::getInstance();
-    $connection = $db->getConnection();
-    include('../includes/template.php');
-?>  
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <div class="title">
-            <div class="title">VIEW admin</div>
-        </div>
-    <div class="midContent">
-        <?php
-        include('../Controls/general.php');
-        $adminId=$_POST['Id'];
-        $admins = viewAdmin($adminId);
-        // echo $_POST['Id'];    
-        // while($row=mysqli_fetch_assoc($admins)){
-        //     // if()
+<div class="profile">
+    <?php 
+        require_once('../Controls/general.php'); 
+        $res = getUSerDetails($_SESSION['userId']);
+        while($row=mysqli_fetch_assoc($res)){
+            $userType = $_SESSION['userType'];
+            if($userType=='Vendor'){
+                $name = $row['name'];
+            }else{
+                $name = $row['fName'].' '.$row['lName'];
+            }
+            
+            $address = $row['address'];
+            $email = $row['email'];
+            $contactNo = $row['contactNo'];
+            
+            $username = $row['username'];
+            // echo $email;
+        }
 
-        // }
-        ?>
-        <div class="tabel">
-                    <?php
-                        echo "<table class='viewAdminTable' border=2>
-                        <thead>
-                        <tr>
-                        <th class='col col2'>Email</th>
-                        <th class='col col3'>Name</th>
-                        <th class='col col3'>Contact_No</th>
-                        </tr></thead><tbody>";
-
-                        while($row=mysqli_fetch_assoc($admins)){
-
-                                $email = $row['email'];
-                                $name = $row['fName'].' '.$row['lName'];
-                                $contactNo = $row['contactNo'];
-                                echo '<br>';
-                            
-                                echo '</td><td>'.$email.'</td><td>'.$name.'</td><td>'.$contactNo.'</td>'; 
-                                
-                                echo '<td>';
-                                }
-                            
-                            echo '</tbody></table>';
-                    ?>
-        </div>
+    ?>
+    <h2>My Profile</h2>
+    <div class="wrap">
+        <div class="lable">Name  </div> <span><?php echo $name ?></span>
+        <div class="lable">Userame  </div> <span><?php echo $username ?></span>
+        <div class="lable">Address  </div> <span><?php echo $address ?></span>
+        <div class="lable">Email Address  </div> <span><?php echo $email ?></span>
+        <div class="lable">Account Type  </div> <span><?php echo $userType ?></span>
+        <div class="lable">Contact Number  </div> <span><?php echo $contactNo ?></span>
     </div>
     
-?>
-</div>
-</div>
-            
-     }
-    ?>
-    <!-- show all users -->
 
-
-    <!-- <style type="text/css">
-
-</style> -->
-
-
-
+    <div class="forms">
+        <form action="../Controls/deleteAccount.php" method="POST">
+            <button type="submit" id="delete" class="btn" name="btnDelete">Delete Account</button>
+        </form>
+        <form action="../Controls/logoutControl.php" method="post">
+            <button type="submit" id="logout" class="btn">Logout</button>
+        </form>
+    </div>
+    
 
 </div>
-</body>
-</html>

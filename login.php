@@ -10,21 +10,20 @@
 <div class="bg-image"><?php include('./includes/header.php'); ?></div>
 <div class="container">
       <div class="forms-container">
-      
-            <?php
+        
+        <br>
+        <div class="signin">
+        <form action="./Controls/loginControl.php" method="post">
+        <br><br><br><br><h2 class="title">LOG IN</h2>
+        <?php
                 if(isset($_SESSION['status'])){
-                    echo "<div style='text-align: center; height: 45px; background-color: rgba(0, 0, 0, 0.5); color: red; padding-top: 10px; font-size:20px'>";
+                    echo "<div style='text-align: center; height: 45px; color: white; padding-top: 10px; font-size:30px;margin-top:60px;'>";
                     echo $_SESSION['status'];
                     echo '</div>';
                     session_unset();
                     session_destroy();
                 }
-            ?>
-        
-        <br>
-        <div class="signin">
-        <form action="./Controls/loginControl.php" method="post">
-        <br><br><br><br><h2 class="title">LOG IN</h2><br><br>
+            ?>   
             <div class="input-field">
             <img src="./Assets/icon1.png" width=73% height=73% >
             <input type="text" placeholder="Username" name="uname" required>

@@ -9,7 +9,7 @@
         $type = $_SESSION['userType'];
         switch ($type) {
             case 'Admin':
-                $sql="SELECT u.username,d.fName,d.lName,d.contactNo,d.address,d.email FROM user u INNER JOIN userdetail d ON u.userId=d.userId WHERE u.userId='$userId'";
+                $sql="SELECT * FROM user u INNER JOIN admindetail d ON u.userId=d.adminId WHERE u.userId='$userId'";
                 break;
             
             case 'User':

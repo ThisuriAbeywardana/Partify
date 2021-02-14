@@ -6,30 +6,13 @@
     include('../Includes/template.php');  
 ?>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Admin</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../css/header2.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
-    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+
+
     <link rel="stylesheet" type="text/css" href="../css/adminRegister.css">
-    <script src="../js/registerAdmin.js"></script>
-</head>
-<body>
-
-<div class="container">
-    <?php //include('./nav.php'); ?> -->
-
-
     <!-- add new administrator form should come here --><div>
     <link rel="stylesheet" type="text/css" href="../css/main.css"></div>
     <form method="POST" action="../Controls/adminControl.php" class="form">
-
+    <h2 id="header">Register Administrator</h2>
             <div class = "admin" id ="admin">
             <br><br>
             <label for="email"><b>Email Address</b></label><br>
