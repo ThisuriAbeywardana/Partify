@@ -26,8 +26,8 @@ h1{
   text-align: center;
 }
 .grid-item img{
-  width:525px;
-  height: 344px;
+  width: 400px;;
+  height: 225px;
   border: 1px solid red;
 }
 .wrap{
